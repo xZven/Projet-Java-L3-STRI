@@ -10,7 +10,9 @@ package fr.univtlse3;
  * @author Manavai
  */
 public class NewClass {
-    
+    /*
+     * 
+     */
     public static void main(String[] args) {
         NewMain.main(args);
     }
