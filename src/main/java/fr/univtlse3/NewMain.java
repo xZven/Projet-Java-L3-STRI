@@ -11,6 +11,8 @@ package fr.univtlse3;
 public class NewMain {
 
     /**
+     * Test.
+     * 
      * @param args the command line arguments
      */
     public static void main(String[] args) {
