@@ -11,7 +11,7 @@ package fr.univtlse3;
 public class NewMain {
 
     /**
-     * Test.
+     * Test.  
      * 
      * @param args the command line arguments
      */
