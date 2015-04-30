@@ -11,4 +11,8 @@ package fr.univtlse3;
  */
 public interface InterfaceReseau {
     
+    String adresseMAC = "";
+    String adresseIP = "";
+    String type="";
+    boolean etat=false;
 }

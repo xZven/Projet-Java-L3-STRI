@@ -9,6 +9,6 @@ package fr.univtlse3;
  *
  * @author Tempête
  */
-public class InterfaceSansFil implements Bluetooth, Wifi{
+public class InterfaceSansFil {
     
 }

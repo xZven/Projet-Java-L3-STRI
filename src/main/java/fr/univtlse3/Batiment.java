@@ -13,4 +13,8 @@ import java.util.ArrayList;
  */
 public class Batiment{
     ArrayList<Salle> salle;
+    String nom;
+    String localisationGeographique;
+    String CoordonneesGPS;
+    String description;
 }

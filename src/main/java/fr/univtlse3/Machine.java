@@ -17,4 +17,17 @@ public class Machine{
     ArrayList<InterfaceSerie> interfaceSerie;
     ArrayList<InterfaceSansFil> interfaceSansFil;
     ArrayList<UniteProcesseur> uniteProcesseur;
+    
+    String nom;
+    String marque;
+    String modele;
+    String OS;
+    String firmware;
+    
+    String type;
+    boolean etat;
+
+    public Machine() {
+  
+    }
 }
