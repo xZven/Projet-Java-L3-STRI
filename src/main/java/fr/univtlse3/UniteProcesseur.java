@@ -9,6 +9,6 @@ package fr.univtlse3;
  *
  * @author Tempête
  */
-public class UniteProcesseur implements Graphique, Centrale{
+public class UniteProcesseur {
     
 }

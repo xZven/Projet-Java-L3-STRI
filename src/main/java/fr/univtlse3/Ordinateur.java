@@ -9,6 +9,6 @@ package fr.univtlse3;
  *
  * @author Tempête
  */
-public class Ordinateur {
+public class Ordinateur extends Machine{
     
 }

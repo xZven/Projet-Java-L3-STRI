@@ -9,6 +9,6 @@ package fr.univtlse3;
  *
  * @author Tempête
  */
-public interface OrdinateurPortable {
+public class OrdinateurPortable extends EquipementMobile{
     
 }

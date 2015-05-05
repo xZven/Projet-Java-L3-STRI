@@ -14,8 +14,6 @@ import java.util.ArrayList;
 public class Machine{
     
     ArrayList<InterfaceReseau> interfaceReseau;
-    ArrayList<InterfaceSerie> interfaceSerie;
-    ArrayList<InterfaceSansFil> interfaceSansFil;
     ArrayList<UniteProcesseur> uniteProcesseur;
     
     String nom;
@@ -28,6 +26,7 @@ public class Machine{
     boolean etat;
 
     public Machine() {
-  
+      
+        
     }
 }

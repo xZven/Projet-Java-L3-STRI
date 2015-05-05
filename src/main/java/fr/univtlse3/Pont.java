@@ -9,6 +9,6 @@ package fr.univtlse3;
  *
  * @author Tempête
  */
-public interface Pont {
+public class Pont extends EquipementReseau{
     
 }

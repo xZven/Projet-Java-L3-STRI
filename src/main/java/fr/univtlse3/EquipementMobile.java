@@ -9,6 +9,7 @@ package fr.univtlse3;
  *
  * @author Tempête
  */
-public class EquipementMobile implements OrdinateurPortable, Tablettes{
-    
+public class EquipementMobile extends Machine{
+
+        
 }

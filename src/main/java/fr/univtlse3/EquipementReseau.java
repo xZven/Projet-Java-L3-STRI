@@ -9,6 +9,6 @@ package fr.univtlse3;
  *
  * @author Tempête
  */
-public class EquipementReseau implements Routeur, Pont, Commutateur{
+public class EquipementReseau extends Machine{
     
 }

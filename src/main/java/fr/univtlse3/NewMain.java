@@ -17,6 +17,9 @@ public class NewMain {
      */
     public static void main(String[] args) {
         System.out.println ("Il s'agit d'un test");
+        Machine m = new Machine();
+        EquipementReseau e = new EquipementReseau();
+        
         // TODO code application logic here
     }
 }
