@@ -9,7 +9,7 @@ package fr.univtlse3;
  *
  * @author Tempête
  */
-public interface InterfaceReseau {
+public class InterfaceReseau {
     
     String adresseMAC = "";
     String adresseIP = "";

@@ -18,7 +18,7 @@ public class ProjetJava extends javax.swing.JFrame {
         initComponents();
     }
 
-    /* Prière de ne pas modifier  */
+    /* Prière de ne pas modifier  cette partie : automatiquement générée par Java*/
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
