@@ -34,11 +34,11 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="titre" min="-2" pref="198" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="batiment" min="-2" pref="85" max="-2" attributes="0"/>
+                                      <Component id="boutonBatiment" min="-2" pref="85" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="ordinateur" min="-2" max="-2" attributes="0"/>
+                                      <Component id="boutonOrdinateur" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="salles" max="32767" attributes="0"/>
+                                      <Component id="boutonSalles" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -62,7 +62,7 @@
                               <Component id="selection" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="modifier" min="-2" pref="85" max="-2" attributes="0"/>
+                                  <Component id="boutonModifier" min="-2" pref="85" max="-2" attributes="0"/>
                                   <Component id="recherche" min="-2" pref="160" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -94,9 +94,9 @@
                       <Component id="ajouter" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="batiment" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="ordinateur" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="salles" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="boutonBatiment" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="boutonOrdinateur" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="boutonSalles" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="separateur2" min="-2" pref="10" max="-2" attributes="0"/>
@@ -106,7 +106,7 @@
                           <Component id="recherche" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                      <Component id="modifier" min="-2" max="-2" attributes="0"/>
+                      <Component id="boutonModifier" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="separateur3" min="-2" pref="11" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
@@ -141,17 +141,17 @@
         <Property name="text" type="java.lang.String" value="Service de gestion d&apos;appareils"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="batiment">
+    <Component class="javax.swing.JButton" name="boutonBatiment">
       <Properties>
         <Property name="text" type="java.lang.String" value="Batiment"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="salles">
+    <Component class="javax.swing.JButton" name="boutonSalles">
       <Properties>
         <Property name="text" type="java.lang.String" value="Salles"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="ordinateur">
+    <Component class="javax.swing.JButton" name="boutonOrdinateur">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ordinateur"/>
       </Properties>
@@ -166,7 +166,7 @@
         <Property name="text" type="java.lang.String" value="El&#xe9;ment s&#xe9;lectionn&#xe9; : "/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="modifier">
+    <Component class="javax.swing.JButton" name="boutonModifier">
       <Properties>
         <Property name="text" type="java.lang.String" value="Modifier "/>
         <Property name="enabled" type="boolean" value="false"/>
