@@ -11,11 +11,14 @@ package fr.univtlse3;
  */
 public class ProjetJava extends javax.swing.JFrame {
 
+    private Controleur c;
+    
     /**
      * Creates new form ProjetJava
      */
     public ProjetJava() {
         initComponents();
+        c = new Controleur(this);
     }
 
     /* Prière de ne pas modifier  cette partie : automatiquement générée par Java*/
@@ -178,6 +181,7 @@ public class ProjetJava extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new ProjetJava().setVisible(true);
             }
