@@ -27,12 +27,12 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="separateur2" alignment="0" max="32767" attributes="0"/>
-                          <Component id="separateur3" alignment="0" max="32767" attributes="0"/>
+                          <Component id="separateurCorps" alignment="0" max="32767" attributes="0"/>
+                          <Component id="separateurCorpsPied" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="titre" min="-2" pref="198" max="-2" attributes="0"/>
+                                  <Component id="labelTitre" min="-2" pref="198" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="boutonBatiment" min="-2" pref="85" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -47,34 +47,34 @@
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="ajouter" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelAjouter" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="129" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="separateur1" min="-2" pref="303" max="-2" attributes="0"/>
+                          <Component id="separateurTitreCorps" min="-2" pref="303" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="piedpage" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelPiedpage" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                              <Component id="selection" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelSelection" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="boutonModifier" min="-2" pref="85" max="-2" attributes="0"/>
-                                  <Component id="recherche" min="-2" pref="160" max="-2" attributes="0"/>
+                                  <Component id="TextFielRecherche" min="-2" pref="160" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <Component id="jScrollPane1" min="-2" pref="98" max="-2" attributes="0"/>
+              <Component id="ScrollTree" min="-2" pref="98" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="societeSTRI" min="-2" pref="70" max="-2" attributes="0"/>
+              <Component id="labelSocieteSTRI" min="-2" pref="70" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="164" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -83,15 +83,15 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-              <Component id="societeSTRI" min="-2" max="-2" attributes="0"/>
+              <Component id="labelSocieteSTRI" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="titre" min="-2" max="-2" attributes="0"/>
+              <Component id="labelTitre" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="separateur1" min="-2" pref="10" max="-2" attributes="0"/>
+                      <Component id="separateurTitreCorps" min="-2" pref="10" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-                      <Component id="ajouter" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelAjouter" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="boutonBatiment" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -99,20 +99,20 @@
                           <Component id="boutonSalles" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="separateur2" min="-2" pref="10" max="-2" attributes="0"/>
+                      <Component id="separateurCorps" min="-2" pref="10" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="selection" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="recherche" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelSelection" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="TextFielRecherche" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                       <Component id="boutonModifier" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="separateur3" min="-2" pref="11" max="-2" attributes="0"/>
+                      <Component id="separateurCorpsPied" min="-2" pref="11" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="piedpage" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelPiedpage" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jScrollPane1" min="-2" pref="294" max="-2" attributes="0"/>
+                  <Component id="ScrollTree" min="-2" pref="294" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -120,23 +120,23 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+    <Container class="javax.swing.JScrollPane" name="ScrollTree">
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
       </AuxValues>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTree" name="tree">
+        <Component class="javax.swing.JTree" name="TreeTable">
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JLabel" name="societeSTRI">
+    <Component class="javax.swing.JLabel" name="labelSocieteSTRI">
       <Properties>
         <Property name="text" type="java.lang.String" value="Soci&#xe9;t&#xe9; STRI"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="titre">
+    <Component class="javax.swing.JLabel" name="labelTitre">
       <Properties>
         <Property name="text" type="java.lang.String" value="Service de gestion d&apos;appareils"/>
       </Properties>
@@ -156,12 +156,12 @@
         <Property name="text" type="java.lang.String" value="Ordinateur"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="ajouter">
+    <Component class="javax.swing.JLabel" name="labelAjouter">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ajouter"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="selection">
+    <Component class="javax.swing.JLabel" name="labelSelection">
       <Properties>
         <Property name="text" type="java.lang.String" value="El&#xe9;ment s&#xe9;lectionn&#xe9; : "/>
       </Properties>
@@ -172,18 +172,18 @@
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JSeparator" name="separateur2">
+    <Component class="javax.swing.JSeparator" name="separateurCorps">
     </Component>
-    <Component class="javax.swing.JSeparator" name="separateur1">
+    <Component class="javax.swing.JSeparator" name="separateurTitreCorps">
     </Component>
-    <Component class="javax.swing.JSeparator" name="separateur3">
+    <Component class="javax.swing.JSeparator" name="separateurCorpsPied">
     </Component>
-    <Component class="javax.swing.JLabel" name="piedpage">
+    <Component class="javax.swing.JLabel" name="labelPiedpage">
       <Properties>
         <Property name="text" type="java.lang.String" value="Tekituaahaa Menat Roques Ribagnac 2015"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="recherche">
+    <Component class="javax.swing.JTextField" name="TextFielRecherche">
     </Component>
   </SubComponents>
 </Form>

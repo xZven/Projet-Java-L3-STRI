@@ -31,29 +31,29 @@ public class ProjetJava extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tree = new javax.swing.JTree();
-        societeSTRI = new javax.swing.JLabel();
-        titre = new javax.swing.JLabel();
+        ScrollTree = new javax.swing.JScrollPane();
+        TreeTable = new javax.swing.JTree();
+        labelSocieteSTRI = new javax.swing.JLabel();
+        labelTitre = new javax.swing.JLabel();
         boutonBatiment = new javax.swing.JButton();
         boutonSalles = new javax.swing.JButton();
         boutonOrdinateur = new javax.swing.JButton();
-        ajouter = new javax.swing.JLabel();
-        selection = new javax.swing.JLabel();
+        labelAjouter = new javax.swing.JLabel();
+        labelSelection = new javax.swing.JLabel();
         boutonModifier = new javax.swing.JButton();
-        separateur2 = new javax.swing.JSeparator();
-        separateur1 = new javax.swing.JSeparator();
-        separateur3 = new javax.swing.JSeparator();
-        piedpage = new javax.swing.JLabel();
-        recherche = new javax.swing.JTextField();
+        separateurCorps = new javax.swing.JSeparator();
+        separateurTitreCorps = new javax.swing.JSeparator();
+        separateurCorpsPied = new javax.swing.JSeparator();
+        labelPiedpage = new javax.swing.JLabel();
+        TextFielRecherche = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jScrollPane1.setViewportView(tree);
+        ScrollTree.setViewportView(TreeTable);
 
-        societeSTRI.setText("Société STRI");
+        labelSocieteSTRI.setText("Société STRI");
 
-        titre.setText("Service de gestion d'appareils");
+        labelTitre.setText("Service de gestion d'appareils");
 
         boutonBatiment.setText("Batiment");
 
@@ -61,14 +61,14 @@ public class ProjetJava extends javax.swing.JFrame {
 
         boutonOrdinateur.setText("Ordinateur");
 
-        ajouter.setText("Ajouter");
+        labelAjouter.setText("Ajouter");
 
-        selection.setText("Elément sélectionné : ");
+        labelSelection.setText("Elément sélectionné : ");
 
         boutonModifier.setText("Modifier ");
         boutonModifier.setEnabled(false);
 
-        piedpage.setText("Tekituaahaa Menat Roques Ribagnac 2015");
+        labelPiedpage.setText("Tekituaahaa Menat Roques Ribagnac 2015");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -78,12 +78,12 @@ public class ProjetJava extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(separateur2)
-                            .addComponent(separateur3)
+                            .addComponent(separateurCorps)
+                            .addComponent(separateurCorpsPied)
                             .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(titre, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(labelTitre, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(boutonBatiment, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
@@ -93,59 +93,59 @@ public class ProjetJava extends javax.swing.JFrame {
                         .addGap(2, 2, 2))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(ajouter)
+                        .addComponent(labelAjouter)
                         .addGap(129, 129, 129))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(separateur1, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(separateurTitreCorps, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(piedpage))
+                                .addComponent(labelPiedpage))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(40, 40, 40)
-                                .addComponent(selection)
+                                .addComponent(labelSelection)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(boutonModifier, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(recherche, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(TextFielRecherche, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(ScrollTree, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(societeSTRI, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(labelSocieteSTRI, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(164, 164, 164))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(32, 32, 32)
-                .addComponent(societeSTRI)
+                .addComponent(labelSocieteSTRI)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(titre)
+                .addComponent(labelTitre)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(separateur1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(separateurTitreCorps, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(7, 7, 7)
-                        .addComponent(ajouter)
+                        .addComponent(labelAjouter)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(boutonBatiment)
                             .addComponent(boutonOrdinateur)
                             .addComponent(boutonSalles))
                         .addGap(18, 18, 18)
-                        .addComponent(separateur2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(separateurCorps, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(28, 28, 28)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(selection)
-                            .addComponent(recherche, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(labelSelection)
+                            .addComponent(TextFielRecherche, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(boutonModifier)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(separateur3, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(separateurCorpsPied, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(piedpage))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(labelPiedpage))
+                    .addComponent(ScrollTree, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -189,20 +189,20 @@ public class ProjetJava extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel ajouter;
+    private javax.swing.JScrollPane ScrollTree;
+    private javax.swing.JTextField TextFielRecherche;
+    private javax.swing.JTree TreeTable;
     private javax.swing.JButton boutonBatiment;
     private javax.swing.JButton boutonModifier;
     private javax.swing.JButton boutonOrdinateur;
     private javax.swing.JButton boutonSalles;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel piedpage;
-    private javax.swing.JTextField recherche;
-    private javax.swing.JLabel selection;
-    private javax.swing.JSeparator separateur1;
-    private javax.swing.JSeparator separateur2;
-    private javax.swing.JSeparator separateur3;
-    private javax.swing.JLabel societeSTRI;
-    private javax.swing.JLabel titre;
-    private javax.swing.JTree tree;
+    private javax.swing.JLabel labelAjouter;
+    private javax.swing.JLabel labelPiedpage;
+    private javax.swing.JLabel labelSelection;
+    private javax.swing.JLabel labelSocieteSTRI;
+    private javax.swing.JLabel labelTitre;
+    private javax.swing.JSeparator separateurCorps;
+    private javax.swing.JSeparator separateurCorpsPied;
+    private javax.swing.JSeparator separateurTitreCorps;
     // End of variables declaration//GEN-END:variables
 }
