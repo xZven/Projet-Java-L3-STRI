@@ -28,6 +28,7 @@ public class Machine{
     public Machine() {
       
         
+        
     }
 
     public ArrayList<InterfaceReseau> getInterfaceReseau() {
