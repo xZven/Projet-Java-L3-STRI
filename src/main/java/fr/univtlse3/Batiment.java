@@ -9,8 +9,14 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Tempête
+ * @author E.MENAT - G.RIBAGNAC - N.ROQUES - M.TEIKITUHAAHAA
+ * 
+ * Cette class représente de manière générique tous les types d'équipements
+ * que l'on peut avoir à gérer dans un système d'informatique.
+ * 
+ * @version 1.0, 
  */
+
 public class Batiment{
     ArrayList<Salle> salle;
     String nom;
