@@ -9,18 +9,91 @@ import java.util.ArrayList;
 
 /**
  *
- * @author E.MENAT - G.RIBAGNAC - N.ROQUES - M.TEIKITUHAAHAA
- * 
- * Cette class représente de manière générique tous les types d'équipements
- * que l'on peut avoir à gérer dans un système d'informatique.
- * 
- * @version 1.0, 
+ * @author E.MENAT,
  */
-
 public class Batiment{
-    ArrayList<Salle> salle;
-    String nom;
-    String localisationGeographique;
-    String CoordonneesGPS;
-    String description;
+    private ArrayList<Salle> salle;
+    private String nom;
+    private String description;
+    private String localisation;
+
+    public Batiment(int id, String name, int num) {
+		this.nom = nom;
+		this.localisation = localisation;
+                this.description = description;
+		salle = new ArrayList<Salle>();
+	}
+
+    /**
+     * @return the salle
+     */
+    public ArrayList<Salle> getSalle() {
+        return salle;
+    }
+
+    /**
+     * @param salle the salle to set
+     */
+    public void setSalle(ArrayList<Salle> salle) {
+        this.salle = salle;
+    }
+
+    /**
+     * @return the nom
+     */
+    public String getNom() {
+        return nom;
+    }
+
+    /**
+     * @param nom the nom to set
+     */
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    /**
+     * @return the description
+     */
+    public String getDescription() {
+        return description;
+    }
+
+    /**
+     * @param description the description to set
+     */
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    /**
+     * @return the localisation
+     */
+    public String getLocalisation() {
+        return localisation;
+    }
+
+    /**
+     * @param localisation the localisation to set
+     */
+    public void setLocalisation(String localisation) {
+        this.localisation = localisation;
+    }
+    public void addSalle(Salle salle) {
+		salle.add(salle);
+	}
+
+	public void removeSalle(Salle salle) {
+		if (!salle.contains(salle)) {
+			System.out.println("Cette salle n'est pas dans ce batiment");
+		} else {
+			salle.remove(salle);
+		}
+	}
+
+       
+
+	public String toString() {
+		return ("Batiment " + nom + ", localisation=" + localisation + ", description=" + description);
+	}
 }
