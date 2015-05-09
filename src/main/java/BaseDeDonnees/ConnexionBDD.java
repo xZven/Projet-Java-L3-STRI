@@ -1,6 +1,6 @@
 
 
-package fr.univtlse3;
+package BaseDeDonnees;
 
 import java.sql.*;
 

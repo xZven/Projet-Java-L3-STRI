@@ -1,5 +1,5 @@
 
-package fr.univtlse3;
+package Metier;
 
 /**
  *

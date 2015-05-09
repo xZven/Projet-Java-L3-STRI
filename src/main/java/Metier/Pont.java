@@ -1,4 +1,5 @@
-package fr.univtlse3;
+
+package Metier;
 
 /**
  *
@@ -7,6 +8,6 @@ package fr.univtlse3;
  * 
  * @version 1.0, 2015, UPS.
  */
-public class OrdinateurPortable extends EquipementMobile{
+public class Pont extends EquipementReseau{
     
 }

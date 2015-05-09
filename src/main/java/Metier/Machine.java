@@ -3,7 +3,7 @@
  * Device Manager
  *
  */
-package fr.univtlse3;
+package Metier;
 
 import java.util.ArrayList;
 
