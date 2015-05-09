@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Commutateur" version="3">
+  <DEPS>
+    <ID name="Commutateur" mc="Class" uid="b188399b-7d7c-41ec-bc57-56a1a239798c"/>
+    <EXTID name="EquipementReseau" mc="Class" uid="2828ad60-0da8-486b-b059-c4994e4c09ae"/>
+  </DEPS>
+  <OBJECT>
+    <ID name="Commutateur" mc="Class" uid="b188399b-7d7c-41ec-bc57-56a1a239798c"/>
+    <PID name="tpjavaparcinformatique" mc="Package" uid="0b7818d3-383a-4ffe-a16c-761e1770bd10"/>
+    <ATTRIBUTES>
+      <ATT name="IsActive">false</ATT>
+      <ATT name="IsMain">false</ATT>
+      <ATT name="IsElementary">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[Commutateur]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="Parent">
+        <OBJECT>
+          <ID name="Generalization" mc="Generalization" uid="30e4d96e-ceb6-41bb-a9fb-0a24d7f87d02"/>
+          <PID name="Commutateur" mc="Class" uid="b188399b-7d7c-41ec-bc57-56a1a239798c"/>
+          <ATTRIBUTES>
+            <ATT name="Discriminator"></ATT>
+            <ATT name="Name"><![CDATA[Generalization]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="SuperType">
+              <ID name="EquipementReseau" mc="Class" uid="2828ad60-0da8-486b-b059-c4994e4c09ae"/>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

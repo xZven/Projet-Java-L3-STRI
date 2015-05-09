@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Pont" version="3">
+  <DEPS>
+    <ID name="Pont" mc="Class" uid="b2e6fc24-97ca-4706-a9bd-18aec1dbaf21"/>
+    <EXTID name="EquipementReseau" mc="Class" uid="2828ad60-0da8-486b-b059-c4994e4c09ae"/>
+  </DEPS>
+  <OBJECT>
+    <ID name="Pont" mc="Class" uid="b2e6fc24-97ca-4706-a9bd-18aec1dbaf21"/>
+    <PID name="tpjavaparcinformatique" mc="Package" uid="0b7818d3-383a-4ffe-a16c-761e1770bd10"/>
+    <ATTRIBUTES>
+      <ATT name="IsActive">false</ATT>
+      <ATT name="IsMain">false</ATT>
+      <ATT name="IsElementary">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[Pont]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="Parent">
+        <OBJECT>
+          <ID name="Generalization" mc="Generalization" uid="577d7f1d-2b05-45ce-9542-647f1e662c4a"/>
+          <PID name="Pont" mc="Class" uid="b2e6fc24-97ca-4706-a9bd-18aec1dbaf21"/>
+          <ATTRIBUTES>
+            <ATT name="Discriminator"></ATT>
+            <ATT name="Name"><![CDATA[Generalization]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="SuperType">
+              <ID name="EquipementReseau" mc="Class" uid="2828ad60-0da8-486b-b059-c4994e4c09ae"/>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="projet java stri" version="3">
+  <DEPS>
+    <ID name="projet java stri" mc="Package" uid="ae84653a-ebb0-4a24-9d59-8d31f5982a06"/>
+    <COMPID name="Batiment" mc="Class" uid="f6be02c4-e474-48a3-ba4b-034b29261026"/>
+    <COMPID name="Commutateur" mc="Class" uid="bf9597a4-47bb-4b64-a7aa-3134657673e8"/>
+    <COMPID name="ElementActif" mc="Class" uid="4f68cd9d-4273-44bc-b2a3-871cd7b1c521"/>
+    <COMPID name="Interface" mc="Class" uid="e752d5d8-bf49-448e-ad65-b8204f983f15"/>
+    <COMPID name="Machine" mc="Class" uid="36898f27-8f00-4bc3-aab4-17e780f062c6"/>
+    <COMPID name="Ordinateur" mc="Class" uid="bd8402f8-0ffa-4203-9a2f-5ddb52f9ab33"/>
+    <COMPID name="Pont" mc="Class" uid="6d7b09cd-d95f-43c1-9a31-6241bbc83df4"/>
+    <COMPID name="Routeur" mc="Class" uid="7f660a3b-8e3d-4a19-9c89-ce67323bb435"/>
+    <COMPID name="Salle" mc="Class" uid="d95fc63d-205e-481f-96ee-33fc702e627a"/>
+    <COMPID name="Sans_fil" mc="Class" uid="fe134988-411c-48ed-924d-351cbfe1b351"/>
+    <COMPID name="Wifi" mc="Class" uid="2164499f-1419-4627-a1a5-ea1099e32e05"/>
+    <COMPID name="class diagram" mc="ClassDiagram" uid="9e113855-b1ec-41f5-834a-38b58e279235"/>
+  </DEPS>
+  <OBJECT>
+    <ID name="projet java stri" mc="Package" uid="ae84653a-ebb0-4a24-9d59-8d31f5982a06"/>
+    <PID name="Projet java STRI" mc="Project" uid="550ecde3-daf5-4064-a385-17e7eb188406"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[projet java stri]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="Interface" mc="Class" uid="e752d5d8-bf49-448e-ad65-b8204f983f15"/>
+        <COMPID name="Machine" mc="Class" uid="36898f27-8f00-4bc3-aab4-17e780f062c6"/>
+        <COMPID name="Salle" mc="Class" uid="d95fc63d-205e-481f-96ee-33fc702e627a"/>
+        <COMPID name="Ordinateur" mc="Class" uid="bd8402f8-0ffa-4203-9a2f-5ddb52f9ab33"/>
+        <COMPID name="Batiment" mc="Class" uid="f6be02c4-e474-48a3-ba4b-034b29261026"/>
+        <COMPID name="Sans_fil" mc="Class" uid="fe134988-411c-48ed-924d-351cbfe1b351"/>
+        <COMPID name="Routeur" mc="Class" uid="7f660a3b-8e3d-4a19-9c89-ce67323bb435"/>
+        <COMPID name="Commutateur" mc="Class" uid="bf9597a4-47bb-4b64-a7aa-3134657673e8"/>
+        <COMPID name="Pont" mc="Class" uid="6d7b09cd-d95f-43c1-9a31-6241bbc83df4"/>
+        <COMPID name="Wifi" mc="Class" uid="2164499f-1419-4627-a1a5-ea1099e32e05"/>
+        <COMPID name="ElementActif" mc="Class" uid="4f68cd9d-4273-44bc-b2a3-871cd7b1c521"/>
+      </COMP>
+      <COMP relation="Product">
+        <COMPID name="class diagram" mc="ClassDiagram" uid="9e113855-b1ec-41f5-834a-38b58e279235"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

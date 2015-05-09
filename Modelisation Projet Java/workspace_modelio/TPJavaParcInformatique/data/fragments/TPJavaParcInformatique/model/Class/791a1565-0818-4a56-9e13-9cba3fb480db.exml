@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="InterfaceSansFil" version="3">
+  <DEPS>
+    <ID name="InterfaceSansFil" mc="Class" uid="791a1565-0818-4a56-9e13-9cba3fb480db"/>
+  </DEPS>
+  <OBJECT>
+    <ID name="InterfaceSansFil" mc="Class" uid="791a1565-0818-4a56-9e13-9cba3fb480db"/>
+    <PID name="tpjavaparcinformatique" mc="Package" uid="0b7818d3-383a-4ffe-a16c-761e1770bd10"/>
+    <ATTRIBUTES>
+      <ATT name="IsActive">false</ATT>
+      <ATT name="IsMain">false</ATT>
+      <ATT name="IsElementary">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[InterfaceSansFil]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES></DEPENDENCIES>
+  </OBJECT>
+</EXT>

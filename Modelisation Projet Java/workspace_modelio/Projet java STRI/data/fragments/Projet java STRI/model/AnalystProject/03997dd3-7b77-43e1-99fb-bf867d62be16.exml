@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Projet java STRI" version="3">
+  <DEPS>
+    <ID name="Projet java STRI" mc="AnalystProject" uid="03997dd3-7b77-43e1-99fb-bf867d62be16"/>
+    <COMPID name="Projet java STRI" mc="PropertyContainer" uid="d36b9b37-f18c-4e0d-af90-f87ab6011eea"/>
+  </DEPS>
+  <OBJECT>
+    <ID name="Projet java STRI" mc="AnalystProject" uid="03997dd3-7b77-43e1-99fb-bf867d62be16"/>
+    <ATTRIBUTES>
+      <ATT name="Name"><![CDATA[Projet java STRI]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="PropertyRoot">
+        <COMPID name="Projet java STRI" mc="PropertyContainer" uid="d36b9b37-f18c-4e0d-af90-f87ab6011eea"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

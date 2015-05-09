@@ -1,0 +1,115 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="OrdinateurFixe" version="3">
+  <DEPS>
+    <ID name="OrdinateurFixe" mc="Class" uid="9a4165c4-4a7a-4ebb-9cc2-1ebe29058f41"/>
+    <EXTID name="EquipementMobiles" mc="Class" uid="90b1e03e-4568-49b1-ac33-25543f2a9220"/>
+    <EXTID name="EquipementReseau" mc="Class" uid="2828ad60-0da8-486b-b059-c4994e4c09ae"/>
+    <EXTID name="Machine" mc="Class" uid="a691dd02-d2e0-44bd-853b-30fd95226f64"/>
+  </DEPS>
+  <OBJECT>
+    <ID name="OrdinateurFixe" mc="Class" uid="9a4165c4-4a7a-4ebb-9cc2-1ebe29058f41"/>
+    <PID name="tpjavaparcinformatique" mc="Package" uid="0b7818d3-383a-4ffe-a16c-761e1770bd10"/>
+    <ATTRIBUTES>
+      <ATT name="IsActive">false</ATT>
+      <ATT name="IsMain">false</ATT>
+      <ATT name="IsElementary">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[OrdinateurFixe]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedEnd">
+        <OBJECT>
+          <ID name="equipementMobile" mc="AssociationEnd" uid="c3569399-06e3-4ec0-a8da-d9cb2cacfbf2"/>
+          <PID name="OrdinateurFixe" mc="Class" uid="9a4165c4-4a7a-4ebb-9cc2-1ebe29058f41"/>
+          <ATTRIBUTES>
+            <ATT name="Aggregation">KindIsAssociation</ATT>
+            <ATT name="IsChangeable">true</ATT>
+            <ATT name="Changeable">ReadWrite</ATT>
+            <ATT name="IsDerived">false</ATT>
+            <ATT name="IsOrdered">false</ATT>
+            <ATT name="IsUnique">false</ATT>
+            <ATT name="MultiplicityMin"><![CDATA[0]]></ATT>
+            <ATT name="MultiplicityMax"><![CDATA[1]]></ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="IsClass">false</ATT>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="Name"><![CDATA[equipementMobile]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Target">
+              <ID name="EquipementMobiles" mc="Class" uid="90b1e03e-4568-49b1-ac33-25543f2a9220"/>
+            </LINK>
+            <COMP relation="Opposite">
+              <OBJECT>
+                <ID name="ordinateurFixe" mc="AssociationEnd" uid="3eb889b1-0d3b-415e-9c26-d1e5c99c368d"/>
+                <PID name="OrdinateurFixe" mc="Class" uid="9a4165c4-4a7a-4ebb-9cc2-1ebe29058f41"/>
+                <ATTRIBUTES>
+                  <ATT name="Aggregation">KindIsAssociation</ATT>
+                  <ATT name="IsChangeable">true</ATT>
+                  <ATT name="Changeable">ReadWrite</ATT>
+                  <ATT name="IsDerived">false</ATT>
+                  <ATT name="IsOrdered">false</ATT>
+                  <ATT name="IsUnique">false</ATT>
+                  <ATT name="MultiplicityMin"><![CDATA[0]]></ATT>
+                  <ATT name="MultiplicityMax"><![CDATA[1]]></ATT>
+                  <ATT name="Visibility">Public</ATT>
+                  <ATT name="IsClass">false</ATT>
+                  <ATT name="IsAbstract">false</ATT>
+                  <ATT name="Name"><![CDATA[ordinateurFixe]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="Target">
+                    <ID name="OrdinateurFixe" mc="Class" uid="9a4165c4-4a7a-4ebb-9cc2-1ebe29058f41"/>
+                  </LINK>
+                  <COMP relation="Opposite">
+                    <COMPID name="equipementMobile" mc="AssociationEnd" uid="c3569399-06e3-4ec0-a8da-d9cb2cacfbf2"/>
+                  </COMP>
+                  <COMP relation="Association">
+                    <OBJECT>
+                      <ID name="" mc="Association" uid="60f94dc8-96e9-4ff3-af81-9d566a07ab2b"/>
+                      <PID name="OrdinateurFixe" mc="Class" uid="9a4165c4-4a7a-4ebb-9cc2-1ebe29058f41"/>
+                      <ATTRIBUTES>
+                        <ATT name="Name"></ATT>
+                        <ATT name="status">1970354901745664</ATT>
+                      </ATTRIBUTES>
+                      <DEPENDENCIES></DEPENDENCIES>
+                    </OBJECT>
+                  </COMP>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+            <COMP relation="Association">
+              <COMPID name="" mc="Association" uid="60f94dc8-96e9-4ff3-af81-9d566a07ab2b"/>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+        <REFOBJ>
+          <ID name="equipementReseau" mc="AssociationEnd" uid="4cd12d2e-dbb3-40ca-bd3b-13d801c98848"/>
+          <PID name="EquipementReseau" mc="Class" uid="2828ad60-0da8-486b-b059-c4994e4c09ae"/>
+        </REFOBJ>
+      </COMP>
+      <COMP relation="Parent">
+        <OBJECT>
+          <ID name="Generalization" mc="Generalization" uid="671682ad-2257-4954-99f0-55d5f7164c3b"/>
+          <PID name="OrdinateurFixe" mc="Class" uid="9a4165c4-4a7a-4ebb-9cc2-1ebe29058f41"/>
+          <ATTRIBUTES>
+            <ATT name="Discriminator"></ATT>
+            <ATT name="Name"><![CDATA[Generalization]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="SuperType">
+              <ID name="Machine" mc="Class" uid="a691dd02-d2e0-44bd-853b-30fd95226f64"/>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

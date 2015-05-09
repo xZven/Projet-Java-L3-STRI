@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="TPJavaParcInformatique" version="3">
+  <DEPS>
+    <ID name="TPJavaParcInformatique" mc="Project" uid="7193e8f1-0826-4775-8a56-4ff28e4561af"/>
+    <COMPID name="TPJavaParcInformatique" mc="DiagramSet" uid="e680d460-3398-4db9-bd4f-82c40a713fd6"/>
+    <COMPID name="tpjavaparcinformatique" mc="Package" uid="0b7818d3-383a-4ffe-a16c-761e1770bd10"/>
+  </DEPS>
+  <OBJECT>
+    <ID name="TPJavaParcInformatique" mc="Project" uid="7193e8f1-0826-4775-8a56-4ff28e4561af"/>
+    <ATTRIBUTES>
+      <ATT name="ProjectContext"></ATT>
+      <ATT name="ProjectDescr"></ATT>
+      <ATT name="Name"><![CDATA[TPJavaParcInformatique]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="DiagramRoot">
+        <COMPID name="TPJavaParcInformatique" mc="DiagramSet" uid="e680d460-3398-4db9-bd4f-82c40a713fd6"/>
+      </COMP>
+      <COMP relation="Model">
+        <COMPID name="tpjavaparcinformatique" mc="Package" uid="0b7818d3-383a-4ffe-a16c-761e1770bd10"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

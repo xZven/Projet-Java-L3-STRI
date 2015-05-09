@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="EquipementMobile" version="3">
+  <DEPS>
+    <ID name="EquipementMobile" mc="Class" uid="90b1e03e-4568-49b1-ac33-25543f2a9220"/>
+    <EXTID name="EquipementReseau" mc="Class" uid="2828ad60-0da8-486b-b059-c4994e4c09ae"/>
+    <EXTID name="Machine" mc="Class" uid="a691dd02-d2e0-44bd-853b-30fd95226f64"/>
+    <EXTID name="OrdinateurFixe" mc="Class" uid="9a4165c4-4a7a-4ebb-9cc2-1ebe29058f41"/>
+  </DEPS>
+  <OBJECT>
+    <ID name="EquipementMobile" mc="Class" uid="90b1e03e-4568-49b1-ac33-25543f2a9220"/>
+    <PID name="tpjavaparcinformatique" mc="Package" uid="0b7818d3-383a-4ffe-a16c-761e1770bd10"/>
+    <ATTRIBUTES>
+      <ATT name="IsActive">false</ATT>
+      <ATT name="IsMain">false</ATT>
+      <ATT name="IsElementary">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[EquipementMobile]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedEnd">
+        <REFOBJ>
+          <ID name="ordinateurFixe" mc="AssociationEnd" uid="3eb889b1-0d3b-415e-9c26-d1e5c99c368d"/>
+          <PID name="OrdinateurFixe" mc="Class" uid="9a4165c4-4a7a-4ebb-9cc2-1ebe29058f41"/>
+        </REFOBJ>
+        <REFOBJ>
+          <ID name="equipementReseau" mc="AssociationEnd" uid="ac5a3db2-c6a4-44ca-9f9a-731c36f77c95"/>
+          <PID name="EquipementReseau" mc="Class" uid="2828ad60-0da8-486b-b059-c4994e4c09ae"/>
+        </REFOBJ>
+      </COMP>
+      <COMP relation="Parent">
+        <OBJECT>
+          <ID name="Generalization" mc="Generalization" uid="2a5bbc4e-9fdc-4111-a6f2-a1dd140d0334"/>
+          <PID name="EquipementMobile" mc="Class" uid="90b1e03e-4568-49b1-ac33-25543f2a9220"/>
+          <ATTRIBUTES>
+            <ATT name="Discriminator"></ATT>
+            <ATT name="Name"><![CDATA[Generalization]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="SuperType">
+              <ID name="Machine" mc="Class" uid="a691dd02-d2e0-44bd-853b-30fd95226f64"/>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

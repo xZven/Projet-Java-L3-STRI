@@ -1,0 +1,65 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="tpjavaparcinformatique" version="3">
+  <DEPS>
+    <ID name="tpjavaparcinformatique" mc="Package" uid="0b7818d3-383a-4ffe-a16c-761e1770bd10"/>
+    <COMPID name="Batiments" mc="Class" uid="f9d2b29b-a287-46a9-9349-07f9ed119aa1"/>
+    <COMPID name="Bluetooth" mc="Class" uid="ae033058-91a7-4fb0-b91c-31f3e92f345d"/>
+    <COMPID name="Commutateur" mc="Class" uid="b188399b-7d7c-41ec-bc57-56a1a239798c"/>
+    <COMPID name="ControleurCentral" mc="Class" uid="1f5cdf7c-f713-46ff-985f-a3e52df69e61"/>
+    <COMPID name="ControleurGraphique" mc="Class" uid="bdb4030a-4a82-4185-93de-b409c40d985f"/>
+    <COMPID name="Diagramme de Classes" mc="ClassDiagram" uid="8617b403-b0c7-4ff1-b1a8-934f96f30ee3"/>
+    <COMPID name="EquipementMobiles" mc="Class" uid="90b1e03e-4568-49b1-ac33-25543f2a9220"/>
+    <COMPID name="EquipementReseau" mc="Class" uid="2828ad60-0da8-486b-b059-c4994e4c09ae"/>
+    <COMPID name="InterfaceReseau" mc="Class" uid="c608ba2d-1241-4ff7-9ffe-45c4d9fb8ff4"/>
+    <COMPID name="InterfaceSansFil" mc="Class" uid="791a1565-0818-4a56-9e13-9cba3fb480db"/>
+    <COMPID name="InterfaceSerie" mc="Class" uid="16a45818-5869-4075-be17-6a3ca6a724a5"/>
+    <COMPID name="Machine" mc="Class" uid="a691dd02-d2e0-44bd-853b-30fd95226f64"/>
+    <COMPID name="OrdinateurFixe" mc="Class" uid="9a4165c4-4a7a-4ebb-9cc2-1ebe29058f41"/>
+    <COMPID name="OrdinateurPortable" mc="Class" uid="88fb03a2-fa71-462d-b9a3-264024d3c9a9"/>
+    <COMPID name="Pont" mc="Class" uid="b2e6fc24-97ca-4706-a9bd-18aec1dbaf21"/>
+    <COMPID name="Routeur" mc="Class" uid="45a219e2-8c9e-4f81-bc3a-eacfcf73f039"/>
+    <COMPID name="Salle" mc="Class" uid="998d3a0a-6ef9-4069-8f49-c4cdfe2e4c26"/>
+    <COMPID name="Tablettes" mc="Class" uid="9f0f7dd0-8d83-44ba-8ef6-46c82c5c93d6"/>
+    <COMPID name="UniteProcesseur" mc="Class" uid="7e622a4d-907b-4213-bfca-a58c4a1b1d3c"/>
+    <COMPID name="Wifi" mc="Class" uid="6fe2390c-b983-4cd7-8325-a4cab4848af4"/>
+  </DEPS>
+  <OBJECT>
+    <ID name="tpjavaparcinformatique" mc="Package" uid="0b7818d3-383a-4ffe-a16c-761e1770bd10"/>
+    <PID name="TPJavaParcInformatique" mc="Project" uid="7193e8f1-0826-4775-8a56-4ff28e4561af"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[tpjavaparcinformatique]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="Batiments" mc="Class" uid="f9d2b29b-a287-46a9-9349-07f9ed119aa1"/>
+        <COMPID name="Salle" mc="Class" uid="998d3a0a-6ef9-4069-8f49-c4cdfe2e4c26"/>
+        <COMPID name="Machine" mc="Class" uid="a691dd02-d2e0-44bd-853b-30fd95226f64"/>
+        <COMPID name="InterfaceReseau" mc="Class" uid="c608ba2d-1241-4ff7-9ffe-45c4d9fb8ff4"/>
+        <COMPID name="InterfaceSerie" mc="Class" uid="16a45818-5869-4075-be17-6a3ca6a724a5"/>
+        <COMPID name="InterfaceSansFil" mc="Class" uid="791a1565-0818-4a56-9e13-9cba3fb480db"/>
+        <COMPID name="UniteProcesseur" mc="Class" uid="7e622a4d-907b-4213-bfca-a58c4a1b1d3c"/>
+        <COMPID name="ControleurGraphique" mc="Class" uid="bdb4030a-4a82-4185-93de-b409c40d985f"/>
+        <COMPID name="ControleurCentral" mc="Class" uid="1f5cdf7c-f713-46ff-985f-a3e52df69e61"/>
+        <COMPID name="Bluetooth" mc="Class" uid="ae033058-91a7-4fb0-b91c-31f3e92f345d"/>
+        <COMPID name="Wifi" mc="Class" uid="6fe2390c-b983-4cd7-8325-a4cab4848af4"/>
+        <COMPID name="EquipementMobiles" mc="Class" uid="90b1e03e-4568-49b1-ac33-25543f2a9220"/>
+        <COMPID name="OrdinateurFixe" mc="Class" uid="9a4165c4-4a7a-4ebb-9cc2-1ebe29058f41"/>
+        <COMPID name="EquipementReseau" mc="Class" uid="2828ad60-0da8-486b-b059-c4994e4c09ae"/>
+        <COMPID name="OrdinateurPortable" mc="Class" uid="88fb03a2-fa71-462d-b9a3-264024d3c9a9"/>
+        <COMPID name="Tablettes" mc="Class" uid="9f0f7dd0-8d83-44ba-8ef6-46c82c5c93d6"/>
+        <COMPID name="Routeur" mc="Class" uid="45a219e2-8c9e-4f81-bc3a-eacfcf73f039"/>
+        <COMPID name="Pont" mc="Class" uid="b2e6fc24-97ca-4706-a9bd-18aec1dbaf21"/>
+        <COMPID name="Commutateur" mc="Class" uid="b188399b-7d7c-41ec-bc57-56a1a239798c"/>
+      </COMP>
+      <COMP relation="Product">
+        <COMPID name="Diagramme de Classes" mc="ClassDiagram" uid="8617b403-b0c7-4ff1-b1a8-934f96f30ee3"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

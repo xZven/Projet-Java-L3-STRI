@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Wifi" version="3">
+  <DEPS>
+    <ID name="Wifi" mc="Class" uid="6fe2390c-b983-4cd7-8325-a4cab4848af4"/>
+    <EXTID name="InterfaceSansFil" mc="Class" uid="791a1565-0818-4a56-9e13-9cba3fb480db"/>
+  </DEPS>
+  <OBJECT>
+    <ID name="Wifi" mc="Class" uid="6fe2390c-b983-4cd7-8325-a4cab4848af4"/>
+    <PID name="tpjavaparcinformatique" mc="Package" uid="0b7818d3-383a-4ffe-a16c-761e1770bd10"/>
+    <ATTRIBUTES>
+      <ATT name="IsActive">false</ATT>
+      <ATT name="IsMain">false</ATT>
+      <ATT name="IsElementary">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[Wifi]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="Parent">
+        <OBJECT>
+          <ID name="Generalization" mc="Generalization" uid="59abee3e-733d-4e32-9885-b5a0da12bfd1"/>
+          <PID name="Wifi" mc="Class" uid="6fe2390c-b983-4cd7-8325-a4cab4848af4"/>
+          <ATTRIBUTES>
+            <ATT name="Discriminator"></ATT>
+            <ATT name="Name"><![CDATA[Generalization]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="SuperType">
+              <ID name="InterfaceSansFil" mc="Class" uid="791a1565-0818-4a56-9e13-9cba3fb480db"/>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="TPJavaParcInformatique" version="3">
+  <DEPS>
+    <ID name="TPJavaParcInformatique" mc="AnalystProject" uid="9cbf7968-4c00-4336-8886-edc876840f16"/>
+    <COMPID name="TPJavaParcInformatique" mc="PropertyContainer" uid="752c7d51-22a7-429f-a6da-be4a7d19c5d8"/>
+  </DEPS>
+  <OBJECT>
+    <ID name="TPJavaParcInformatique" mc="AnalystProject" uid="9cbf7968-4c00-4336-8886-edc876840f16"/>
+    <ATTRIBUTES>
+      <ATT name="Name"><![CDATA[TPJavaParcInformatique]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="PropertyRoot">
+        <COMPID name="TPJavaParcInformatique" mc="PropertyContainer" uid="752c7d51-22a7-429f-a6da-be4a7d19c5d8"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

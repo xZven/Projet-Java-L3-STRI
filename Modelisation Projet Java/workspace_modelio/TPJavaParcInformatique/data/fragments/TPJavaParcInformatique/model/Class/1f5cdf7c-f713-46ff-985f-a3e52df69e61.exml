@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="ControleurCentral" version="3">
+  <DEPS>
+    <ID name="ControleurCentral" mc="Class" uid="1f5cdf7c-f713-46ff-985f-a3e52df69e61"/>
+    <EXTID name="UniteProcesseur" mc="Class" uid="7e622a4d-907b-4213-bfca-a58c4a1b1d3c"/>
+  </DEPS>
+  <OBJECT>
+    <ID name="ControleurCentral" mc="Class" uid="1f5cdf7c-f713-46ff-985f-a3e52df69e61"/>
+    <PID name="tpjavaparcinformatique" mc="Package" uid="0b7818d3-383a-4ffe-a16c-761e1770bd10"/>
+    <ATTRIBUTES>
+      <ATT name="IsActive">false</ATT>
+      <ATT name="IsMain">false</ATT>
+      <ATT name="IsElementary">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[ControleurCentral]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="Parent">
+        <OBJECT>
+          <ID name="Generalization" mc="Generalization" uid="d1532840-24e3-4102-b4b4-3d904a775147"/>
+          <PID name="ControleurCentral" mc="Class" uid="1f5cdf7c-f713-46ff-985f-a3e52df69e61"/>
+          <ATTRIBUTES>
+            <ATT name="Discriminator"></ATT>
+            <ATT name="Name"><![CDATA[Generalization]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="SuperType">
+              <ID name="UniteProcesseur" mc="Class" uid="7e622a4d-907b-4213-bfca-a58c4a1b1d3c"/>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>
