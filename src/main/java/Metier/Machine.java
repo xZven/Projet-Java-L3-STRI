@@ -93,7 +93,7 @@ public class Machine{
      * Ajouter une nouvel interface
      * 
      * @param interfaceReseau de type Interface
-     * @return Retourne un boolean: TRUE si l'ajout est réussi; FAlSE sinon.
+     * @return boolean: TRUE si l'ajout est réussi; FAlSE sinon.
      */
     public boolean addInterfaceReseau(Interface interfaceReseau){
      

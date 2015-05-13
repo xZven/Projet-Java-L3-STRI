@@ -1,8 +1,9 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Projet L3 STRI 
+ * Device Manager
+ *
  */
+
 package Metier;
 
 import java.util.ArrayList;
@@ -11,6 +12,8 @@ import java.util.ArrayList;
  *
  * @author E.MENAT - G.RIBAGNAC - N.ROQUES - M.TEIKITUHAAHAA
  * 
+ * Cette classe défini les batiments pouvant contenir des salles
+ * dans la gestion d'un système informatique.
  * 
  * @version 1.0, 2015, UPS.
  */
@@ -20,6 +23,13 @@ public class Batiment{
     private String description;
     private String localisation;
 
+    /**
+     * Permet de construire un batiment
+     * 
+     * @param name String: nom du batiment
+     * @param localisation String: localisation (ou adresse)
+     * @param description  String: description du batiment
+     */
     public Batiment(String name, String localisation, String description) {
 		this.nom = name;
 		this.localisation = localisation;
@@ -27,36 +37,79 @@ public class Batiment{
 		salles = new ArrayList<>();
 	}
 
+       /* gestion des salles */
+    
     /**
-     * @return the room
+     * @return ArrayList de salle.
      */
     public ArrayList<Salle> getSalles() {
         return salles;
     }
 
     /**
-     * @param salles the room to set
+     * @param salles ArrayList de salle pour un batiment
      */
     public void setSalles(ArrayList<Salle> salles) {
         this.salles = salles;
     }
 
     /**
-     * @return the name
+     * Ajouter une nouvelle salle au batiment
+     * 
+     * @param salle 
+     */
+    public void addSalle(Salle salle)
+    {
+        this.salles.add(salle);
+    }
+    
+    /**
+     * Supprimer une salle d'un Batiment.
+     * 
+     * @param salle de type Salle
+     * @return boolean: TRUE si réussi; FALSE sinon
+     */
+    public boolean removeSalle(Salle salle) 
+    {
+        if(this.salles.isEmpty() == true) {
+            // La n'a aucune salle.
+            
+            /* On peut le vérifier dans la base de donnée */
+            return true;
+        }
+        
+        /* Si la salles n'est pas présente dans l'ArrayList des salles */
+        if (!this.salles.contains(salle)) {
+                System.out.println("Cette salle n'est pas dans ce batiment");
+                return false;
+        } 
+        else {
+                this.salles.remove(salle);
+                return true;
+        }
+    }
+
+    /**
+     * Obtenir le nom du batiment
+     * 
+     * @return String: nom du batiment
      */
     public String getNom() {
         return nom;
     }
 
     /**
-     * @param nom the name to set
+     * Définir un nom à un batiment
+     * 
+     * @param nom nom à définir pour le batiment
      */
     public void setNom(String nom) {
         this.nom = nom;
     }
 
     /**
-     * @return the description
+     * Obtenir la desceription du batiment.
+     * @return String: Description du batiment
      */
     public String getDescription() {
         return description;
@@ -77,26 +130,21 @@ public class Batiment{
     }
 
     /**
-     * @param localisation the location to set
+     * Définir la localisation du batiment.
+     * 
+     * @param localisation String: localisation à définir
      */
     public void setLocalisation(String localisation) {
         this.localisation = localisation;
     }
-    public void addSalle(Salle salle) {
-		salles.add(salle);
-	}
 
-	public void removeSalle(Salle salle) {
-            /* Si la salles n'est pas présente dans l'ArrayList des salles */
-		if (!salles.contains(salle)) {
-			System.out.println("Cette salle n'est pas dans ce batiment");
-		} else {
-			salles.remove(salle);
-		}
-	}
-
+    /**
+     * Obtenir toutes les informations sur le batiment.
+     * 
+     * @return String: nom, localisation, description du batiment
+     */
     @Override
-	public String toString() {
+    public String toString() {
 		return ("Batiment " + nom + ", localisation=" + localisation + ", description=" + description);
 	}
 }
