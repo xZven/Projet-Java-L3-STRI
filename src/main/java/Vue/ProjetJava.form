@@ -25,86 +25,90 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="boutonBatiment" alignment="0" min="-2" pref="92" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
-                              <Component id="labelAjouter" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
+                                      <Component id="labelAjouter" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="boutonBatiment" min="-2" pref="92" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="boutonSalles" min="-2" pref="93" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
-                          <Component id="labelPiedpage" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="labelPiedpage" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
-                      <Component id="ScrollTree" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
+                      <Component id="ScrollTree" pref="394" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                                  <Component id="labelSelection" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="boutonModifier" min="-2" pref="85" max="-2" attributes="0"/>
-                                      <Component id="TextFielRecherche" min="-2" pref="160" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="boutonOrdinateur" alignment="1" min="-2" pref="93" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="labelSelection" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                                              <Component id="boutonModifier" min="-2" pref="85" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                                              <Component id="TextFielRecherche" min="-2" pref="203" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                   </Group>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="boutonSalles" min="-2" pref="93" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="boutonOrdinateur" min="-2" pref="93" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Component id="separateurCorps" alignment="0" min="-2" pref="322" max="-2" attributes="0"/>
                           <Component id="separateurCorpsPied" alignment="0" min="-2" pref="322" max="-2" attributes="0"/>
+                          <Component id="separateurTitreCorps" min="-2" pref="322" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="0" pref="277" max="32767" attributes="0"/>
-              <Component id="labelSocieteSTRI" min="-2" pref="88" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" pref="178" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="separateurTitreCorps" min="-2" pref="322" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="labelTitre" min="-2" pref="198" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
+              <Component id="labelSocieteSTRI" min="-2" pref="116" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="221" max="-2" attributes="0"/>
+              <Component id="labelTitre" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
+              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel1" min="-2" pref="46" max="-2" attributes="0"/>
-                  <Component id="labelSocieteSTRI" min="-2" pref="23" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="labelSocieteSTRI" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                      <Component id="labelTitre" alignment="3" min="-2" pref="14" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="labelTitre" min="-2" pref="14" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace pref="20" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="separateurTitreCorps" min="-2" pref="10" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                       <Component id="labelAjouter" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="boutonBatiment" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="boutonSalles" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="boutonSalles" alignment="0" max="32767" attributes="0"/>
                           <Component id="boutonOrdinateur" alignment="0" min="-2" pref="51" max="-2" attributes="0"/>
+                          <Component id="boutonBatiment" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="separateurCorps" min="-2" pref="10" max="-2" attributes="0"/>
@@ -141,35 +145,30 @@
     </Container>
     <Component class="javax.swing.JLabel" name="labelSocieteSTRI">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Soci&#xe9;t&#xe9; STRI"/>
+        <Property name="text" type="java.lang.String" value="Soci&#xe9;t&#xe9; STRI - 2015"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelTitre">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Service de gestion d&apos;appareils"/>
+        <Property name="text" type="java.lang.String" value="Device Manager"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="boutonBatiment">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Vue/batiment.png"/>
-        </Property>
+        <Property name="toolTipText" type="java.lang.String" value="Ajouter un batiment"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="boutonBatimentActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="boutonSalles">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Vue/salles.PNG"/>
-        </Property>
-        <Property name="enabled" type="boolean" value="false"/>
+        <Property name="toolTipText" type="java.lang.String" value="Ajouter une salle"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="boutonOrdinateur">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Vue/ordi.png"/>
-        </Property>
-        <Property name="enabled" type="boolean" value="false"/>
+        <Property name="toolTipText" type="java.lang.String" value="Ajouter une machine"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelAjouter">
@@ -196,16 +195,14 @@
     </Component>
     <Component class="javax.swing.JLabel" name="labelPiedpage">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Tekituhaahaa Menat Roques Ribagnac 2015"/>
+        <Property name="text" type="java.lang.String" value="TEIKITUHAAHAA - MENAT - ROQUES - RIBAGNAC"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="TextFielRecherche">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Vue/Capture.PNG"/>
-        </Property>
+        <Property name="text" type="java.lang.String" value="stri"/>
       </Properties>
     </Component>
   </SubComponents>
