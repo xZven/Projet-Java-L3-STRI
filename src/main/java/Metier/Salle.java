@@ -6,6 +6,9 @@
 package Metier;
 
 import java.util.ArrayList;
+import javafx.geometry.Orientation;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -14,25 +17,59 @@ import java.util.ArrayList;
  * 
  * @version 1.0, 2015, UPS.
  */
-public class Salle
+public class Salle extends JLabel
 {
    // Déclarations des attributs :
   
    private ArrayList<Machine> machines;
+   private ArrayList<EquipementReseau> eq_reseau;
+   private ArrayList<EquipementMobile> eq_mobile;
+   private ArrayList<Ordinateur>       ordinateur;
+   
+   
    private int numero;
    private int etage;
    private String nom;
    private Batiment batiment;
    
-   public Salle(Batiment batiment, String nom, int numero, int etage) {
-		this.batiment = batiment;
-		this.nom = nom;
-		this.numero = numero;
-		this.etage = etage;
-		machines = new ArrayList<>();
-	}
+   /**
+    * Constructeur utilisé lors de l'interrogation de la base de donnée
+    * 
+    * @param batiment
+    * @param nom
+    * @param numero
+    * @param etage 
+    */
+   public Salle(Batiment batiment, String nom, int numero, int etage) 
+   {
+       setIcon(new ImageIcon("src/main/java/checked.gif"));
+       
+        this.batiment = batiment;
+        this.nom      = nom;
+        this.numero   = numero;
+        this.etage    = etage;
+        machines      = new ArrayList<>();
+        eq_reseau     = new ArrayList<>();
+        eq_mobile     = new ArrayList<>();
+        ordinateur    = new ArrayList<>();
 
+    }
 
+   /**
+    * Constructeur de test pour JTree
+    * 
+    * @param nom 
+    */
+   public Salle(String nom)
+    {
+        setIcon(new ImageIcon("src/main/java/checked.gif"));
+        
+        this.nom      = nom;
+        machines      = new ArrayList<>();
+        eq_reseau     = new ArrayList<>();
+        eq_mobile     = new ArrayList<>();
+        ordinateur    = new ArrayList<>();
+    }
     /**
      * @return the machines
      */
@@ -118,8 +155,7 @@ public class Salle
    
    @Override
     public String toString() {
-		return ("Salle " + nom + ", étage: " + etage + ", numéro="
-				+ numero + ", batiment " + getBatiment().getNom());
+		return (nom);
 	}
 
     /*
