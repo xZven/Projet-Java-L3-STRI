@@ -7,6 +7,8 @@
 package Metier;
 
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 /**
  *
@@ -17,7 +19,8 @@ import java.util.ArrayList;
  * 
  * @version 1.0, 2015, UPS.
  */
-public class Batiment{
+public class Batiment extends JLabel{
+    
     private ArrayList<Salle> salles;
     private String nom;
     private String description;
@@ -35,7 +38,20 @@ public class Batiment{
 		this.localisation = localisation;
                 this.description = description;
 		salles = new ArrayList<>();
-	}
+                
+                setIcon(new ImageIcon("src/main/java/checked.gif"));
+    }
+    
+    /**
+     * Constructeur de test pour JTree
+     * @param name 
+     */
+    public Batiment(String name) {
+		this.nom = name;
+		salles = new ArrayList<>();
+                
+                setIcon(new ImageIcon("src/main/java/checked.gif"));
+    }
 
        /* gestion des salles */
     
@@ -139,12 +155,21 @@ public class Batiment{
     }
 
     /**
+     * Obtenir seulement le nom du batiment(utilisé avec le JTree).
+     * 
+     * @return String: nom du batiment
+     */
+    @Override
+    public String toString() {
+		return (nom);
+	}
+    
+    /**
      * Obtenir toutes les informations sur le batiment.
      * 
      * @return String: nom, localisation, description du batiment
      */
-    @Override
-    public String toString() {
-		return ("Batiment " + nom + ", localisation=" + localisation + ", description=" + description);
-	}
+    public String FulltoString() {
+        return ("Batiment" + nom + ", localisation=" + localisation + ", description=" + description);
+    }
 }
