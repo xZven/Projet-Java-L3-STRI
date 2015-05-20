@@ -84,7 +84,7 @@
               <EmptySpace min="-2" pref="221" max="-2" attributes="0"/>
               <Component id="labelTitre" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" pref="281" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -92,13 +92,13 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel1" min="-2" pref="46" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="labelSocieteSTRI" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                       <Component id="labelTitre" alignment="3" min="-2" pref="14" max="-2" attributes="0"/>
                   </Group>
+                  <Component id="jLabel1" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="20" max="32767" attributes="0"/>
+              <EmptySpace pref="17" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="separateurTitreCorps" min="-2" pref="10" max="-2" attributes="0"/>
@@ -155,6 +155,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="boutonBatiment">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Vue/batiment.png"/>
+        </Property>
         <Property name="toolTipText" type="java.lang.String" value="Ajouter un batiment"/>
       </Properties>
       <Events>
@@ -163,12 +166,20 @@
     </Component>
     <Component class="javax.swing.JButton" name="boutonSalles">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Vue/salles.png"/>
+        </Property>
         <Property name="toolTipText" type="java.lang.String" value="Ajouter une salle"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="boutonOrdinateur">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Vue/ordi.png"/>
+        </Property>
         <Property name="toolTipText" type="java.lang.String" value="Ajouter une machine"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelAjouter">
@@ -202,6 +213,9 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Vue/log_stri.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="stri"/>
       </Properties>
     </Component>

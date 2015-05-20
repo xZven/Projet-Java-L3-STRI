@@ -53,6 +53,7 @@ public class ProjetJava extends javax.swing.JFrame {
 
         labelTitre.setText("Device Manager");
 
+        boutonBatiment.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vue/batiment.png"))); // NOI18N
         boutonBatiment.setToolTipText("Ajouter un batiment");
         boutonBatiment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -60,9 +61,13 @@ public class ProjetJava extends javax.swing.JFrame {
             }
         });
 
+        boutonSalles.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vue/salles.png"))); // NOI18N
         boutonSalles.setToolTipText("Ajouter une salle");
+        boutonSalles.setEnabled(false);
 
+        boutonOrdinateur.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vue/ordi.png"))); // NOI18N
         boutonOrdinateur.setToolTipText("Ajouter une machine");
+        boutonOrdinateur.setEnabled(false);
 
         labelAjouter.setText("Ajouter");
 
@@ -73,6 +78,7 @@ public class ProjetJava extends javax.swing.JFrame {
 
         labelPiedpage.setText("TEIKITUHAAHAA - MENAT - ROQUES - RIBAGNAC");
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vue/log_stri.png"))); // NOI18N
         jLabel1.setText("stri");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -123,17 +129,17 @@ public class ProjetJava extends javax.swing.JFrame {
                 .addGap(221, 221, 221)
                 .addComponent(labelTitre)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(labelSocieteSTRI, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(labelTitre, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                        .addComponent(labelTitre, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(separateurTitreCorps, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
