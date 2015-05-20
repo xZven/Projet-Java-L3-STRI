@@ -17,6 +17,7 @@ import java.util.ArrayList;
 public class Salle
 {
    // Déclarations des attributs :
+  
    private ArrayList<Machine> machines;
    private int numero;
    private int etage;

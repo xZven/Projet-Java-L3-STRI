@@ -10,5 +10,10 @@ package Metier;
  */
 public class EquipementMobile extends Machine{
 
-        
+    public EquipementMobile(String nom, String marque, String modele, String OS, String firmware, String type, boolean etat)
+    {
+        super(nom, marque, modele, OS, firmware, type, etat);
+    }
 }
+
+

@@ -47,13 +47,16 @@ public class Machine{
      */
     
     
-    public void Machine(String nom, String marque, String modele, String OS, String type) {
+    public Machine(String nom, String marque, String modele, String OS, String firmware, String type, boolean etat) {
       
         this.nom    =   nom;
         this.marque =   marque;
         this.modele =   modele;
         this.OS     =   OS;
         this.type   =   type;
+        this.firmware = firmware;
+        this.etat = etat;
+        
         
         // On peut ensuite se connecter la BD et ajouter la nouvelle machine
         
