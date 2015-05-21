@@ -6,6 +6,7 @@
 
 package Metier;
 
+
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -39,7 +40,7 @@ public class Batiment extends JLabel{
                 this.description = description;
 		salles = new ArrayList<>();
                 
-                setIcon(new ImageIcon("src/main/java/checked.gif"));
+                setIcon(new ImageIcon("src/main/java/VueJtree/batiment.png"));
     }
     
     /**
@@ -50,7 +51,7 @@ public class Batiment extends JLabel{
 		this.nom = name;
 		salles = new ArrayList<>();
                 
-                setIcon(new ImageIcon("src/main/java/checked.gif"));
+                setIcon(new ImageIcon("src/main/java/VueJtree/batiment.png"));
     }
 
        /* gestion des salles */
@@ -161,7 +162,7 @@ public class Batiment extends JLabel{
      */
     @Override
     public String toString() {
-		return (nom);
+		return (nom + localisation);
 	}
     
     /**

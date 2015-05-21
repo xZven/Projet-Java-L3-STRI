@@ -42,7 +42,7 @@ public class Salle extends JLabel
     */
    public Salle(Batiment batiment, String nom, int numero, int etage) 
    {
-       setIcon(new ImageIcon("src/main/java/checked.gif"));
+       setIcon(new ImageIcon("src/main/java/VueJtree/salles.png"));
        
         this.batiment = batiment;
         this.nom      = nom;
@@ -62,7 +62,7 @@ public class Salle extends JLabel
     */
    public Salle(String nom)
     {
-        setIcon(new ImageIcon("src/main/java/checked.gif"));
+        setIcon(new ImageIcon("src/main/java/VueJtree/salles.png"));
         
         this.nom      = nom;
         machines      = new ArrayList<>();

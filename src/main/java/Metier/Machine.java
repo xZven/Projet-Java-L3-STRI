@@ -6,6 +6,8 @@
 package Metier;
 
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 /**
  *
@@ -16,7 +18,7 @@ import java.util.ArrayList;
  * 
  * @version 1.0, 
  */
-public class Machine{
+public class Machine extends JLabel{
     
   
     private ArrayList<Interface> interfaceReseau;
@@ -48,7 +50,9 @@ public class Machine{
     
     
     public Machine(String nom, String marque, String modele, String OS, String firmware, String type, boolean etat) {
-      
+        
+         setIcon(new ImageIcon("src/main/java/VueJtree/ordi.png"));
+        
         this.nom    =   nom;
         this.marque =   marque;
         this.modele =   modele;
@@ -60,6 +64,16 @@ public class Machine{
         
         // On peut ensuite se connecter la BD et ajouter la nouvelle machine
         
+    }
+    
+    /**
+     * Constructeur de test pour le JTree
+     * 
+     * @param nom 
+     */
+    public Machine(String nom){
+         setIcon(new ImageIcon("src/main/java/VueJtree/ordi.png"));
+        this.nom    =   nom;
     }
 
     /* Opération sur les interfaces */
