@@ -10,8 +10,10 @@ package Metier;
  *
  * @author E.MENAT - G.RIBAGNAC - N.ROQUES - M.TEIKITUHAAHAA
  * 
- * Cette class représente de manière générique tous les types d'équipements
- * que l'on peut avoir à gérer dans un système d'informatique.
+ * Cette class represente les interfaces constituant une machine.
+ * Ces interfaces peuvent être stocké dans des ArrayList si la
+ * machine a plusieurs interfaces, tel un équipement réseau
+ * ou bien un serveur.
  * 
  * @version 1.0, 
  */
@@ -23,6 +25,41 @@ public class Interface {
     private String adresseIP    = "0.0.0.0";
     private String type;
     private boolean etat        = false;
+
+    
+    
+    /**
+     * Constructeur d'une Interface Réseau
+     * 
+     * @param adresseMAC Adresse MAC de l'interface
+     * @param adresseIP  Adresse IP de l'interface 
+     * @param type      
+     * Type possible: <br>
+     * <ul>
+     * <li>Ethernet          </li>
+     * <li>Wifi              </li>
+     * <li>Série             </li>
+     * <li>Fibre_Opt         </li>
+     * <li>Tocken BUS | Ring </li>
+     * <li>...</li>
+     * </ul>
+     */
+    public Interface(String adresseMAC, String adresseIP, String type){
+        
+        this.adresseMAC = adresseMAC;
+        this.adresseIP = adresseIP;
+        this.type = type;
+        
+        etat = true;
+    }
+    
+    /**
+     *  Constructeur d'interface test
+     */
+    public void Interface(){
+        
+        etat= true;
+    }
 
     /**
      * Obtenir l'adresse MAC de l'Interface.

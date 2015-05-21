@@ -37,18 +37,20 @@ public class Machine extends JLabel{
     private String type;
     private boolean etat;
 
-     /**
-     * Constructeur générique.
-     * <p>
+    
+    
+    /**
+     * Constructeur générique.<p>
      * @param nom nom de la machine
      * @param marque marque de la machine
      * @param modele modele de la machine
      * @param OS Système d'exploitation de la machine
-     * @param type  Type de la machine: capteur, mobile non défini, etc.
-     * </p>
+     * @param firmware Firmware de la machine(BIOS par exemple)
+     * @param type Type de la machine: capteur, mobile non défini, etc.
+     * @param etat Etat de la machine (TRUE: UP | FALSE: DOWN)
+ </p>
+
      */
-    
-    
     public Machine(String nom, String marque, String modele, String OS, String firmware, String type, boolean etat) {
         
          setIcon(new ImageIcon("src/main/java/VueJtree/ordi.png"));
@@ -61,6 +63,8 @@ public class Machine extends JLabel{
         this.firmware = firmware;
         this.etat = etat;
         
+        interfaceReseau = new ArrayList<>();
+        
         
         // On peut ensuite se connecter la BD et ajouter la nouvelle machine
         
@@ -69,12 +73,18 @@ public class Machine extends JLabel{
     /**
      * Constructeur de test pour le JTree
      * 
-     * @param nom 
+     * @param nom - String: Nom de la machine pour le Jtree
      */
     public Machine(String nom){
+        
          setIcon(new ImageIcon("src/main/java/VueJtree/ordi.png"));
-        this.nom    =   nom;
+         this.nom    =   nom;
+         
+         
+         interfaceReseau = new ArrayList<>();
     }
+    
+    
 
     /* Opération sur les interfaces */
     
@@ -166,15 +176,28 @@ public class Machine extends JLabel{
     }
   
     
-/* 
-    public ArrayList<UniteProcesseur> getUniteProcesseur() {
-        return uniteProcesseur;
+    public String displayInterfaces()
+    {
+        int index = 0;
+        String string ="";
+        for(Interface i: interfaceReseau)
+        {
+            string = string 
+                    +"Interface "+ index 
+                    +"\n\t*****************************"
+                    +"\n\tTYPE: "+i.getType() 
+                    +"\n\t@MAC: "+i.getAdresseMAC()
+                    +"\n\t@IP: " +i.getAdresseIP()
+                    +"\n\t*****************************\n";
+            index++;
+        } 
+        
+        return string;
     }
-
-    public void setUniteProcesseur(ArrayList<UniteProcesseur> uniteProcesseur) {
-        this.uniteProcesseur = uniteProcesseur;
-    }
-*/
+    
+    
+    
+    
     
     /**
      * Obtenir le nom d'une machine.
@@ -206,7 +229,7 @@ public class Machine extends JLabel{
     /**
      * Définir la marque d'une machine
      * 
-     * @param marque
+     * @param marque String: nouvelle marque de la machine
      */
     public void setMarque(String marque) {
         this.marque = marque;
@@ -224,7 +247,11 @@ public class Machine extends JLabel{
     /**
      * Définir le modèle d'une machine
      * 
-     * @param modele
+     * N.B: Une machine ne peut changer de modèle,
+     * mais cette fonction a été rajouté pour pouvoir 
+     * modifier l'attribut en cas d'erreur...
+     * 
+     * @param modele - String: nouveau modele de la machine
      */
     public void setModele(String modele) {
         this.modele = modele;
@@ -242,14 +269,14 @@ public class Machine extends JLabel{
     /**
      * Définir le système d'exploitation d'une machine
      *
-     * @param OS
+     * @param OS - String: Nouveau Système d'exploitation de la machine.
      */
     public void setOS(String OS) {
         this.OS = OS;
     }
 
     /**
-     * Obtenier le Firmware d'une machine
+     * Obtenir le Firmware d'une machine
      * 
      * @return  Retourne une chaine de caractère contenant le Firmware de la machine.
      */
@@ -260,7 +287,9 @@ public class Machine extends JLabel{
     /**
      * Définir le Firmware d'une machine
      * 
-     * @param firmware
+     * Le Firmware d'une machine peut être mis à jour via cette fonction.
+     * 
+     * @param firmware - String: Nouveau Firmware de la machine.
      */
     public void setFirmware(String firmware) {
         this.firmware = firmware;
@@ -268,6 +297,15 @@ public class Machine extends JLabel{
     
     /**
      * Obtenir le type d'une machine.
+     * Type possible: <br>
+     * <ul>
+     * <li>Ordinateur                    </li>
+     * <li>Equipement réseau générique   </li>
+     * <li>Routeur                       </li>
+     * <li>Commutateur                   </li>
+     * <li>Automate                      </li>
+     * <li>...</li>
+     * </ul>
      * 
      * @return  Retourne une chaine de caractère contenant le nom de la machine.
      */ 
@@ -277,8 +315,16 @@ public class Machine extends JLabel{
 
     /**
      * Définir le type d'une machine.
-     *
-     * @param type
+     * Type possible: <br>
+     * <ul>
+     * <li>Ordinateur                    </li>
+     * <li>Equipement réseau générique   </li>
+     * <li>Routeur                       </li>
+     * <li>Commutateur                   </li>
+     * <li>Automate                      </li>
+     * <li>...</li>
+     * </ul>
+     * @param type - String: Type de la machine
      */
     public void setType(String type) {
         this.type = type;
@@ -300,5 +346,33 @@ public class Machine extends JLabel{
      */
     public void setEtat(boolean etat) {
         this.etat = etat;
+    }
+    
+    /**
+     * Obtenir le nom de la machine
+     * 
+     * @return String - Nom de la machine
+     */
+    @Override
+    public String toString(){
+        return (nom);
+    }
+    
+    public String FullScreen() {
+        
+        String state;
+        if(etat== true)
+            state = "UP";
+        else
+            state = "DOWN";
+        
+        return ("Nom: "                 + nom 
+                + "\nMarque: "          + marque 
+                 + "\nModele: "         + modele
+                  + "\nO.S: "           + OS
+                   + "\nFirmware: "     + firmware
+                    + "\nType: "        + type
+                     + "\nEtat: "       + state
+                      + "\nNombre d'interface: "+ interfaceReseau.size());   
     }
 }

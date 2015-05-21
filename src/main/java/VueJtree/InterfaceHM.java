@@ -16,6 +16,7 @@ import java.util.ArrayList;
 /* autres import */
 
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JTree;
 import javax.swing.event.TreeExpansionEvent;
 import javax.swing.event.TreeExpansionListener;
@@ -71,6 +72,8 @@ public class InterfaceHM extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -131,12 +134,18 @@ public class InterfaceHM extends javax.swing.JFrame {
         jLabel3.setText("Université Paul Sabatier - UPPSITECH - STRI - Copyright \u00a9 2015");
         jLabel3.setToolTipText("");
 
-        jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
         jTextArea1.setRows(5);
         jTextArea1.setText("******************************************************************\n*\t\tBienvenue sur Device Manager v1.0\t         *\n******************************************************************\n\nLa description des objets sélectionnés dans l'arborescence s'af\n- ficheront ici.");
         jScrollPane1.setViewportView(jTextArea1);
+
+        jTextArea2.setBackground(new java.awt.Color(51, 51, 51));
+        jTextArea2.setColumns(20);
+        jTextArea2.setForeground(new java.awt.Color(51, 204, 0));
+        jTextArea2.setRows(5);
+        jTextArea2.setText("Interfaces de l'équipement...");
+        jScrollPane2.setViewportView(jTextArea2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -145,24 +154,28 @@ public class InterfaceHM extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(111, 111, 111)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(86, 86, 86)
-                                .addComponent(jLabel2)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 10, Short.MAX_VALUE)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 542, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addContainerGap()
+                                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 542, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel1)
+                                        .addGap(86, 86, 86)
+                                        .addComponent(jLabel2))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(111, 111, 111)
+                                        .addComponent(jLabel3)))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(18, 18, 18))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(jScrollPaneTreeTest, javax.swing.GroupLayout.PREFERRED_SIZE, 524, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -172,13 +185,15 @@ public class InterfaceHM extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPaneTreeTest))
+                        .addComponent(jScrollPaneTreeTest, javax.swing.GroupLayout.DEFAULT_SIZE, 696, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane2)
                         .addGap(18, 18, 18)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -191,25 +206,95 @@ public class InterfaceHM extends javax.swing.JFrame {
 
     private void jButtonTreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTreeActionPerformed
         // TODO add your handling code here:
-        
+         ArrayList<Batiment> batiments = new ArrayList<>();
+         
        /* Connexion à la base de donnée si déconnecté */
-        if(jButtonTree.getText() == "Connecter")
+        if(jButtonTree.getText().equals("Connecter"))
         {
+            // on se connecte à la base et on récupère les batiments
+            
+            
+         
+            for(int i = 0; i < 3; ++i)
+            {
+                batiments.add(new Batiment("Batiment N° "+i));
+                for(int j = 0; j < 3; ++j)
+                {
+                    batiments.get(i).addSalle(new Salle("Salle "+j));
+                    
+ //**********************************************************************************************                        
+                    /* Machines */
+                    for(int k = 0; k < 3; ++k) // on créer 3 machines
+                    {
+                         batiments.get(i).getSalles().get(j).addMachine(new Machine("Machine "+k));
+                    }
+                   for(Machine m :  batiments.get(i).getSalles().get(j).getMachines()) // pour chaque machine on ajoute 3 interfaces réseaux
+                    {
+                        for(int l = 0; l<3; ++l)
+                        {
+                             m.addInterfaceReseau(new Interface(l+"F:FF:FF:FF:FF:FF", "0.0.0."+l, "Ethernet"));
+                        }
+
+                    }
+                   
+ //**********************************************************************************************                   
+                    /* Ordinateurs */
+                    for(int k = 0; k < 3; ++k)
+                    {
+                         batiments.get(i).getSalles().get(j).addMachine(new Machine("Ordinateur "+k));  
+                    }
+/*                    for(Machine m :  batiments.get(i).getSalles().get(j).getMachines()) // pour chaque ordinateur on ajoute 3 interfaces réseaux
+                   {
+                        for(int l = 0; l<3; ++l)
+                        {
+                             m.addInterfaceReseau(new Interface(l+"F:FF:FF:FF:FF:FF", "0.0.0."+l, "Ethernet"));
+                        }
+
+                    }
+*/                        
+ //**********************************************************************************************                       
+                    /* Equipement réseaux */
+                    for(int k = 0; k < 3; ++k)
+                    {
+                        batiments.get(i).getSalles().get(j).addMachine(new Machine("Eq_Réseaux "+k));  
+                    }
+/*                   for(Machine m :  batiments.get(i).getSalles().get(j).getMachines()) // pour chaque Equipement réseaux on ajoute 3 interfaces réseaux
+                    {
+                        for(int l = 0; l<3; ++l)
+                        {
+                             m.addInterfaceReseau(new Interface(l+"F:FF:FF:FF:FF:FF", "0.0.0."+l, "Ethernet"));
+                        }
+
+                    }
+*/                    
+ //**********************************************************************************************                         
+                     /* Equipement Mobile */
+                    for(int k = 0; k < 3; ++k)
+                    {
+                         batiments.get(i).getSalles().get(j).addMachine(new Machine("Equipement Mobile "+k));  
+                    }
+/*                    for(Machine m :  batiments.get(i).getSalles().get(j).getMachines()) // pour chaque Equipement mobile on ajoute 3 interfaces réseaux
+                    {
+                        for(int l = 0; l<3; ++l)
+                        {
+                             m.addInterfaceReseau(new Interface(l+"F:FF:FF:FF:FF:FF", "0.0.0."+l, "Ethernet"));
+                        }
+
+                    }
+*/                    
+ //**********************************************************************************************                   
+                }   
+            }
+            
             jButtonTree.setText("Deconnecter");
-            jButtonTree.setBackground(Color.green);
-            
-            
-            
+            jButtonTree.setBackground(Color.green);  
         }
         else
         {
             jButtonTree.setText("Connecter");
             jButtonTree.setBackground(Color.red);
         }
-        
-       
-         	
-        /* Ajout de noeuds fils et des feuilles dans les noeuds fils : */
+
         /* 
             Le nom de la racine correspond au nom de la base de donnéee.
             On récupère donc le nom de la base de donnée.
@@ -225,33 +310,15 @@ public class InterfaceHM extends javax.swing.JFrame {
    
         DefaultMutableTreeNode Jtree_batiment;
         DefaultMutableTreeNode Jtree_Salle;
-        DefaultMutableTreeNode v;
+        DefaultMutableTreeNode jTree_generique_machine;
         
         /***************************************************/
-        
-        // rqt sql pour récupérer les batiments et tous les informations
         
         
         
         /* création de batiment pour test */
         
-         ArrayList<Batiment> batiments = new ArrayList<>();
-         
-        for(int i = 0; i < 3; ++i)
-        {
-            batiments.add(new Batiment("Batiment N° "+i));
-            batiments.get(i).addSalle(new Salle("Test "));  
-        }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
         
         
         /***************************************************/
@@ -264,31 +331,43 @@ public class InterfaceHM extends javax.swing.JFrame {
             {
                 Jtree_Salle = new DefaultMutableTreeNode();
                 Jtree_Salle.setUserObject(s);
+                
+                jTree_generique_machine = new DefaultMutableTreeNode("*** MACHINE***");
+                Jtree_Salle.add(jTree_generique_machine);
              
                 // traitement Jtree des machines d'une salles
                 if(s.getMachines().isEmpty() == false) // salles avec des machines
                 {
                     for(Machine m: s.getMachines())
-                    {
-                        FeuilleJTree f = new FeuilleJTree("Test"); // ici les machiens de la salles
-                        v = new DefaultMutableTreeNode(f, false);
-                        v.setUserObject(f);
+                    {                        
+                        jTree_generique_machine = new DefaultMutableTreeNode(m, false);
+                        jTree_generique_machine.setUserObject(m);
 
-                        Jtree_Salle.add(v); Jtree_batiment.add(Jtree_Salle); // ajout des dev à la salle; ajout des salles aux 
+                        Jtree_Salle.add(jTree_generique_machine); Jtree_batiment.add(Jtree_Salle); // ajout des dev à la salle; ajout des salles aux 
                     }
                 }
                 else                                    // salles sans machines
                 {
-                    FeuilleJTree f = new FeuilleJTree("Test"); // ici les machiens de la salles
-                    v = new DefaultMutableTreeNode(f, false);
-                    v.setUserObject(f);
+                    Machine f = new Machine("Empty"); // ici les machiens de la salles
+                    
+                    jTree_generique_machine = new DefaultMutableTreeNode(f, false);
+                    jTree_generique_machine.setUserObject(f);
+                    
+                    Jtree_Salle.add(jTree_generique_machine); Jtree_batiment.add(Jtree_Salle); // ajout des dev à la salle; ajout des salles aux 
                 }
                 
-                // traitement des Equipements Ordinateurs
+                
+                // traitement des Ordinateurs
+                jTree_generique_machine = new DefaultMutableTreeNode("*** ORDINATEURS ***");
+                Jtree_Salle.add(jTree_generique_machine); 
                 
                 // traitement des Equipements réseaux d'une salle
+                jTree_generique_machine = new DefaultMutableTreeNode("*** EQUIPEMENTS RESEAUX ***");
+                Jtree_Salle.add(jTree_generique_machine);
                 
                 // traitement des Equipements sans fils
+                jTree_generique_machine = new DefaultMutableTreeNode("*** EQUIPEMENTS MOBILES ***");
+                Jtree_Salle.add(jTree_generique_machine);
                 
                
                 
@@ -297,11 +376,7 @@ public class InterfaceHM extends javax.swing.JFrame {
             
             racine3.add(Jtree_batiment); // ajout des batiment à la racine
         }
-        
-        
-        
-        
-        
+
         
         TreeModel modele = monArbre3.getModel();
         
@@ -313,44 +388,6 @@ public class InterfaceHM extends javax.swing.JFrame {
         TreeModel m = jTreeTest.getModel();
         Object o = m.getRoot();
         DefaultMutableTreeNode oo;
-        
-        // Essai de reperer un élément parmi la liste des noeuds suivant le noeud root : 
-        int numberOfNodes = m.getChildCount(o);
-        String nomNoeud;
-        for(int i = 0; i<numberOfNodes; i++)
-        {
-            oo = (DefaultMutableTreeNode)m.getChild(o, i);
-            nomNoeud = oo.toString();
-            if(nomNoeud.equals("fils N° 2"))
-            {
-                System.out.println(nomNoeud);
-                System.out.println("OK");
-                // Récuprétion de l'index correspond à la recherche utilisateur : Ajout d'un noeud feuille.
-                oo.add(new DefaultMutableTreeNode("OK"));
-                // + Ajout d'un noeud (différent d'une feuille => noeud sans fils 
-                DefaultMutableTreeNode add = new DefaultMutableTreeNode("Noeud_Fils_OK");
-                add.add(new DefaultMutableTreeNode("OK", false));
-                oo.add(add);
-            }
-        }
-        
- /*       oo = (DefaultMutableTreeNode)m.getChild(o, 1);
-        oo.add(new DefaultMutableTreeNode("Test01111", false));
-        
-        TreeNode t = racine3.getChildAt(1);
-        System.out.println(t.toString());
-        
-        racine3.add(new DefaultMutableTreeNode("Test"));
-        
-        // Ajout de fils à un noeud initialement feuille : 
-        DefaultMutableTreeNode last = (DefaultMutableTreeNode)m.getRoot();
-        last = (DefaultMutableTreeNode)last.getLastChild();
-        last.add(new DefaultMutableTreeNode("Tree", false));
-        
-        // Ajout d'un noeud sans fils au préalable mais considéré comme noeud pouvant posséder des enfants : 
-        racine3.add(new DefaultMutableTreeNode("NWithinChild", true)); */
-        
-        
         
         // On active les modifications sur le Jtree + Sélection unique d'un noeud, pas de multi-selection : 
         jTreeTest.setEditable(true);
@@ -367,27 +404,23 @@ public class InterfaceHM extends javax.swing.JFrame {
            
             @Override
             public void treeNodesChanged(TreeModelEvent e) {
-                System.out.println("Valeur modifiée !");
-                System.out.println(e.getChildren()[0].toString());
-                // arbreModele.reload();
+                System.out.println("Valeur modifiée :");    System.out.println(e.getChildren()[0].toString());     
             }
 
             @Override
             public void treeNodesInserted(TreeModelEvent e) {
-                
+                System.out.print("Noeud ajouté: ");         System.out.println(e.getTreePath().toString());
             }
 
             @Override
             public void treeNodesRemoved(TreeModelEvent e) {
-                System.out.println("Noeud supprimé !");
-                System.out.println(e.getTreePath().toString());
+                System.out.print("Noeud supprimé: ");       System.out.println(e.getTreePath().toString());
             }
 
             
             @Override
             public void treeStructureChanged(TreeModelEvent e) {
-                System.out.println("Structure changed");
-                System.out.println(e.getTreePath().toString());
+                System.out.print("Structure changed: ");   System.out.println(e.getTreePath().toString());
                 
             }
             
@@ -401,7 +434,41 @@ public class InterfaceHM extends javax.swing.JFrame {
 
            @Override
            public void valueChanged(TreeSelectionEvent e) {
-              jTextArea1.setText(e.getPath().getLastPathComponent().toString()); // affichage dans textfield des propriété de l'objet.
+              
+             DefaultMutableTreeNode var = (DefaultMutableTreeNode) e.getPath().getLastPathComponent(); // affichage dans textfield des propriété de l'objet.
+         /*    
+             Batiment temp = (Batiment) var.getUserObject();
+             
+             jTextArea1.setText(temp.FulltoString()); */
+             
+            try{
+                 Batiment temp = (Batiment) var.getUserObject();
+                 jTextArea1.setText(temp.FullScreen());
+                 jTextArea2.setText("Aucune Interface sur cet objet");
+            }catch(ClassCastException exep){
+                System.out.println("Ce n'est pas un batiment");
+            }
+            
+            try{
+                 Salle temp = (Salle) var.getUserObject();
+                 jTextArea1.setText(temp.FullScreen());
+                 jTextArea2.setText("Aucune Interface sur cet objet");
+            }catch(ClassCastException exep){
+                System.out.println("Ce n'est pas une salle");
+            }
+            
+            try{
+                 Machine temp = (Machine) var.getUserObject();
+                 jTextArea1.setText(temp.FullScreen());         // affichage de la description des batiments
+                 jTextArea2.setText(temp.displayInterfaces()); // affichages des inerfaces
+            }catch(ClassCastException exep){
+                System.out.println("Ce n'est pas un Machine");
+            } 
+             
+            
+               
+               
+ 
            }
        });
      
@@ -431,20 +498,12 @@ public class InterfaceHM extends javax.swing.JFrame {
             }
         });
         
-        /* Modifier le rendu d'un JTree en fonction des éléments noeuds ou feuilles : 
-        DefaultTreeCellRenderer renderer = new DefaultTreeCellRenderer();
-        renderer.setClosedIcon(new ImageIcon("src/main/java/checked.gif"));
-        renderer.setOpenIcon(new ImageIcon("src/main/java/unchecked.gif"));
-        renderer.setLeafIcon(new ImageIcon("src/main/java/ordi.png"));
-        jTreeTest.setCellRenderer(renderer);
-        */
-        
-        /* On cache le noeud racine : 
+        /// On cache le noeud racine : 
         jTreeTest.setRootVisible(false);
-        */
+
         
         /* Modifier le rendu de chaque noeu d'un Jtree en fonction de sa hiérarchie : */
-        jTreeTest.setCellRenderer(new RenduJtree());
+        jTreeTest.setCellRenderer(new JtreeDesign());
         
         arbreModele.reload();
         
@@ -504,8 +563,10 @@ public class InterfaceHM extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPaneTreeTest;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTree jTreeTest;
     // End of variables declaration//GEN-END:variables
 }

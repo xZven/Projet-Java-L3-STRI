@@ -45,7 +45,7 @@ public class Batiment extends JLabel{
     
     /**
      * Constructeur de test pour JTree
-     * @param name 
+     * @param name String: nom du batiment
      */
     public Batiment(String name) {
 		this.nom = name;
@@ -57,7 +57,9 @@ public class Batiment extends JLabel{
        /* gestion des salles */
     
     /**
-     * @return ArrayList de salle.
+     * Permet d'obtenir l'ArrayList de salles d'un batiment
+     * 
+     * @return ArrayList de Salle.
      */
     public ArrayList<Salle> getSalles() {
         return salles;
@@ -73,7 +75,7 @@ public class Batiment extends JLabel{
     /**
      * Ajouter une nouvelle salle au batiment
      * 
-     * @param salle 
+     * @param salle permet d'ajouter une salle à l'ArrayList de la classe Batiment
      */
     public void addSalle(Salle salle)
     {
@@ -81,7 +83,7 @@ public class Batiment extends JLabel{
     }
     
     /**
-     * Supprimer une salle d'un Batiment.
+     * Supprimer une salle au batiment.
      * 
      * @param salle de type Salle
      * @return boolean: TRUE si réussi; FALSE sinon
@@ -162,7 +164,7 @@ public class Batiment extends JLabel{
      */
     @Override
     public String toString() {
-		return (nom + localisation);
+		return (nom);
 	}
     
     /**
@@ -170,7 +172,16 @@ public class Batiment extends JLabel{
      * 
      * @return String: nom, localisation, description du batiment
      */
-    public String FulltoString() {
-        return ("Batiment" + nom + ", localisation=" + localisation + ", description=" + description);
+    
+    /**
+     * Obtenir toutes les informations sur le batiment.
+     * 
+     * @return String: nom, localisation, description du batiment
+     */
+    public String FullScreen() {
+        return ("Nom: " + nom 
+                + "\nLocalisation:" + localisation 
+                 + "\nDescription:" + description
+                  + "\nNombre de salle: "+salles.size());
     }
 }
