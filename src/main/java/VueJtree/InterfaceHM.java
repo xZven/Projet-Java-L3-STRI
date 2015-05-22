@@ -74,6 +74,11 @@ public class InterfaceHM extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextArea3 = new javax.swing.JTextArea();
+        jButton3 = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -88,6 +93,7 @@ public class InterfaceHM extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jTreeTest.setBackground(new java.awt.Color(204, 204, 204));
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Bievenue sur Device Manager");
         jTreeTest.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
         jTreeTest.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
@@ -101,7 +107,7 @@ public class InterfaceHM extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
 
-        jButtonTree.setBackground(new java.awt.Color(204, 0, 51));
+        jButtonTree.setBackground(new java.awt.Color(204, 0, 0));
         jButtonTree.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         jButtonTree.setText("Connecter");
         jButtonTree.addActionListener(new java.awt.event.ActionListener() {
@@ -147,35 +153,73 @@ public class InterfaceHM extends javax.swing.JFrame {
         jTextArea2.setText("Interfaces de l'équipement...");
         jScrollPane2.setViewportView(jTextArea2);
 
+        jButton1.setBackground(new java.awt.Color(204, 204, 204));
+        jButton1.setText("Ajouter");
+        jButton1.setEnabled(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setBackground(new java.awt.Color(204, 204, 204));
+        jButton2.setText("Supprimer");
+        jButton2.setEnabled(false);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jTextArea3.setEditable(false);
+        jTextArea3.setBackground(new java.awt.Color(0, 0, 0));
+        jTextArea3.setColumns(20);
+        jTextArea3.setForeground(new java.awt.Color(255, 255, 255));
+        jTextArea3.setRows(5);
+        jTextArea3.setText("Console >");
+        jScrollPane3.setViewportView(jTextArea3);
+
+        jButton3.setBackground(new java.awt.Color(204, 204, 204));
+        jButton3.setText("Changer Etat");
+        jButton3.setEnabled(false);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 10, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 542, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 10, Short.MAX_VALUE)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 542, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel1)
-                                        .addGap(86, 86, 86)
-                                        .addComponent(jLabel2))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(111, 111, 111)
-                                        .addComponent(jLabel3)))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addGap(18, 18, 18))
+                                .addComponent(jLabel1)
+                                .addGap(86, 86, 86)
+                                .addComponent(jLabel2))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(111, 111, 111)
+                                .addComponent(jLabel3)))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jScrollPane3)
+                                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPaneTreeTest, javax.swing.GroupLayout.PREFERRED_SIZE, 524, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -185,7 +229,7 @@ public class InterfaceHM extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPaneTreeTest, javax.swing.GroupLayout.DEFAULT_SIZE, 696, Short.MAX_VALUE))
+                        .addComponent(jScrollPaneTreeTest, javax.swing.GroupLayout.DEFAULT_SIZE, 829, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -193,7 +237,16 @@ public class InterfaceHM extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane2)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -435,36 +488,65 @@ public class InterfaceHM extends javax.swing.JFrame {
            @Override
            public void valueChanged(TreeSelectionEvent e) {
               
-             DefaultMutableTreeNode var = (DefaultMutableTreeNode) e.getPath().getLastPathComponent(); // affichage dans textfield des propriété de l'objet.
-         /*    
-             Batiment temp = (Batiment) var.getUserObject();
-             
-             jTextArea1.setText(temp.FulltoString()); */
-             
+             DefaultMutableTreeNode var = (DefaultMutableTreeNode) e.getPath().getLastPathComponent(); 
+  //***********************************************************************************************************************               
             try{
                  Batiment temp = (Batiment) var.getUserObject();
-                 jTextArea1.setText(temp.FullScreen());
+                 jTextArea1.setText(temp.FullScreen()); // affichage dans textfield des propriété de l'objet.
+                 
+                 
                  jTextArea2.setText("Aucune Interface sur cet objet");
+                 
+                 
+                 jButton1.setEnabled(true);  jButton1.setText("+ Ajouter une salle\n");
+                 jButton2.setEnabled(true);  jButton2.setText("+ Supprimer '"+ temp.toString()+"'");
+                 jButton3.setEnabled(false); jButton3.setText("+ Aucun changement d'Etat possible\n");
+                 
+                 jTextArea3.setText("Ajouter une nouvelle salle \n ou supprimer le batiment " + temp.toString()
+                         + "\n\nAucun changement d'Etat n'est disponible\n sur cet objet. \n");
+                 
+                 
             }catch(ClassCastException exep){
                 System.out.println("Ce n'est pas un batiment");
             }
-            
+ //***********************************************************************************************************************           
             try{
                  Salle temp = (Salle) var.getUserObject();
                  jTextArea1.setText(temp.FullScreen());
                  jTextArea2.setText("Aucune Interface sur cet objet");
+                 
+                 /* action valide sur les boutons */
+                 jButton1.setEnabled(true); jButton1.setText("Ajouter une machine");
+                 jButton2.setEnabled(true); jButton2.setText("Supprimer '"+ temp.toString()+"'");
+                 jButton3.setEnabled(true); jButton3.setText("Changer Etat de la salle");
+                 
+                 /* text de la console d'aide. */
+                 jTextArea3.setText("+ Ajouter une nouvelle machine à la salle\n"
+                         + "+ Supprimer la salle "+ temp.toString()+"\n"
+                         + "+ Changer l'Etat de la salle:\n"
+                         + "Tous les Equipements seront mis dans l'Etat DOWN\n"
+                         + "ou dans l'Etat UP.\n");
+                 
             }catch(ClassCastException exep){
                 System.out.println("Ce n'est pas une salle");
             }
-            
+ //***********************************************************************************************************************   
             try{
                  Machine temp = (Machine) var.getUserObject();
                  jTextArea1.setText(temp.FullScreen());         // affichage de la description des batiments
                  jTextArea2.setText(temp.displayInterfaces()); // affichages des inerfaces
+                 
+                 jButton1.setEnabled(false); jButton1.setText("Ajouter");
+                 jButton2.setEnabled(true); jButton2.setText("+ Supprimer '"+ temp.toString()+"'");
+                 jButton3.setEnabled(true); jButton3.setText("+ Changer Etat de la machine");
+                 
+                 jTextArea3.setText("Supprimer la machine "+temp.toString()+"\n"
+                         + "Changer son Etat\n"
+                         + "");
             }catch(ClassCastException exep){
-                System.out.println("Ce n'est pas un Machine");
+                System.out.println("Ce n'est pas une Machine");
             } 
-             
+ //***********************************************************************************************************************               
             
                
                
@@ -519,6 +601,72 @@ public class InterfaceHM extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jTreeTestValueChanged
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        
+        
+         jTextArea3.setText("Tentative de supression de l'objet...");
+         DefaultMutableTreeNode var = (DefaultMutableTreeNode) jTreeTest.getSelectionPath().getLastPathComponent();
+         
+         var.removeFromParent();
+         jTextArea3.setText("Objet supprimé: "+var.toString());
+         System.gc(); // nettoyage mémoire
+         
+         arbreModele.reload();
+         
+         
+         
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+         DefaultMutableTreeNode var = (DefaultMutableTreeNode) jTreeTest.getSelectionPath().getLastPathComponent();
+         
+         try{
+                 Machine temp = (Machine) var.getUserObject();
+                 
+                 temp.changeEtat();
+                 
+                 /* on essaye de changer l'Etat de la machine dans la base de donnée */
+                 
+                 jTextArea3.setText("L'Etat des machines a bien été changé."); // confirmation dans la console
+                 
+                 arbreModele.reload(var); // rechargement de l'arborescence
+                 
+            }catch(ClassCastException exep){
+                System.out.println("Ce n'est pas une Machine");
+            }
+ //***********************************************************************************************************************          
+         try{
+                 Salle temp = (Salle) var.getUserObject();
+                 
+                 for(Machine m : temp.getMachines()) // pour chaque machine de la salle
+                 {
+                     m.setEtat(false); // on met les machines dans l'Etat down.
+                     
+                     /* on essaye de changer l'Etat des machines salle dans la base de donnée */
+                     
+                 }
+                 
+                 jTextArea3.setText("L'Etat des machines a bien été changé."); // confirmation dans la console
+                 
+                 arbreModele.reload(var); // rechargement de l'arborescence
+              
+                 
+            }catch(ClassCastException exep){
+                System.out.println("Ce n'est pas une Salle");
+            }
+ //*********************************************************************************************************************** 
+         
+ //***********************************************************************************************************************          
+         
+         
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -556,6 +704,9 @@ public class InterfaceHM extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButtonTree;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -564,9 +715,11 @@ public class InterfaceHM extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPaneTreeTest;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTree jTreeTest;
     // End of variables declaration//GEN-END:variables
 }

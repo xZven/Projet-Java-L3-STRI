@@ -35,7 +35,7 @@ public class Machine extends JLabel{
     private String firmware;
     
     private String type;
-    private boolean etat;
+    private boolean etat = false;
 
     
     
@@ -53,7 +53,7 @@ public class Machine extends JLabel{
      */
     public Machine(String nom, String marque, String modele, String OS, String firmware, String type, boolean etat) {
         
-         setIcon(new ImageIcon("src/main/java/VueJtree/ordi.png"));
+         
         
         this.nom    =   nom;
         this.marque =   marque;
@@ -62,6 +62,13 @@ public class Machine extends JLabel{
         this.type   =   type;
         this.firmware = firmware;
         this.etat = etat;
+        
+        if(etat == true)
+            setIcon(new ImageIcon("src/main/java/VueJtree/ordiVert.png"));
+        else if (etat == false)
+            setIcon(new ImageIcon("src/main/java/VueJtree/ordiRouge.png"));
+        else
+            setIcon(new ImageIcon("src/main/java/VueJtree/ordi.png"));
         
         interfaceReseau = new ArrayList<>();
         
@@ -77,8 +84,14 @@ public class Machine extends JLabel{
      */
     public Machine(String nom){
         
-         setIcon(new ImageIcon("src/main/java/VueJtree/ordi.png"));
+         
          this.nom    =   nom;
+        if(etat == true)
+            setIcon(new ImageIcon("src/main/java/VueJtree/ordiVert.png"));
+        else if (etat == false)
+            setIcon(new ImageIcon("src/main/java/VueJtree/ordiRouge.png"));
+        else
+            setIcon(new ImageIcon("src/main/java/VueJtree/ordi.png"));
          
          
          interfaceReseau = new ArrayList<>();
@@ -346,6 +359,27 @@ public class Machine extends JLabel{
      */
     public void setEtat(boolean etat) {
         this.etat = etat;
+        
+         if(etat == true)
+            setIcon(new ImageIcon("src/main/java/VueJtree/ordiVert.png"));
+        else if (etat == false)
+            setIcon(new ImageIcon("src/main/java/VueJtree/ordiRouge.png"));
+        else
+            setIcon(new ImageIcon("src/main/java/VueJtree/ordi.png"));
+    }
+    
+    /**
+     * Changer l'Etat d'une machine en UP ou DOWN
+     */
+    public void changeEtat() {
+        etat = !etat;
+        
+        if(etat == true)
+            setIcon(new ImageIcon("src/main/java/VueJtree/ordiVert.png"));
+        else if (etat == false)
+            setIcon(new ImageIcon("src/main/java/VueJtree/ordiRouge.png"));
+        else
+            setIcon(new ImageIcon("src/main/java/VueJtree/ordi.png"));
     }
     
     /**
