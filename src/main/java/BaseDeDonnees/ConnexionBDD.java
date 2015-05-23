@@ -1,8 +1,9 @@
 
-
 package BaseDeDonnees;
 
+import Metier.Batiment;
 import java.sql.*;
+import java.util.ArrayList;
 
 /**
  *
@@ -13,9 +14,9 @@ import java.sql.*;
  * 
  * @version 1.0, 
  */
-public class ConnexionBDD {
+public final class ConnexionBDD {
 
-    private Connection connexion;
+    private final Connection connexion;
     private final String url;
     private final String user;
     private final String password;
@@ -26,24 +27,59 @@ public class ConnexionBDD {
      * @param user Identifie l'utilisateur de la base de données. (postgres par défaut)
      * @param password // Identifie le mot de passe de la base de données (en local sur mon PC : gregory).
      * @throws ClassNotFoundException Erreur lors du chargement de la classe jdbc permettant la conexion à la base de données.
+     * @throws java.sql.SQLException
      */
-    public ConnexionBDD(String url, String user, String password) throws ClassNotFoundException {    
-    // Chargement des drivers postgresql :
-    Class.forName("org.postgresql.Driver");
-    this.url=url;
-    this.user=user;
-    this.password=password;            
+    public ConnexionBDD(String url, String user, String password) throws ClassNotFoundException, SQLException {    
+            // Chargement des drivers postgresql :
+            Class.forName("org.postgresql.Driver");
+            this.url=url;
+            this.user=user;
+            this.password=password;
+            // On se connecte à la base de données :
+            connexion = initConnexion();
     }
     
     /**
-     * 
+     * Permet d'initialiser la connexion à la base de données.
      * @return
      * @throws SQLException Erreur lors de l'ouverture de la connexion à la base de données.
      */
-    public Connection initConnexion() throws SQLException
+    private Connection initConnexion() throws SQLException
     {
         // Connexion à la base de données :
         return DriverManager.getConnection(url, user, password); 
     }
     
+    // A Terminer : Attente requête Nicolas
+    public ArrayList<Batiment> getAllBatimentsObject()
+    {
+        // Requête SQL permettant de récupérer l'ensemble des batiments ainsi que leurs attributs :
+        return new ArrayList<Batiment>();
+    }
+    
+    // A terminer : Attente requête Nicolas
+    public ArrayList<Batiment> getAllBatimentsName()
+    {
+        // Requête SQL permettant de récupérer l'ensemble des noms des batiments :
+        return new ArrayList<Batiment>();
+    }
+    
+    // A terminer : Attente requête Nicolas
+    public ArrayList<Batiment> getAllBatimentsNameAndSalles()
+    {
+        // Requête SQL permettant de récupérer l'ensemble des noms des batiments ainsi que leurs salles :
+        return new ArrayList<Batiment>();
+    }
+    
+    /*
+    
+    ConnexionBDD bdd = new ConnexionBDD("jdbc:postgresql://127.0.0.1:5432/java", "postgres", "gregory");
+            Connection id = bdd.initConnexion();
+            // Requête de test :
+            Statement state = id.createStatement();
+            ResultSet result = state.executeQuery("SELECT * FROM machine");
+            ResultSetMetaData resultMetaData = result.getMetaData();
+            System.out.println(resultMetaData.getCatalogName(1).toString());
+    
+    */
 }
