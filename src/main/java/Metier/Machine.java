@@ -26,7 +26,7 @@ public class Machine extends JLabel{
  //   En attente: non défini dans l'UML
  //   private ArrayList<UniteProcesseur> uniteProcesseur;
     
-    
+    // Ajout propriétés ArrayList<Machine> machineConnectees; 
     
     private String nom;
     private String marque;
@@ -36,6 +36,8 @@ public class Machine extends JLabel{
     
     private String type;
     private boolean etat = false;
+            
+    private int id;
 
     
     
@@ -97,6 +99,23 @@ public class Machine extends JLabel{
          interfaceReseau = new ArrayList<>();
     }
     
+    /**
+     * Permet de spécifier l'identifiant de la machine.
+     * @param id indiquant l'identifiant de la machine ne base de données.
+     */
+    public void setId(int id)
+    {
+        this.id = id;
+    }
+    
+    /**
+     * Permet de récupérer l'identifiant de la machine en base de données.
+     * @return Identifiant de la machine en base de données.
+     */
+    public int getId()
+    {
+        return this.id;
+    }
     
 
     /* Opération sur les interfaces */

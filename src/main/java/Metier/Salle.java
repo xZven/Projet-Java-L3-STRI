@@ -6,7 +6,6 @@
 package Metier;
 
 import java.util.ArrayList;
-import javafx.geometry.Orientation;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 
@@ -22,14 +21,16 @@ public class Salle extends JLabel
    // Déclarations des attributs :
   
    private ArrayList<Machine> machines;
+   // Pas implémenté : 
    private ArrayList<EquipementReseau> eq_reseau;
    private ArrayList<EquipementMobile> eq_mobile;
    private ArrayList<Ordinateur>       ordinateur;
    
    
-   private int numero;
+   private String numero;
    private int etage;
    private String nom;
+   private int id;
    
    /**
     * Constructeur Salle
@@ -38,7 +39,7 @@ public class Salle extends JLabel
     * @param numero Numéro de la salle
     * @param etage  Etage de la salle
     */
-   public Salle(String nom, int numero, int etage) 
+   public Salle(String nom, String numero, int etage) 
    {
        setIcon(new ImageIcon("src/main/java/VueJtree/salles.png"));
        
@@ -63,7 +64,7 @@ public class Salle extends JLabel
         setIcon(new ImageIcon("src/main/java/VueJtree/salles.png"));
         
         this.nom      = nom;
-        this.numero   = 0;
+        this.numero   = "";
         this.etage    = 0;
         machines      = new ArrayList<>();
         eq_reseau     = new ArrayList<>();
@@ -71,6 +72,24 @@ public class Salle extends JLabel
         ordinateur    = new ArrayList<>();
     }
     
+   /**
+    * Permet de spécifier l'identifiant de la salle.
+    * @param id indiquant l'identifiant de la salle en base de données.
+    */
+    public void setId(int id)
+    {
+        this.id = id;
+    }
+   
+    /**
+     * Permet de récupérer l'identifiant de la salle.
+     * @return identifiant de la salle en base de données.
+     */
+    public int getId()
+    {
+        return this.id;
+    }
+   
    /**
     * Obtenir les machines d'une salle.
     * 
@@ -93,7 +112,7 @@ public class Salle extends JLabel
      * 
      * @return Numéro de la salle
      */
-    public int getNumero() {
+    public String getNumero() {
         return numero;
     }
 
@@ -102,7 +121,7 @@ public class Salle extends JLabel
      * 
      * @param numero - Integer: Numéro à définir
      */
-    public void setNumero(int numero) {
+    public void setNumero(String numero) {
         this.numero = numero;
     }
 
