@@ -18,7 +18,7 @@ public final class ConnexionBDD {
     private final String url;
     private final String user;
     private final String password;
-    
+        
     /**
      * Constructeur redéfini permettant de parametrer la connexion à la base de données.
      * @param url Identifie l'url de connexion à la Base de Données (jdbc:mysql://host:port/Base).
@@ -29,7 +29,7 @@ public final class ConnexionBDD {
      */
     public ConnexionBDD(String url, String user, String password) throws ClassNotFoundException, SQLException {    
             // Chargement des drivers postgresql :
-            Class.forName("org.mysql.Driver");
+            Class.forName("com.mysql.jdbc.Driver");
             this.url=url;
             this.user=user;
             this.password=password;
@@ -48,15 +48,17 @@ public final class ConnexionBDD {
         return DriverManager.getConnection(url, user, password); 
     }
         
+    /*
     public void test() throws SQLException, ClassNotFoundException
     {
-    ConnexionBDD bdd = new ConnexionBDD("jdbc:mysql://127.0.0.1:3306/java", "java", "java");
-            Connection id = bdd.initConnexion();
+    // ConnexionBDD bdd = new ConnexionBDD("jdbc:mysql://127.0.0.1:3306/java", "java", "java");
+            //Connection id = bdd.initConnexion();
             // Requête de test :
-            Statement state = id.createStatement();
+            Statement state = connexion.createStatement();
             ResultSet result = state.executeQuery("SELECT * FROM machine");
             ResultSetMetaData resultMetaData = result.getMetaData();
             System.out.println(resultMetaData.getCatalogName(1));
     }
+    */
     
 }

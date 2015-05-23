@@ -11,12 +11,13 @@ package VueJtree;
 import Metier.*;
 import BaseDeDonnees.*;
 import java.awt.Color;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /* autres import */
 
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 import javax.swing.JTree;
 import javax.swing.event.TreeExpansionEvent;
 import javax.swing.event.TreeExpansionListener;
@@ -25,11 +26,8 @@ import javax.swing.event.TreeModelListener;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.DefaultTreeCellRenderer;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeModel;
-import javax.swing.tree.TreeNode;
-import javax.swing.tree.TreePath;
 import javax.swing.tree.TreeSelectionModel;
 
 /**
@@ -262,83 +260,91 @@ public class InterfaceIHM extends javax.swing.JFrame {
        /* Connexion à la base de donnée si déconnecté */
         if(jButtonTree.getText().equals("Connecter"))
         {
-            // on se connecte à la base et on récupère les batiments
-            
-            
-         
-            for(int i = 0; i < 3; ++i)
-            {
-                batiments.add(new Batiment("Batiment N° "+i));
-                for(int j = 0; j < 3; ++j)
-                {
-                    batiments.get(i).addSalle(new Salle("Salle "+j));
-                    
- //**********************************************************************************************                        
-                    /* Machines */
-                    for(int k = 0; k < 3; ++k) // on créer 3 machines
-                    {
-                         batiments.get(i).getSalles().get(j).addMachine(new Machine("Machine "+k));
-                    }
-                   for(Machine m :  batiments.get(i).getSalles().get(j).getMachines()) // pour chaque machine on ajoute 3 interfaces réseaux
-                    {
-                        for(int l = 0; l<3; ++l)
-                        {
-                             m.addInterfaceReseau(new Interface(l+"F:FF:FF:FF:FF:FF", "0.0.0."+l, "Ethernet"));
-                        }
-
-                    }
-                   
- //**********************************************************************************************                   
-                    /* Ordinateurs */
-                    for(int k = 0; k < 3; ++k)
-                    {
-                         batiments.get(i).getSalles().get(j).addMachine(new Machine("Ordinateur "+k));  
-                    }
-/*                    for(Machine m :  batiments.get(i).getSalles().get(j).getMachines()) // pour chaque ordinateur on ajoute 3 interfaces réseaux
-                   {
-                        for(int l = 0; l<3; ++l)
-                        {
-                             m.addInterfaceReseau(new Interface(l+"F:FF:FF:FF:FF:FF", "0.0.0."+l, "Ethernet"));
-                        }
-
-                    }
-*/                        
- //**********************************************************************************************                       
-                    /* Equipement réseaux */
-                    for(int k = 0; k < 3; ++k)
-                    {
-                        batiments.get(i).getSalles().get(j).addMachine(new Machine("Eq_Réseaux "+k));  
-                    }
-/*                   for(Machine m :  batiments.get(i).getSalles().get(j).getMachines()) // pour chaque Equipement réseaux on ajoute 3 interfaces réseaux
-                    {
-                        for(int l = 0; l<3; ++l)
-                        {
-                             m.addInterfaceReseau(new Interface(l+"F:FF:FF:FF:FF:FF", "0.0.0."+l, "Ethernet"));
-                        }
-
-                    }
-*/                    
- //**********************************************************************************************                         
-                     /* Equipement Mobile */
-                    for(int k = 0; k < 3; ++k)
-                    {
-                         batiments.get(i).getSalles().get(j).addMachine(new Machine("Equipement Mobile "+k));  
-                    }
-/*                    for(Machine m :  batiments.get(i).getSalles().get(j).getMachines()) // pour chaque Equipement mobile on ajoute 3 interfaces réseaux
-                    {
-                        for(int l = 0; l<3; ++l)
-                        {
-                             m.addInterfaceReseau(new Interface(l+"F:FF:FF:FF:FF:FF", "0.0.0."+l, "Ethernet"));
-                        }
-
-                    }
-*/                    
- //**********************************************************************************************                   
-                }   
-            }
-            
-            jButtonTree.setText("Deconnecter");
-            jButtonTree.setBackground(Color.green);  
+             try {
+                 // on se connecte à la base et on récupère les batiments
+                 
+                 ConnexionBDD id = new ConnexionBDD("jdbc:mysql://127.0.0.1:3306/java", "java", "java");
+                 
+                 
+                 
+                 for(int i = 0; i < 3; ++i)
+                 {
+                     batiments.add(new Batiment("Batiment N° "+i));
+                     for(int j = 0; j < 3; ++j)
+                     {
+                         batiments.get(i).addSalle(new Salle("Salle "+j));
+                         
+                         //**********************************************************************************************
+                         /* Machines */
+                         for(int k = 0; k < 3; ++k) // on créer 3 machines
+                         {
+                             batiments.get(i).getSalles().get(j).addMachine(new Machine("Machine "+k));
+                         }
+                         for(Machine m :  batiments.get(i).getSalles().get(j).getMachines()) // pour chaque machine on ajoute 3 interfaces réseaux
+                         {
+                             for(int l = 0; l<3; ++l)
+                             {
+                                 m.addInterfaceReseau(new Interface(l+"F:FF:FF:FF:FF:FF", "0.0.0."+l, "Ethernet"));
+                             }
+                             
+                         }
+                         
+                         //**********************************************************************************************
+                         /* Ordinateurs */
+                         for(int k = 0; k < 3; ++k)
+                         {
+                             batiments.get(i).getSalles().get(j).addMachine(new Machine("Ordinateur "+k));
+                         }
+                         /*                    for(Machine m :  batiments.get(i).getSalles().get(j).getMachines()) // pour chaque ordinateur on ajoute 3 interfaces réseaux
+                         {
+                         for(int l = 0; l<3; ++l)
+                         {
+                         m.addInterfaceReseau(new Interface(l+"F:FF:FF:FF:FF:FF", "0.0.0."+l, "Ethernet"));
+                         }
+                         
+                         }
+                         */
+                         //**********************************************************************************************
+                         /* Equipement réseaux */
+                         for(int k = 0; k < 3; ++k)
+                         {
+                             batiments.get(i).getSalles().get(j).addMachine(new Machine("Eq_Réseaux "+k));
+                         }
+                         /*                   for(Machine m :  batiments.get(i).getSalles().get(j).getMachines()) // pour chaque Equipement réseaux on ajoute 3 interfaces réseaux
+                         {
+                         for(int l = 0; l<3; ++l)
+                         {
+                         m.addInterfaceReseau(new Interface(l+"F:FF:FF:FF:FF:FF", "0.0.0."+l, "Ethernet"));
+                         }
+                         
+                         }
+                         */
+                         //**********************************************************************************************
+                         /* Equipement Mobile */
+                         for(int k = 0; k < 3; ++k)
+                         {
+                             batiments.get(i).getSalles().get(j).addMachine(new Machine("Equipement Mobile "+k));
+                         }
+                         /*                    for(Machine m :  batiments.get(i).getSalles().get(j).getMachines()) // pour chaque Equipement mobile on ajoute 3 interfaces réseaux
+                         {
+                         for(int l = 0; l<3; ++l)
+                         {
+                         m.addInterfaceReseau(new Interface(l+"F:FF:FF:FF:FF:FF", "0.0.0."+l, "Ethernet"));
+                         }
+                         
+                         }
+                         */
+                         //**********************************************************************************************
+                     }
+                 }
+                 
+                 jButtonTree.setText("Deconnecter");
+                 jButtonTree.setBackground(Color.green);  
+             } catch (ClassNotFoundException ex) {
+                // Logger.getLogger(InterfaceIHM.class.getName()).log(Level.SEVERE, null, ex);
+             } catch (SQLException ex) {
+                // Logger.getLogger(InterfaceIHM.class.getName()).log(Level.SEVERE, null, ex);
+             }
         }
         else
         {
