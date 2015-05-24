@@ -474,4 +474,297 @@ public final class ConnexionBDD {
         return nom;
     }
     
+    /* MISE A JOUR EN BASE DE DONNEES : MEHODE UPDATE */
+    // Mise à jour des interfaces rseaux non implémentées.
+    
+    /**
+     * Permet de mettre à jour un batiment et l'ensemble des informations associées.
+     * @param b Batiment à mettre à jour.
+     * @param oldName ancien nom du batiment à mettre à jour.
+     * @throws java.sql.SQLException
+     */
+    public void updateAllBatiment(Batiment b, String oldName) throws SQLException
+    {
+        // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
+        PreparedStatement state = connexion.prepareStatement("UPDATE batiment SET nom=?, localisation=?, description=? where batiment.nom=?");
+        // Préparation de la requête avant exécution de celle-ci :
+        state.setString(0, b.getNom());
+        state.setString(1, b.getLocalisation());
+        state.setString(2, b.getDescription());
+        // Récupéaratino des valeurs lues en base de données :
+        int res = state.executeUpdate();
+        // On met fin au statement et au resultSet :
+        state.close();
+    }
+    
+    /**
+     * Permet de mettre à jour le nom d'un batiment.
+     * @param newName nouveau nom donné au batiment.
+     * @param oldName ancien nom du batiment à mettre à jour.
+     * @throws java.sql.SQLException
+     */
+    public void updateNameOfBatiment(String newName, String oldName) throws SQLException
+    {
+        // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
+        PreparedStatement state = connexion.prepareStatement("UPDATE batiment SET nom=? where nom=?");
+        // Préparation de la requête avant exécution de celle-ci :
+        state.setString(0, newName);
+        state.setString(1, oldName);
+        // Récupéaratino des valeurs lues en base de données :
+        int res = state.executeUpdate();
+        // On met fin au statement et au resultSet :
+        state.close();
+    }
+    
+    /**
+     * Permet de mettre à jour la description d'un batiment.
+     * @param name nom du batiment.
+     * @param description description du batiment à mettre à jour.
+     * @throws SQLException 
+     */
+    public void updateDescriptionOfBatiment(String name, String description) throws SQLException
+    {
+        // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
+        PreparedStatement state = connexion.prepareStatement("UPDATE batiment SET description=? where nom=?");
+        // Préparation de la requête avant exécution de celle-ci :
+        state.setString(0, description);
+        state.setString(1, name);
+        // Récupéaratino des valeurs lues en base de données :
+        int res = state.executeUpdate();
+        // On met fin au statement et au resultSet :
+        state.close(); 
+    }
+    
+    
+    /**
+     * Permet de mettre à jour les informations d'une salle appartenant à un batiment donné.
+     * @param s Salle à mettre à jour.
+     * @param nameBatiment nom du batiment de la salle à mettre à jour.
+     * @throws java.sql.SQLException
+     */
+    public void updateSalleOfBatiment(Salle s, String nameBatiment) throws SQLException
+    {
+        // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
+        PreparedStatement state = connexion.prepareStatement("UPDATE salle SET numero=?, etage=?, nom=? where (salle.batiment=? and salle.id=?)");
+        // Préparation de la requête avant exécution de celle-ci :
+        state.setString(0, s.getNumero());
+        state.setInt(1, s.getEtage());
+        state.setString(2, s.getNom());
+        state.setString(3, nameBatiment);
+        state.setInt(4, s.getId());
+        // Récupéaratino des valeurs lues en base de données :
+        int res = state.executeUpdate();
+        // On met fin au statement et au resultSet :
+        state.close();
+    }
+    
+    /**
+     * Permet de mettre à jour les informations d'une salle.
+     * @param s Salle à mettre à jour.
+     * @throws java.sql.SQLException
+     */
+    public void updateAllSalle(Salle s) throws SQLException
+    {
+        // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
+        PreparedStatement state = connexion.prepareStatement("UPDATE salle SET numero=?, etage=?, nom=? where salle.id=?");
+        // Préparation de la requête avant exécution de celle-ci :
+        state.setString(0, s.getNumero());
+        state.setInt(1, s.getEtage());
+        state.setString(2, s.getNom());
+        state.setInt(3, s.getId());
+        // Récupéaratino des valeurs lues en base de données :
+        int res = state.executeUpdate();
+        // On met fin au statement et au resultSet :
+        state.close();
+    }
+    
+    /**
+     * Permet de mettre à jour le nom d'une salle.
+     * @param id Identifiant de la salle en base de données à mettre à jour.
+     * @param nom nouveau nom de la salle.
+     * @throws java.sql.SQLException
+     */
+    public void updateNameOfSalle(int id, String nom) throws SQLException
+    {
+        // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
+        PreparedStatement state = connexion.prepareStatement("UPDATE salle SET nom=? where salle.id=?");
+        // Préparation de la requête avant exécution de celle-ci :
+        state.setString(0, nom);
+        state.setInt(1, id);
+        // Récupéaratino des valeurs lues en base de données :
+        int res = state.executeUpdate();
+        // On met fin au statement et au resultSet :
+        state.close();
+    }
+    
+    /**
+     * Permet de mettre à jour le numéro d'une salle.
+     * @param id identifiant de la salle en base de données à mettre à jour.
+     * @param numero nouveau numéro de la salle.
+     * @throws java.sql.SQLException
+     */
+    public void updateNumeroOfSalle(int id, String numero) throws SQLException
+    {
+        // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
+        PreparedStatement state = connexion.prepareStatement("UPDATE salle SET numero=? where salle.id=?");
+        // Préparation de la requête avant exécution de celle-ci :
+        state.setString(0, numero);
+        state.setInt(1, id);
+        // Récupéaratino des valeurs lues en base de données :
+        int res = state.executeUpdate();
+        // On met fin au statement et au resultSet :
+        state.close();
+    }
+    
+    /**
+     * Permet de mettre à jour une machine.
+     * @param m Machine à mettre à jour.
+     * @param idSalle identifiant de la salle en base de données : -1 pour ne pas tenir compte du paramètre.
+     * @throws java.sql.SQLException
+     */
+    public void updateAllMachine(Machine m, int idSalle) throws SQLException
+    {
+        PreparedStatement state;
+        if(idSalle != -1)
+        {
+            // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
+            state = connexion.prepareStatement("UPDATE machine SET nom=?, marque=?, modele=?, os=?, firmware=?, etat=?, salle=?, typem=? where machine.id=?");
+            state.setInt(6, idSalle);
+            state.setString(7, m.getType());
+            state.setInt(8, m.getId());
+        }
+        else
+        {
+            state = connexion.prepareStatement("UPDATE machine SET nom=?, marque=?, modele=?, os=?, firmware=?, etat=?, typem=? where machine.id=?");
+            state.setString(6, m.getType());
+            state.setInt(7, m.getId());
+        }
+        // Préparation de la requête avant exécution de celle-ci :
+        state.setString(0, m.getNom());
+        state.setString(1, m.getMarque());
+        state.setString(2, m.getModele());
+        state.setString(3, m.getOS());
+        state.setString(4, m.getFirmware());
+        state.setBoolean(5, m.isEtat());
+        // Récupéaratino des valeurs lues en base de données :
+        int res = state.executeUpdate();
+        // On met fin au statement et au resultSet :
+        state.close();
+    }
+    
+    /**
+     * Permet de mettre à jour le nom d'une machine.
+     * @param id identifiant de la machine en base de données.
+     * @param nom nouveau nom de la machine.
+     * @throws java.sql.SQLException
+     */
+    public void updateNomOfMachine(int id, String nom) throws SQLException
+    {
+        // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
+        PreparedStatement state = connexion.prepareStatement("UPDATE machine SET nom=? where machine.id=?");
+        // Préparation de la requête avant exécution de celle-ci :
+        state.setString(0, nom);
+        state.setInt(1, id);
+        // Récupéaratino des valeurs lues en base de données :
+        int res = state.executeUpdate();
+        // On met fin au statement et au resultSet :
+        state.close();
+    }
+    
+    /**
+     * Permet de mettre à jour l'os d'une machine.
+     * @param id identifiant de la machine en base de données.
+     * @param os nouveau os de la machine.
+     * @throws java.sql.SQLException
+     */
+    public void updateOSOfMachine(int id, String os) throws SQLException
+    {
+        // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
+        PreparedStatement state = connexion.prepareStatement("UPDATE machine SET os=? where machine.id=?");
+        // Préparation de la requête avant exécution de celle-ci :
+        state.setString(0, os);
+        state.setInt(1, id);
+        // Récupéaratino des valeurs lues en base de données :
+        int res = state.executeUpdate();
+        // On met fin au statement et au resultSet :
+        state.close();
+    }
+    
+    /**
+     * Permet de mettre à jour le firmware d'une machine.
+     * @param id identifiant de la machine en base de données.
+     * @param firmware nouveau firmware de la machine.
+     * @throws java.sql.SQLException
+     */
+    public void updateFirmwareOfMachine(int id, String firmware) throws SQLException
+    {
+        // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
+        PreparedStatement state = connexion.prepareStatement("UPDATE machine SET firmware=? where machine.id=?");
+        // Préparation de la requête avant exécution de celle-ci :
+        state.setString(0, firmware);
+        state.setInt(1, id);
+        // Récupéaratino des valeurs lues en base de données :
+        int res = state.executeUpdate();
+        // On met fin au statement et au resultSet :
+        state.close();
+    }
+    
+    /**
+     * Permet de mettre à jour l'état d'une machine.
+     * @param id identifiant de la machine en base de données.
+     * @param etat nouvel etat de la machine.
+     * @throws java.sql.SQLException
+     */
+    public void updateEtatOfMachine(int id, boolean etat) throws SQLException
+    {
+        // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
+        PreparedStatement state = connexion.prepareStatement("UPDATE machine SET etat=? where machine.id=?");
+        // Préparation de la requête avant exécution de celle-ci :
+        state.setBoolean(0, etat);
+        state.setInt(1, id);
+        // Récupéaratino des valeurs lues en base de données :
+        int res = state.executeUpdate();
+        // On met fin au statement et au resultSet :
+        state.close();
+    }
+    
+    /**
+     * Permet de mettre à jour la salle associée à une machine.
+     * @param idMachine identifiant de la machine en base de données.
+     * @param idSalle identifiant de la salle en base de donénes.
+     * @throws java.sql.SQLException
+     */
+    public void updateSalleOfMachine(int idMachine, int idSalle) throws SQLException
+    {
+        // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
+        PreparedStatement state = connexion.prepareStatement("UPDATE machine SET salle=? where machine.id=?");
+        // Préparation de la requête avant exécution de celle-ci :
+        state.setInt(0, idSalle);
+        state.setInt(1, idMachine);
+        // Récupéaratino des valeurs lues en base de données :
+        int res = state.executeUpdate();
+        // On met fin au statement et au resultSet :
+        state.close();
+    }
+    
+    /**
+     * Permet de mettre à jour le type d'une machine.
+     * @param id Identifiant de la machine en base de données.
+     * @param type Type de la machine (Routeur, Pont, Commutateur, Ordinateur fixe, Ordinateur portable).
+     * @throws java.sql.SQLException
+     */
+    public void updateTypeOfMachine(int id, String type) throws SQLException
+    {
+        // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
+        PreparedStatement state = connexion.prepareStatement("UPDATE machine SET typem=? where machine.id=?");
+        // Préparation de la requête avant exécution de celle-ci :
+        state.setString(0, type);
+        state.setInt(1, id);
+        // Récupéaratino des valeurs lues en base de données :
+        int res = state.executeUpdate();
+        // On met fin au statement et au resultSet :
+        state.close();
+    }
+    
+    
 }
