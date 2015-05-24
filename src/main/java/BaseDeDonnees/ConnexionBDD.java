@@ -101,7 +101,7 @@ public final class ConnexionBDD {
         // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
         PreparedStatement state = connexion.prepareStatement("SELECT nom, localisation FROM batiment where batiment.nom=?");
         // Récupéaratino des valeurs lues en base de données :
-        state.setString(0, nom);
+        state.setString(1, nom);
         ResultSet res = state.executeQuery();
         res.next(); // Permet de sélectionner la première ligne.
         String localisation = res.getString(nom);
@@ -122,7 +122,7 @@ public final class ConnexionBDD {
         // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
         PreparedStatement state = connexion.prepareStatement("SELECT nom, description FROM batiment where batiment.nom=?");
         // Récupéaratino des valeurs lues en base de données :
-        state.setString(0, nom);
+        state.setString(1, nom);
         ResultSet res = state.executeQuery();
         res.next(); // Permet de sélectionner la première ligne.
         String description = res.getString(nom);
@@ -176,7 +176,7 @@ public final class ConnexionBDD {
         // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
         PreparedStatement state = connexion.prepareStatement("SELECT id, nom FROM salle where salle.id=?");
         // Préparation de la requête avant exécution de celle-ci :
-        state.setInt(0, id);
+        state.setInt(1, id);
         // Récupéaratino des valeurs lues en base de données :
         ResultSet res = state.executeQuery();
         res.next();
@@ -198,7 +198,7 @@ public final class ConnexionBDD {
         // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
         PreparedStatement state = connexion.prepareStatement("SELECT id, numero FROM salle where salle.id=?");
         // Préparation de la requête avant exécution de celle-ci :
-        state.setInt(0, id);
+        state.setInt(1, id);
         // Récupéaratino des valeurs lues en base de données :
         ResultSet res = state.executeQuery();
         res.next();
@@ -220,7 +220,7 @@ public final class ConnexionBDD {
         // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
         PreparedStatement state = connexion.prepareStatement("SELECT id, etage FROM salle where salle.id=?");
         // Préparation de la requête avant exécution de celle-ci :
-        state.setInt(0, id);
+        state.setInt(1, id);
         // Récupéaratino des valeurs lues en base de données :
         ResultSet res = state.executeQuery();
         res.next();
@@ -242,7 +242,7 @@ public final class ConnexionBDD {
         // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
         PreparedStatement state = connexion.prepareStatement("SELECT nom, localisation, description FROM batiment where batiment.nom=(SELECT batiment FROM salle where salle.id=?)");
         // Préparation de la requête avant exécution de celle-ci :
-        state.setInt(0, id);
+        state.setInt(1, id);
         // Récupéaratino des valeurs lues en base de données :
         ResultSet res = state.executeQuery();
         res.next();
@@ -326,7 +326,7 @@ public final class ConnexionBDD {
         // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
         PreparedStatement state = connexion.prepareStatement("SELECT id, etat FROM machine where machine.id=?");
         // Préparation de la requête avant exécution de celle-ci :
-        state.setInt(0, id);
+        state.setInt(1, id);
         // Récupéaratino des valeurs lues en base de données :
         ResultSet res = state.executeQuery();
         res.next();
@@ -353,7 +353,7 @@ public final class ConnexionBDD {
         // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
         PreparedStatement state = connexion.prepareStatement("SELECT id, typem FROM machine where machine.id=?");
         // Préparation de la requête avant exécution de celle-ci :
-        state.setInt(0, id);
+        state.setInt(1, id);
         // Récupéaratino des valeurs lues en base de données :
         ResultSet res = state.executeQuery();
         res.next();
@@ -375,7 +375,7 @@ public final class ConnexionBDD {
         // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
         PreparedStatement state = connexion.prepareStatement("SELECT id, firmware FROM machine where machine.id=?");
         // Préparation de la requête avant exécution de celle-ci :
-        state.setInt(0, id);
+        state.setInt(1, id);
         // Récupéaratino des valeurs lues en base de données :
         ResultSet res = state.executeQuery();
         res.next();
@@ -397,7 +397,7 @@ public final class ConnexionBDD {
         // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
         PreparedStatement state = connexion.prepareStatement("SELECT id, os FROM machine where machine.id=?");
         // Préparation de la requête avant exécution de celle-ci :
-        state.setInt(0, id);
+        state.setInt(1, id);
         // Récupéaratino des valeurs lues en base de données :
         ResultSet res = state.executeQuery();
         res.next();
@@ -419,7 +419,7 @@ public final class ConnexionBDD {
         // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
         PreparedStatement state = connexion.prepareStatement("SELECT id, modele FROM machine where machine.id=?");
         // Préparation de la requête avant exécution de celle-ci :
-        state.setInt(0, id);
+        state.setInt(1, id);
         // Récupéaratino des valeurs lues en base de données :
         ResultSet res = state.executeQuery();
         res.next();
@@ -441,7 +441,7 @@ public final class ConnexionBDD {
         // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
         PreparedStatement state = connexion.prepareStatement("SELECT id, marque FROM machine where machine.id=?");
         // Préparation de la requête avant exécution de celle-ci :
-        state.setInt(0, id);
+        state.setInt(1, id);
         // Récupéaratino des valeurs lues en base de données :
         ResultSet res = state.executeQuery();
         res.next();
@@ -463,7 +463,7 @@ public final class ConnexionBDD {
          // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
         PreparedStatement state = connexion.prepareStatement("SELECT id, nom FROM machine where machine.id=?");
         // Préparation de la requête avant exécution de celle-ci :
-        state.setInt(0, id);
+        state.setInt(1, id);
         // Récupéaratino des valeurs lues en base de données :
         ResultSet res = state.executeQuery();
         res.next();
@@ -488,9 +488,9 @@ public final class ConnexionBDD {
         // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
         PreparedStatement state = connexion.prepareStatement("UPDATE batiment SET nom=?, localisation=?, description=? where batiment.nom=?");
         // Préparation de la requête avant exécution de celle-ci :
-        state.setString(0, b.getNom());
-        state.setString(1, b.getLocalisation());
-        state.setString(2, b.getDescription());
+        state.setString(1, b.getNom());
+        state.setString(2, b.getLocalisation());
+        state.setString(3, b.getDescription());
         // Récupéaratino des valeurs lues en base de données :
         int res = state.executeUpdate();
         // On met fin au statement et au resultSet :
@@ -508,8 +508,8 @@ public final class ConnexionBDD {
         // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
         PreparedStatement state = connexion.prepareStatement("UPDATE batiment SET nom=? where nom=?");
         // Préparation de la requête avant exécution de celle-ci :
-        state.setString(0, newName);
-        state.setString(1, oldName);
+        state.setString(1, newName);
+        state.setString(2, oldName);
         // Récupéaratino des valeurs lues en base de données :
         int res = state.executeUpdate();
         // On met fin au statement et au resultSet :
@@ -527,8 +527,8 @@ public final class ConnexionBDD {
         // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
         PreparedStatement state = connexion.prepareStatement("UPDATE batiment SET description=? where nom=?");
         // Préparation de la requête avant exécution de celle-ci :
-        state.setString(0, description);
-        state.setString(1, name);
+        state.setString(1, description);
+        state.setString(2, name);
         // Récupéaratino des valeurs lues en base de données :
         int res = state.executeUpdate();
         // On met fin au statement et au resultSet :
@@ -547,11 +547,11 @@ public final class ConnexionBDD {
         // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
         PreparedStatement state = connexion.prepareStatement("UPDATE salle SET numero=?, etage=?, nom=? where (salle.batiment=? and salle.id=?)");
         // Préparation de la requête avant exécution de celle-ci :
-        state.setString(0, s.getNumero());
-        state.setInt(1, s.getEtage());
-        state.setString(2, s.getNom());
-        state.setString(3, nameBatiment);
-        state.setInt(4, s.getId());
+        state.setString(1, s.getNumero());
+        state.setInt(2, s.getEtage());
+        state.setString(3, s.getNom());
+        state.setString(4, nameBatiment);
+        state.setInt(5, s.getId());
         // Récupéaratino des valeurs lues en base de données :
         int res = state.executeUpdate();
         // On met fin au statement et au resultSet :
@@ -568,10 +568,10 @@ public final class ConnexionBDD {
         // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
         PreparedStatement state = connexion.prepareStatement("UPDATE salle SET numero=?, etage=?, nom=? where salle.id=?");
         // Préparation de la requête avant exécution de celle-ci :
-        state.setString(0, s.getNumero());
-        state.setInt(1, s.getEtage());
-        state.setString(2, s.getNom());
-        state.setInt(3, s.getId());
+        state.setString(1, s.getNumero());
+        state.setInt(2, s.getEtage());
+        state.setString(3, s.getNom());
+        state.setInt(4, s.getId());
         // Récupéaratino des valeurs lues en base de données :
         int res = state.executeUpdate();
         // On met fin au statement et au resultSet :
@@ -589,8 +589,8 @@ public final class ConnexionBDD {
         // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
         PreparedStatement state = connexion.prepareStatement("UPDATE salle SET nom=? where salle.id=?");
         // Préparation de la requête avant exécution de celle-ci :
-        state.setString(0, nom);
-        state.setInt(1, id);
+        state.setString(1, nom);
+        state.setInt(2, id);
         // Récupéaratino des valeurs lues en base de données :
         int res = state.executeUpdate();
         // On met fin au statement et au resultSet :
@@ -608,8 +608,8 @@ public final class ConnexionBDD {
         // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
         PreparedStatement state = connexion.prepareStatement("UPDATE salle SET numero=? where salle.id=?");
         // Préparation de la requête avant exécution de celle-ci :
-        state.setString(0, numero);
-        state.setInt(1, id);
+        state.setString(1, numero);
+        state.setInt(2, id);
         // Récupéaratino des valeurs lues en base de données :
         int res = state.executeUpdate();
         // On met fin au statement et au resultSet :
@@ -629,23 +629,23 @@ public final class ConnexionBDD {
         {
             // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
             state = connexion.prepareStatement("UPDATE machine SET nom=?, marque=?, modele=?, os=?, firmware=?, etat=?, salle=?, typem=? where machine.id=?");
-            state.setInt(6, idSalle);
-            state.setString(7, m.getType());
-            state.setInt(8, m.getId());
+            state.setInt(7, idSalle);
+            state.setString(8, m.getType());
+            state.setInt(9, m.getId());
         }
         else
         {
             state = connexion.prepareStatement("UPDATE machine SET nom=?, marque=?, modele=?, os=?, firmware=?, etat=?, typem=? where machine.id=?");
-            state.setString(6, m.getType());
-            state.setInt(7, m.getId());
+            state.setString(7, m.getType());
+            state.setInt(8, m.getId());
         }
         // Préparation de la requête avant exécution de celle-ci :
-        state.setString(0, m.getNom());
-        state.setString(1, m.getMarque());
-        state.setString(2, m.getModele());
-        state.setString(3, m.getOS());
-        state.setString(4, m.getFirmware());
-        state.setBoolean(5, m.isEtat());
+        state.setString(1, m.getNom());
+        state.setString(2, m.getMarque());
+        state.setString(3, m.getModele());
+        state.setString(4, m.getOS());
+        state.setString(5, m.getFirmware());
+        state.setBoolean(6, m.isEtat());
         // Récupéaratino des valeurs lues en base de données :
         int res = state.executeUpdate();
         // On met fin au statement et au resultSet :
@@ -663,8 +663,8 @@ public final class ConnexionBDD {
         // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
         PreparedStatement state = connexion.prepareStatement("UPDATE machine SET nom=? where machine.id=?");
         // Préparation de la requête avant exécution de celle-ci :
-        state.setString(0, nom);
-        state.setInt(1, id);
+        state.setString(1, nom);
+        state.setInt(2, id);
         // Récupéaratino des valeurs lues en base de données :
         int res = state.executeUpdate();
         // On met fin au statement et au resultSet :
@@ -682,8 +682,8 @@ public final class ConnexionBDD {
         // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
         PreparedStatement state = connexion.prepareStatement("UPDATE machine SET os=? where machine.id=?");
         // Préparation de la requête avant exécution de celle-ci :
-        state.setString(0, os);
-        state.setInt(1, id);
+        state.setString(1, os);
+        state.setInt(2, id);
         // Récupéaratino des valeurs lues en base de données :
         int res = state.executeUpdate();
         // On met fin au statement et au resultSet :
@@ -701,8 +701,8 @@ public final class ConnexionBDD {
         // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
         PreparedStatement state = connexion.prepareStatement("UPDATE machine SET firmware=? where machine.id=?");
         // Préparation de la requête avant exécution de celle-ci :
-        state.setString(0, firmware);
-        state.setInt(1, id);
+        state.setString(1, firmware);
+        state.setInt(2, id);
         // Récupéaratino des valeurs lues en base de données :
         int res = state.executeUpdate();
         // On met fin au statement et au resultSet :
@@ -720,8 +720,8 @@ public final class ConnexionBDD {
         // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
         PreparedStatement state = connexion.prepareStatement("UPDATE machine SET etat=? where machine.id=?");
         // Préparation de la requête avant exécution de celle-ci :
-        state.setBoolean(0, etat);
-        state.setInt(1, id);
+        state.setBoolean(1, etat);
+        state.setInt(2, id);
         // Récupéaratino des valeurs lues en base de données :
         int res = state.executeUpdate();
         // On met fin au statement et au resultSet :
@@ -739,8 +739,8 @@ public final class ConnexionBDD {
         // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
         PreparedStatement state = connexion.prepareStatement("UPDATE machine SET salle=? where machine.id=?");
         // Préparation de la requête avant exécution de celle-ci :
-        state.setInt(0, idSalle);
-        state.setInt(1, idMachine);
+        state.setInt(1, idSalle);
+        state.setInt(2, idMachine);
         // Récupéaratino des valeurs lues en base de données :
         int res = state.executeUpdate();
         // On met fin au statement et au resultSet :
@@ -758,8 +758,8 @@ public final class ConnexionBDD {
         // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
         PreparedStatement state = connexion.prepareStatement("UPDATE machine SET typem=? where machine.id=?");
         // Préparation de la requête avant exécution de celle-ci :
-        state.setString(0, type);
-        state.setInt(1, id);
+        state.setString(1, type);
+        state.setInt(2, id);
         // Récupéaratino des valeurs lues en base de données :
         int res = state.executeUpdate();
         // On met fin au statement et au resultSet :
@@ -779,9 +779,9 @@ public final class ConnexionBDD {
         // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
         PreparedStatement state = connexion.prepareStatement("INSERT INTO batiment (nom, localisation, description) VALUES (?, ?, ?)");
         // Préparation de la requête avant exécution de celle-ci :
-        state.setString(0, b.getNom());
-        state.setString(1, b.getLocalisation());
-        state.setString(2, b.getDescription());
+        state.setString(1, b.getNom());
+        state.setString(2, b.getLocalisation());
+        state.setString(3, b.getDescription());
         // Récupéaratino des valeurs lues en base de données :
         int res = state.executeUpdate();
         // On met fin au statement et au resultSet :
@@ -801,9 +801,9 @@ public final class ConnexionBDD {
         // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
         PreparedStatement state = connexion.prepareStatement("INSERT INTO salle (numero, etage, batiment) VALUES (?, ?, ?)");
         // Préparation de la requête avant exécution de celle-ci :
-        state.setString(0, s.getNumero());
-        state.setInt(1, s.getEtage());
-        state.setString(2, nomBatiment);
+        state.setString(1, s.getNumero());
+        state.setInt(2, s.getEtage());
+        state.setString(3, nomBatiment);
         // Récupéaratino des valeurs lues en base de données :
         int res = state.executeUpdate();
         // On met fin au statement et au resultSet :
@@ -829,13 +829,13 @@ public final class ConnexionBDD {
         // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
         PreparedStatement state = connexion.prepareStatement("INSERT INTO machine (nom, marque, os, firmware, etat, salle, typem) VALUES (?, ?, ?, ?, ?, ?, ?)");
         // Préparation de la requête avant exécution de celle-ci :
-        state.setString(0, m.getNom());
-        state.setString(1, m.getMarque());
-        state.setString(2, m.getOS());
-        state.setString(3, m.getFirmware());
-        state.setBoolean(4, m.isEtat());
-        state.setInt(5, idSalle);
-        state.setString(6, m.getType());
+        state.setString(1, m.getNom());
+        state.setString(2, m.getMarque());
+        state.setString(3, m.getOS());
+        state.setString(4, m.getFirmware());
+        state.setBoolean(5, m.isEtat());
+        state.setInt(6, idSalle);
+        state.setString(7, m.getType());
         // Récupéaratino des valeurs lues en base de données :
         int res = state.executeUpdate();
         // On met fin au statement et au resultSet :
@@ -868,14 +868,14 @@ public final class ConnexionBDD {
             // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
            PreparedStatement state = connexion.prepareStatement("INSERT INTO interfacereseau (mac, ipv4, ipv6, etat, machine, typer) VALUES (?, ?, ?, ?, ?, ?)");
            // Préparation de la requête avant exécution de celle-ci :
-           state.setString(0, i.getAdresseMAC());
-           state.setString(1, i.getAdresseIP());
+           state.setString(1, i.getAdresseMAC());
+           state.setString(2, i.getAdresseIP());
            // Adresse IPv6 non implémentée :
-           state.setString(2, "");
+           state.setString(3, "");
            // Etat de l'interface non implémentée :
-           state.setBoolean(3, true);
-           state.setInt(4, idMachine);
-           state.setString(5, i.getType());
+           state.setBoolean(4, true);
+           state.setInt(5, idMachine);
+           state.setString(6, i.getType());
            // Récupéaratino des valeurs lues en base de données :
            int res = state.executeUpdate();
            // On met fin au statement et au resultSet :
@@ -895,7 +895,7 @@ public final class ConnexionBDD {
         // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
         PreparedStatement state = connexion.prepareStatement("DELETE FROM batiment where batiment.nom=?");
         // Préparation de la requête avant exécution de celle-ci :
-        state.setString(0, nomBatiment);
+        state.setString(1, nomBatiment);
         // Récupéaratino des valeurs lues en base de données :
         int res = state.executeUpdate();
         // On met fin au statement et au resultSet :
@@ -912,7 +912,7 @@ public final class ConnexionBDD {
         // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
         PreparedStatement state = connexion.prepareStatement("DELETE FROM salle where salle.id=?");
         // Préparation de la requête avant exécution de celle-ci :
-        state.setInt(0, idSalle);
+        state.setInt(1, idSalle);
         // Récupéaratino des valeurs lues en base de données :
         int res = state.executeUpdate();
         // On met fin au statement et au resultSet :
@@ -929,7 +929,7 @@ public final class ConnexionBDD {
         // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
         PreparedStatement state = connexion.prepareStatement("DELETE FROM machine where machine.id=?");
         // Préparation de la requête avant exécution de celle-ci :
-        state.setInt(0, idMachine);
+        state.setInt(1, idMachine);
         // Récupéaratino des valeurs lues en base de données :
         int res = state.executeUpdate();
         // On met fin au statement et au resultSet :
