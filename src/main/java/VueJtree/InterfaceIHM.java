@@ -15,6 +15,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 
 /* autres import */
 
@@ -262,61 +263,271 @@ public class InterfaceIHM extends javax.swing.JFrame {
         if(jButtonTree.getText().equals("Connecter"))
         {
              try {
-                 // on se connecte à la base et on récupère les batiments
-                 
-                 
-                 
-                 console.setText("Connexion à la base...\n");
-                 db = new ConnexionBDD("jdbc:mysql://binary-digit.net:3306/java", "java", "java");
-                 
-                 jButtonTree.setBackground(Color.ORANGE);
-                 jButtonTree.setText("Récupération des objets dans la base...");
-                 console.setText("Connexion à la base réussi !\nRécupération des Objets...\n");
-                 
-                 batiments = db.getAllBatiment(); // onrécupère les batiments dans la BD
-                 
-                 console.setText(console.getText() + batiments.size() +" Batiment(s) récupéré(s)\n");
+                 // on essaye de se connecter à la BD et on récupère les batiments
+
+                console.setText("Connexion à la base...\n");
+                db = new ConnexionBDD("jdbc:mysql://binary-digit.net:3306/java", "java", "java");
+
+                jButtonTree.setBackground(Color.ORANGE);
+                jButtonTree.setText("Récupération des objets dans la base...");
+
+                console.setText("Connexion à la base réussi !\nRécupération des Objets...\n");
+
+                batiments = db.getAllBatiment(); // onrécupère les batiments dans la BD
+
+                console.setText(console.getText() + batiments.size() +" Batiment(s) récupéré(s)\n");
+
+                for(Batiment b: batiments) // pour chaque batiment
+                {  
+                     console.setText(console.getText() +"Batiment: "+b.getNom()+" ->" + b.getSalles().size() +" Salles récupéré(s)\n");
+                } 
+
+                //modification du gros bouton
                 
-                 
-                 for(Batiment b: batiments) // pour chaque batiment
-                 {  
-                      console.setText(console.getText() +"Batiment: "+b.getNom()+" ->" + b.getSalles().size() +" Salles récupéré(s)\n");
-                 } 
+                jButtonTree.setText("Deconnecter");      // 
+                jButtonTree.setBackground(Color.green);  // vert
                  
                  
-                 jButtonTree.setText("Deconnecter");
-                 jButtonTree.setBackground(Color.green);  
-                 
-                 
-             } catch (ClassNotFoundException ex) {
-                // Logger.getLogger(InterfaceIHM.class.getName()).log(Level.SEVERE, null, ex);
-             } catch (SQLException ex) {
-                // Logger.getLogger(InterfaceIHM.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException | SQLException ex) {
+                // si on arrive pas à se connecter on ferme le programme
+                 System.out.println("Impossible de se conecter à la BD\n Exiting...\n");
+                 System.exit(-1);                         
+            } 
+             
+                     
+            // déclaration des variables pour la construction du JTree 
+            DefaultMutableTreeNode racine3 = new DefaultMutableTreeNode("Etablissement");
+
+             arbreModele = new DefaultTreeModel(racine3);
+
+             // Comportement des noeuds sans fils mais pouvant posséder des enfants : 
+             arbreModele.setAsksAllowsChildren(true);
+             JTree monArbre3 = new JTree(arbreModele); 
+
+             DefaultMutableTreeNode Jtree_batiment;
+             DefaultMutableTreeNode Jtree_Salle;
+             DefaultMutableTreeNode jTree_generique_machine;
+
+            /****************************** Construction du JTree **********************************************/ 
+             for(Batiment b: batiments) // construction du JTree.
+             {
+                 Jtree_batiment = new DefaultMutableTreeNode();
+                 Jtree_batiment.setUserObject(b);
+                // for( int j = 0; j < 2*i; ++j)
+                 for(Salle s: b.getSalles())
+                 {
+                     Jtree_Salle = new DefaultMutableTreeNode();
+                     Jtree_Salle.setUserObject(s);
+
+                     jTree_generique_machine = new DefaultMutableTreeNode("*** MACHINE***");
+                     Jtree_Salle.add(jTree_generique_machine);
+
+                     // traitement Jtree des machines d'une salles
+                     if(s.getMachines().isEmpty() == false) // salles avec des machines
+                     {
+                         for(Machine m: s.getMachines())
+                         {                        
+                             jTree_generique_machine = new DefaultMutableTreeNode(m, false);
+                             jTree_generique_machine.setUserObject(m);
+
+                             Jtree_Salle.add(jTree_generique_machine); Jtree_batiment.add(Jtree_Salle); // ajout des dev à la salle; ajout des salles aux 
+                         }
+                     }
+                     else                                    // salles sans machines
+                     {
+                         Machine f = new Machine("Empty"); // ici les machiens de la salles
+
+                         jTree_generique_machine = new DefaultMutableTreeNode(f, false);
+                         jTree_generique_machine.setUserObject(f);
+
+                         Jtree_Salle.add(jTree_generique_machine); Jtree_batiment.add(Jtree_Salle); // ajout des dev à la salle; ajout des salles aux 
+                     }
+                 }
+
+                 racine3.add(Jtree_batiment); // ajout des batiment à la racine du Jtree
              }
+
+             /***************************************************************************************************/ 
+
+
+             TreeModel modele = monArbre3.getModel();
+
+
+             // On ajoute notre modèle au JTree déjà existant par défaut :
+             jTree.setModel(modele);
+
+
+             TreeModel m = jTree.getModel();
+             Object o = m.getRoot();
+             DefaultMutableTreeNode oo;
+
+             // On active les modifications sur le Jtree + Sélection unique d'un noeud, pas de multi-selection : 
+             jTree.setEditable(true);
+             jTree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
+
+             /* Test événement JTree : */
+             // Edite la zone sans appuyer sur la touche entrer : 
+             // jTreeTest.setInvokesStopCellEditing(true);
+
+
+             // Ajout d'un listener permettant de détecter les changements réaliser sur un noeud : 
+             modele.addTreeModelListener(new TreeModelListener() {
+
+
+                 @Override
+                 public void treeNodesChanged(TreeModelEvent e) {
+                     System.out.println("Valeur modifiée :");    System.out.println(e.getChildren()[0].toString());     
+                 }
+
+                 @Override
+                 public void treeNodesInserted(TreeModelEvent e) {
+                     System.out.print("Noeud ajouté: ");         System.out.println(e.getTreePath().toString());
+                 }
+
+                 @Override
+                 public void treeNodesRemoved(TreeModelEvent e) {
+                     System.out.print("Noeud supprimé: ");       System.out.println(e.getTreePath().toString());
+                 }
+
+
+                 @Override
+                 public void treeStructureChanged(TreeModelEvent e) {
+                     System.out.print("Structure changed: ");   System.out.println(e.getTreePath().toString());
+
+                 }
+
+
+             });
+
+             /* Listener lors de la sélection d'un noeud, on veut afficher ses informations */
+
+
+             jTree.addTreeSelectionListener(new TreeSelectionListener() {
+
+                @Override
+                public void valueChanged(TreeSelectionEvent e) {
+
+                  DefaultMutableTreeNode var = (DefaultMutableTreeNode) e.getPath().getLastPathComponent(); 
+       //***********************************************************************************************************************               
+                 try{
+                      Batiment temp = (Batiment) var.getUserObject();
+                      mainAreaText.setText(temp.FullScreen()); // affichage dans textfield des propriété de l'objet.
+
+
+                      interfaceDisplayer.setText("Aucune Interface sur cet objet");
+
+
+                      addObj.setEnabled(true);  addObj.setText("+ Ajouter une salle\n");
+                      delObjet.setEnabled(true);  delObjet.setText("+ Supprimer '"+ temp.toString()+"'");
+                      changeEtat.setEnabled(false); changeEtat.setText("+ Aucun changement d'Etat possible\n");
+
+                      console.setText("Ajouter une nouvelle salle \n ou supprimer le batiment " + temp.toString()
+                              + "\n\nAucun changement d'Etat n'est disponible\n sur cet objet. \n");
+
+
+                 }catch(ClassCastException exep){
+                     System.out.println("Ce n'est pas un batiment");
+                 }
+      //***********************************************************************************************************************           
+                 try{
+                      Salle temp = (Salle) var.getUserObject();
+                      mainAreaText.setText(temp.FullScreen());
+                      interfaceDisplayer.setText("Aucune Interface sur cet objet");
+
+                      /* action valide sur les boutons */
+                      addObj.setEnabled(true); addObj.setText("Ajouter une machine");
+                      delObjet.setEnabled(true); delObjet.setText("Supprimer '"+ temp.toString()+"'");
+                      changeEtat.setEnabled(true); changeEtat.setText("Changer Etat de la salle");
+
+                      /* text de la console d'aide. */
+                      console.setText("+ Ajouter une nouvelle machine à la salle\n"
+                              + "+ Supprimer la salle "+ temp.toString()+"\n"
+                              + "+ Changer l'Etat de la salle:\n"
+                              + "Tous les Equipements seront mis dans l'Etat DOWN\n"
+                              + "ou dans l'Etat UP.\n");
+
+                 }catch(ClassCastException exep){
+                     System.out.println("Ce n'est pas une salle");
+                 }
+      //***********************************************************************************************************************   
+                 try{
+                      Machine temp = (Machine) var.getUserObject();
+                      mainAreaText.setText(temp.FullScreen());         // affichage de la description des batiments
+                      interfaceDisplayer.setText(temp.displayInterfaces()); // affichages des inerfaces
+
+                      addObj.setEnabled(false); addObj.setText("Ajouter");
+                      delObjet.setEnabled(true); delObjet.setText("+ Supprimer '"+ temp.toString()+"'");
+                      changeEtat.setEnabled(true); changeEtat.setText("+ Changer Etat de la machine");
+
+                      console.setText("Supprimer la machine "+temp.toString()+"\n"
+                              + "Changer son Etat\n"
+                              + "");
+                 }catch(ClassCastException exep){
+                     System.out.println("Ce n'est pas une Machine");
+                 } 
+      //***********************************************************************************************************************               
+
+
+
+
+                }
+            });
+
+             /* lors de l'expansion d'un noeud, on veut actualiser les données
+                 en interrogeant la BD.
+             */
+             jTree.addTreeExpansionListener(new TreeExpansionListener() {
+
+                 @Override
+                 public void treeExpanded(TreeExpansionEvent event) {
+                     /* codes lors de l'expand d'un noeud */
+                     String node = event.getPath().getLastPathComponent().toString();
+
+                     System.out.println(event.getPath().getLastPathComponent().toString()); // affiche le l'élément expand
+
+
+                 }
+
+                 @Override
+                 public void treeCollapsed(TreeExpansionEvent event) {
+                     /* codes lors d'un collpase d'un noeud */
+                     String node = event.getPath().getLastPathComponent().toString();
+
+                     System.out.println(event.getPath().getLastPathComponent().toString()); // affiche le l'élément expand
+
+
+                 }
+             });
+
+             /// On cache le noeud racine : 
+             jTree.setRootVisible(false);
+
+
+             /* Modifier le rendu de chaque noeu d'un Jtree en fonction de sa hiérarchie : */
+             jTree.setCellRenderer(new JtreeDesign());
         }
-        else
+        else // si déconnecter ou autre
         {
             try {
                 db.closeConnexionBDD();
                 console.setText("Déconnexion réussi !");
             } catch (SQLException ex) {
                System.out.println("Impossible de fermer la connxion à la DB...\nExiting...");
-               System.exit(-1); // erreur.
-               
+               System.exit(-1); // erreur.  
             }
             
-            
-            
-            
-            jButtonTree.setText("Connecter");
-            jButtonTree.setBackground(Color.red);
+            //modification du gros bouton
+            jButtonTree.setText("Connecter");       //
+            jButtonTree.setBackground(Color.red);   // rouge
         }
-
-        /* 
-            Le nom de la racine correspond au nom de la base de donnéee.
-            On récupère donc le nom de la base de donnée.
-        */
         
+        /* désactivation des boutons */
+            
+            addObj.setEnabled(false);           // Ajouter
+            delObjet.setEnabled(false);         // Supprimer
+            changeEtat.setEnabled(false);       // Changer Etat
+            
+        //
         /*****************************Set des affichages ***************************************************/
         
         mainAreaText.setText("******************************************************************\n" +
@@ -330,217 +541,7 @@ public class InterfaceIHM extends javax.swing.JFrame {
         console.setText("< CONSOLE D'AIDE >");
         
         /***************************************************************************************************/ 
-       
-       
-       DefaultMutableTreeNode racine3 = new DefaultMutableTreeNode("Etablissement");
-        
-        arbreModele = new DefaultTreeModel(racine3);
-        
-        // Comportement des noeuds sans fils mais pouvant posséder des enfants : 
-        arbreModele.setAsksAllowsChildren(true);
-        JTree monArbre3 = new JTree(arbreModele); 
-   
-        DefaultMutableTreeNode Jtree_batiment;
-        DefaultMutableTreeNode Jtree_Salle;
-        DefaultMutableTreeNode jTree_generique_machine;
-        
-       /****************************** Construction du JTree **********************************************/ 
-        for(Batiment b: batiments) // construction du JTree.
-        {
-            Jtree_batiment = new DefaultMutableTreeNode();
-            Jtree_batiment.setUserObject(b);
-           // for( int j = 0; j < 2*i; ++j)
-            for(Salle s: b.getSalles())
-            {
-                Jtree_Salle = new DefaultMutableTreeNode();
-                Jtree_Salle.setUserObject(s);
-                
-                jTree_generique_machine = new DefaultMutableTreeNode("*** MACHINE***");
-                Jtree_Salle.add(jTree_generique_machine);
-             
-                // traitement Jtree des machines d'une salles
-                if(s.getMachines().isEmpty() == false) // salles avec des machines
-                {
-                    for(Machine m: s.getMachines())
-                    {                        
-                        jTree_generique_machine = new DefaultMutableTreeNode(m, false);
-                        jTree_generique_machine.setUserObject(m);
 
-                        Jtree_Salle.add(jTree_generique_machine); Jtree_batiment.add(Jtree_Salle); // ajout des dev à la salle; ajout des salles aux 
-                    }
-                }
-                else                                    // salles sans machines
-                {
-                    Machine f = new Machine("Empty"); // ici les machiens de la salles
-                    
-                    jTree_generique_machine = new DefaultMutableTreeNode(f, false);
-                    jTree_generique_machine.setUserObject(f);
-                    
-                    Jtree_Salle.add(jTree_generique_machine); Jtree_batiment.add(Jtree_Salle); // ajout des dev à la salle; ajout des salles aux 
-                }
-            }
-            
-            racine3.add(Jtree_batiment); // ajout des batiment à la racine du Jtree
-        }
-        
-        /***************************************************************************************************/ 
-
-        
-        TreeModel modele = monArbre3.getModel();
-        
-        
-        // On ajoute notre modèle au JTree déjà existant par défaut :
-        jTree.setModel(modele);
-        
-        
-        TreeModel m = jTree.getModel();
-        Object o = m.getRoot();
-        DefaultMutableTreeNode oo;
-        
-        // On active les modifications sur le Jtree + Sélection unique d'un noeud, pas de multi-selection : 
-        jTree.setEditable(true);
-        jTree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
-        
-        /* Test événement JTree : */
-        // Edite la zone sans appuyer sur la touche entrer : 
-        // jTreeTest.setInvokesStopCellEditing(true);
-        
-        
-        // Ajout d'un listener permettant de détecter les changements réaliser sur un noeud : 
-        modele.addTreeModelListener(new TreeModelListener() {
-
-           
-            @Override
-            public void treeNodesChanged(TreeModelEvent e) {
-                System.out.println("Valeur modifiée :");    System.out.println(e.getChildren()[0].toString());     
-            }
-
-            @Override
-            public void treeNodesInserted(TreeModelEvent e) {
-                System.out.print("Noeud ajouté: ");         System.out.println(e.getTreePath().toString());
-            }
-
-            @Override
-            public void treeNodesRemoved(TreeModelEvent e) {
-                System.out.print("Noeud supprimé: ");       System.out.println(e.getTreePath().toString());
-            }
-
-            
-            @Override
-            public void treeStructureChanged(TreeModelEvent e) {
-                System.out.print("Structure changed: ");   System.out.println(e.getTreePath().toString());
-                
-            }
-            
-            
-        });
-        
-        /* Listener lors de la sélection d'un noeud, on veut afficher ses informations */
-        
-        
-        jTree.addTreeSelectionListener(new TreeSelectionListener() {
-
-           @Override
-           public void valueChanged(TreeSelectionEvent e) {
-              
-             DefaultMutableTreeNode var = (DefaultMutableTreeNode) e.getPath().getLastPathComponent(); 
-  //***********************************************************************************************************************               
-            try{
-                 Batiment temp = (Batiment) var.getUserObject();
-                 mainAreaText.setText(temp.FullScreen()); // affichage dans textfield des propriété de l'objet.
-                 
-                 
-                 interfaceDisplayer.setText("Aucune Interface sur cet objet");
-                 
-                 
-                 addObj.setEnabled(true);  addObj.setText("+ Ajouter une salle\n");
-                 delObjet.setEnabled(true);  delObjet.setText("+ Supprimer '"+ temp.toString()+"'");
-                 changeEtat.setEnabled(false); changeEtat.setText("+ Aucun changement d'Etat possible\n");
-                 
-                 console.setText("Ajouter une nouvelle salle \n ou supprimer le batiment " + temp.toString()
-                         + "\n\nAucun changement d'Etat n'est disponible\n sur cet objet. \n");
-                 
-                 
-            }catch(ClassCastException exep){
-                System.out.println("Ce n'est pas un batiment");
-            }
- //***********************************************************************************************************************           
-            try{
-                 Salle temp = (Salle) var.getUserObject();
-                 mainAreaText.setText(temp.FullScreen());
-                 interfaceDisplayer.setText("Aucune Interface sur cet objet");
-                 
-                 /* action valide sur les boutons */
-                 addObj.setEnabled(true); addObj.setText("Ajouter une machine");
-                 delObjet.setEnabled(true); delObjet.setText("Supprimer '"+ temp.toString()+"'");
-                 changeEtat.setEnabled(true); changeEtat.setText("Changer Etat de la salle");
-                 
-                 /* text de la console d'aide. */
-                 console.setText("+ Ajouter une nouvelle machine à la salle\n"
-                         + "+ Supprimer la salle "+ temp.toString()+"\n"
-                         + "+ Changer l'Etat de la salle:\n"
-                         + "Tous les Equipements seront mis dans l'Etat DOWN\n"
-                         + "ou dans l'Etat UP.\n");
-                 
-            }catch(ClassCastException exep){
-                System.out.println("Ce n'est pas une salle");
-            }
- //***********************************************************************************************************************   
-            try{
-                 Machine temp = (Machine) var.getUserObject();
-                 mainAreaText.setText(temp.FullScreen());         // affichage de la description des batiments
-                 interfaceDisplayer.setText(temp.displayInterfaces()); // affichages des inerfaces
-                 
-                 addObj.setEnabled(false); addObj.setText("Ajouter");
-                 delObjet.setEnabled(true); delObjet.setText("+ Supprimer '"+ temp.toString()+"'");
-                 changeEtat.setEnabled(true); changeEtat.setText("+ Changer Etat de la machine");
-                 
-                 console.setText("Supprimer la machine "+temp.toString()+"\n"
-                         + "Changer son Etat\n"
-                         + "");
-            }catch(ClassCastException exep){
-                System.out.println("Ce n'est pas une Machine");
-            } 
- //***********************************************************************************************************************               
-            
-               
-               
- 
-           }
-       });
-     
-        /* lors de l'expansion d'un noeud, on veut actualiser les données
-            en interrogeant la BD.
-        */
-        jTree.addTreeExpansionListener(new TreeExpansionListener() {
-
-            @Override
-            public void treeExpanded(TreeExpansionEvent event) {
-                /* codes lors de l'expand d'un noeud */
-                String node = event.getPath().getLastPathComponent().toString();
-                
-                System.out.println(event.getPath().getLastPathComponent().toString()); // affiche le l'élément expand
-                
-                
-            }
-
-            @Override
-            public void treeCollapsed(TreeExpansionEvent event) {
-                /* codes lors d'un collpase d'un noeud */
-                String node = event.getPath().getLastPathComponent().toString();
-                
-                System.out.println(event.getPath().getLastPathComponent().toString()); // affiche le l'élément expand
-                
-                
-            }
-        });
-        
-        /// On cache le noeud racine : 
-        jTree.setRootVisible(false);
-
-        
-        /* Modifier le rendu de chaque noeu d'un Jtree en fonction de sa hiérarchie : */
-        jTree.setCellRenderer(new JtreeDesign());
         
         arbreModele.reload();
         
@@ -563,18 +564,52 @@ public class InterfaceIHM extends javax.swing.JFrame {
     private void delObjetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delObjetActionPerformed
         // TODO add your handling code here:
         
+        DefaultMutableTreeNode var = (DefaultMutableTreeNode) jTree.getSelectionPath().getLastPathComponent(); 
         
-         console.setText("Tentative de supression de l'objet...");
-         DefaultMutableTreeNode var = (DefaultMutableTreeNode) jTree.getSelectionPath().getLastPathComponent();
+        console.setText("Tentative de supression de l'objet...");
+        
+        try{ // machine
+                
+            Machine temp = (Machine) var.getUserObject();
+            
+            /* supression de la machine dans la base de donnée */
+            
+            // dans la BD
+            try {
+                db.deleteMachineAndAllAssociated(temp.getId());
+            } 
+            catch (SQLException ex) {
+                System.out.println("Impossible de récupercuter le changement d'Etat dans la base: "+ex.getMessage());
+            }                 
+        }
+        catch(ClassCastException exep){
+            System.out.println("Ce n'est pas une Machine");
+        }
+ //***********************************************************************************************************************          
+
+        try{ // salle
+
+            Salle temp = (Salle) var.getUserObject();
+
+
+            try  // supression de la salle et des machines de la salle
+            {
+                db.deleteSalleAndAllAssociated(temp.getId());
+            } 
+            catch (SQLException ex) {
+                System.out.println("Impossible de récupercuter le changement d'Etat dans la base: "+ex.getMessage());
+            }
+
+        }
+        catch(ClassCastException exep){
+             System.out.println("Ce n'est pas une Machine");
+        }
          
-         var.removeFromParent();
-         console.setText("Objet supprimé: "+var.toString());
-         System.gc(); // nettoyage mémoire
-         
-         arbreModele.reload();
-         
-         
-         
+        var.removeFromParent();
+        console.setText("Objet supprimé: "+var.toString());
+        System.gc(); // nettoyage mémoire
+
+        arbreModele.reload(); // rechargement du Jtree en entier      
     }//GEN-LAST:event_delObjetActionPerformed
 
     private void changeEtatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changeEtatActionPerformed
@@ -617,35 +652,24 @@ public class InterfaceIHM extends javax.swing.JFrame {
  //***********************************************************************************************************************          
          try{ //salle
                  Salle temp = (Salle) var.getUserObject();
-                 
-                 for(Machine m : temp.getMachines()) // pour chaque machine de la salle
-                 {
-                     m.setEtat(false); // on met les machines dans l'Etat down.
-                     
-                     /* on essaye de changer l'Etat des machines salle dans la base de donnée */
-                     
-                 }
-                 
-                 console.setText("L'Etat des machines a bien été changé."); // confirmation dans la console
-                 
-                 arbreModele.reload(var); // rechargement de l'arborescence
-                 
-    
+
                 for(Machine m : temp.getMachines()) // pour chaque machine de la salle
                 {
-                    try {
-                    // modification de l'etat de la machine dans la base de donnée.
+                    m.setEtat(false); // on met les machines dans l'Etat down.
+                    try { //  on essaye de répècuter la modification de l'etat de la machine dans la base de donnée.
 
-                    db.updateEtatOfMachine(m.getId(), m.isEtat()); //
+                         db.updateEtatOfMachine(m.getId(), m.isEtat()); //SQL
                     }
                     catch (SQLException ex) {
                         System.out.println("Impossible de récupercuter le changement d'Etat dans la base: "+ex.getMessage());
                     }
 
                 }
-
-                
-              
+                console.setText("L'Etat des machines a bien été changé."); // confirmation dans la console
+                 
+                // modification sur le JTree
+                 
+                arbreModele.reload(var); // rechargement de l'arborescence
                  
             }catch(ClassCastException exep){
                 System.out.println("Ce n'est pas une Salle");
