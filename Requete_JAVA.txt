@@ -1,0 +1,121 @@
+// Récupération des éléments en base de données :
+// Séléctionner l'ensemble des batiments présents en base de données pour affichage des noeuds Jtree :
+
+SELECT nom, localisation, description FROM batiment;
+
+// Sélectionner l'ensemble des salles d'un batiment donné :
+
+SELECT id, numero, etage, nom, batiment FROM salle where 'U3'=salle.batiment;
+
+// Sélectionne l'ensemble des ordinateurs d'une salle donnée :
+
+SELECT id, nom, marque, modele, os, firmware, etat, salle, typem FROM machine where machine.salle='2';
+
+// Sélectionner l'ensemble des interfaces d'une machine donnée :
+
+SELECT mac, ipv4, ipv6, typer, etat, machine FROM interfacereseau where interfacereseau.machine='3';
+
+// Sélectionner l'ensemble des unités processeurs d'une machine donnée :
+
+SELECT id, typep, fabriquant, nom, machine FROM uniteProcesseur where machine='2';
+
+// Sélectionner les machines connectés à une machine donnée :
+
+SELECT machine2 FROM estconnectee where estconnectee.machine1='5';
+
+// Récupérer les informations d'une machine connectée à celle précédente :
+
+SELECT id, nom, marque, modele, os, firmware, etat, salle, typem FROM machine where machine.id='1';
+
+// Récupérer les informations d'un batiment en connaissant l'identifiant id d'une salle en base de données : 
+
+SELECT nom, localisation, description FROM batiment where batiment.nom=(SELECT batiment FROM salle where salle.id=1)
+
+// Modification des éléments en base de données : Mise à jour.
+// Mise à jour de toutes les informations d'un batiment :
+
+UPDATE batiment SET nom='test', localisation='testt', description='testtt' where batiment.nom='U3';
+
+// Mise à jour du nom d'un batiment :
+
+UPDATE batiment SET nom='test' where nom='U3';
+
+// Mise à jour de la description d'un batiment :
+
+UPDATE batiment SET description='test' where nom='U3';
+
+// Mise à jour des informations d'une salle d'un batiment donné :
+
+UPDATE salle SET numero='0', etage=0, nom='test' where (salle.batiment='U3' and salle.id=2);
+
+// Mise à jour de toutes les informations d'une salle :
+
+UPDATE salle SET numero='test', etage=1, nom='test' where salle.id=2;
+
+// Mise à jour du nom d'une salle :
+
+UPDATE salle SET nom='test' where salle.id=2;
+
+// Mise à jour du numéro d'une salle :
+
+UPDATE salle SET numero='-1' where salle.id=2;
+
+// Mise à jour de toutes les informations d'une machine donnée :
+
+UPDATE machine SET nom='durdur07', marque='HP07', modele='Pavillon07', os='Windows 8.107', firmware='UEFI07', etat=false, salle=2, typem='Routeur' where machine.id=1;
+
+// Mise à jour du nom d'une machine :
+
+UPDATE machine SET nom='durdur07' where machine.id=1;
+
+// Mise à jour de l'os d'une machine :
+
+UPDATE machine SET os='Windows 8.107' where machine.id=1;
+
+// Mise à jour du firmware d'une machine :
+
+UPDATE machine SET firmware='UEFI07' where machine.id=1;
+
+// Mise à jour de l'état d'une machine :
+
+UPDATE machine SET etat=true where machine.id=1;
+
+// Mise à jour de la salle d'une machine :
+
+UPDATE machine SET salle=3 where machine.id=1;
+
+// Mise à jour du type d'une machine :
+
+UPDATE machine SET typem='Routeur' where machine.id=1;
+
+
+// Modification des éléments en base de données : Insert.
+// Ajouter un nouveau batiment en base de données :
+
+INSERT INTO batiment (nom, localisation, description) VALUES ('Test', 'Test', 'Test');
+
+// Ajouter une nouvelle salle à un batiment en base de données :
+
+INSERT INTO salle (numero, etage, batiment) VALUES ('test', 123, 'Test');
+
+// Ajouter une nouvelle machine à une salle en base de données :
+
+INSERT INTO machine (nom, marque, os, firmware, etat, salle, typem) VALUES ('test', 'test', 'test', 'test', true, 4, 'Ordinateur fixe');
+
+// Ajout des interfaces réseaux à une machine :
+
+INSERT INTO interfacereseau (mac, ipv4, ipv6, etat, machine, typer) VALUES ('test', 'test', 'test', false, 6, 'Ethernet');
+
+
+// Suppression des éléments en base de données : Delete.
+// Supprimer un batiment et tous les éléments associés : 
+
+DELETE FROM batiment where batiment.nom='Test';
+
+// Supprimer une salle :
+
+DELETE FROM salle where salle.id=5;
+
+// Supprimer une machine :
+
+DELETE FROM machine where machine.id=8;
