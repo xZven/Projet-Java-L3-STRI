@@ -13,6 +13,8 @@ import BaseDeDonnees.*;
 import java.awt.Color;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /* autres import */
 
@@ -60,21 +62,21 @@ public class InterfaceIHM extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPaneTreeTest = new javax.swing.JScrollPane();
-        jTreeTest = new javax.swing.JTree();
+        jTree = new javax.swing.JTree();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jButtonTree = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        mainAreaText = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        interfaceDisplayer = new javax.swing.JTextArea();
+        addObj = new javax.swing.JButton();
+        delObjet = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea3 = new javax.swing.JTextArea();
-        jButton3 = new javax.swing.JButton();
+        console = new javax.swing.JTextArea();
+        changeEtat = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -89,15 +91,15 @@ public class InterfaceIHM extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTreeTest.setBackground(new java.awt.Color(204, 204, 204));
+        jTree.setBackground(new java.awt.Color(204, 204, 204));
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Bievenue sur Device Manager");
-        jTreeTest.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
-        jTreeTest.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
+        jTree.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
             public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
-                jTreeTestValueChanged(evt);
+                jTreeValueChanged(evt);
             }
         });
-        jScrollPaneTreeTest.setViewportView(jTreeTest);
+        jScrollPaneTreeTest.setViewportView(jTree);
 
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
 
@@ -134,51 +136,51 @@ public class InterfaceIHM extends javax.swing.JFrame {
         jLabel3.setText("Université Paul Sabatier - UPPSITECH - STRI - Copyright \u00a9 2015");
         jLabel3.setToolTipText("");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
-        jTextArea1.setRows(5);
-        jTextArea1.setText("******************************************************************\n*\t\tBienvenue sur Device Manager v1.0\t         *\n******************************************************************\n\nLa description des objets sélectionnés dans l'arborescence s'af\n- ficheront ici.");
-        jScrollPane1.setViewportView(jTextArea1);
+        mainAreaText.setColumns(20);
+        mainAreaText.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
+        mainAreaText.setRows(5);
+        mainAreaText.setText("******************************************************************\n*\t\tBienvenue sur Device Manager v1.0\t         *\n******************************************************************\n\nLa description des objets sélectionnés dans l'arborescence s'af\n- ficheront ici.");
+        jScrollPane1.setViewportView(mainAreaText);
 
-        jTextArea2.setBackground(new java.awt.Color(51, 51, 51));
-        jTextArea2.setColumns(20);
-        jTextArea2.setForeground(new java.awt.Color(51, 204, 0));
-        jTextArea2.setRows(5);
-        jTextArea2.setText("Interfaces de l'équipement...");
-        jScrollPane2.setViewportView(jTextArea2);
+        interfaceDisplayer.setBackground(new java.awt.Color(51, 51, 51));
+        interfaceDisplayer.setColumns(20);
+        interfaceDisplayer.setForeground(new java.awt.Color(51, 204, 0));
+        interfaceDisplayer.setRows(5);
+        interfaceDisplayer.setText("Interfaces de l'équipement...");
+        jScrollPane2.setViewportView(interfaceDisplayer);
 
-        jButton1.setBackground(new java.awt.Color(204, 204, 204));
-        jButton1.setText("Ajouter");
-        jButton1.setEnabled(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        addObj.setBackground(new java.awt.Color(204, 204, 204));
+        addObj.setText("Ajouter");
+        addObj.setEnabled(false);
+        addObj.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                addObjActionPerformed(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(204, 204, 204));
-        jButton2.setText("Supprimer");
-        jButton2.setEnabled(false);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        delObjet.setBackground(new java.awt.Color(204, 204, 204));
+        delObjet.setText("Supprimer");
+        delObjet.setEnabled(false);
+        delObjet.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                delObjetActionPerformed(evt);
             }
         });
 
-        jTextArea3.setEditable(false);
-        jTextArea3.setBackground(new java.awt.Color(0, 0, 0));
-        jTextArea3.setColumns(20);
-        jTextArea3.setForeground(new java.awt.Color(255, 255, 255));
-        jTextArea3.setRows(5);
-        jTextArea3.setText("Console >");
-        jScrollPane3.setViewportView(jTextArea3);
+        console.setEditable(false);
+        console.setBackground(new java.awt.Color(0, 0, 0));
+        console.setColumns(20);
+        console.setForeground(new java.awt.Color(255, 255, 255));
+        console.setRows(5);
+        console.setText("Console >");
+        jScrollPane3.setViewportView(console);
 
-        jButton3.setBackground(new java.awt.Color(204, 204, 204));
-        jButton3.setText("Changer Etat");
-        jButton3.setEnabled(false);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        changeEtat.setBackground(new java.awt.Color(204, 204, 204));
+        changeEtat.setText("Changer Etat");
+        changeEtat.setEnabled(false);
+        changeEtat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                changeEtatActionPerformed(evt);
             }
         });
 
@@ -208,10 +210,10 @@ public class InterfaceIHM extends javax.swing.JFrame {
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(addObj, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(delObjet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jScrollPane3)
-                                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(changeEtat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPaneTreeTest, javax.swing.GroupLayout.PREFERRED_SIZE, 524, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -234,11 +236,11 @@ public class InterfaceIHM extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane2)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(addObj, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(delObjet, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(changeEtat, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
@@ -253,7 +255,8 @@ public class InterfaceIHM extends javax.swing.JFrame {
 
     private void jButtonTreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTreeActionPerformed
         // TODO add your handling code here:
-         ArrayList<Batiment> batiments = new ArrayList<>();
+        
+        ArrayList<Batiment> batiments = new ArrayList<>();
          
        /* Connexion à la base de donnée si déconnecté */
         if(jButtonTree.getText().equals("Connecter"))
@@ -261,83 +264,30 @@ public class InterfaceIHM extends javax.swing.JFrame {
              try {
                  // on se connecte à la base et on récupère les batiments
                  
-                 ConnexionBDD id = new ConnexionBDD("jdbc:mysql://127.0.0.1:3306/java", "java", "java");
                  
                  
+                 console.setText("Connexion à la base...\n");
+                 db = new ConnexionBDD("jdbc:mysql://binary-digit.net:3306/java", "java", "java");
                  
-                 for(int i = 0; i < 3; ++i)
-                 {
-                     batiments.add(new Batiment("Batiment N° "+i));
-                     for(int j = 0; j < 3; ++j)
-                     {
-                         batiments.get(i).addSalle(new Salle("Salle "+j));
-                         
-                         //**********************************************************************************************
-                         /* Machines */
-                         for(int k = 0; k < 3; ++k) // on créer 3 machines
-                         {
-                             batiments.get(i).getSalles().get(j).addMachine(new Machine("Machine "+k));
-                         }
-                         for(Machine m :  batiments.get(i).getSalles().get(j).getMachines()) // pour chaque machine on ajoute 3 interfaces réseaux
-                         {
-                             for(int l = 0; l<3; ++l)
-                             {
-                                 m.addInterfaceReseau(new Interface(l+"F:FF:FF:FF:FF:FF", "0.0.0."+l, "Ethernet"));
-                             }
-                             
-                         }
-                         
-                         //**********************************************************************************************
-                         /* Ordinateurs */
-                         for(int k = 0; k < 3; ++k)
-                         {
-                             batiments.get(i).getSalles().get(j).addMachine(new Machine("Ordinateur "+k));
-                         }
-                         /*                    for(Machine m :  batiments.get(i).getSalles().get(j).getMachines()) // pour chaque ordinateur on ajoute 3 interfaces réseaux
-                         {
-                         for(int l = 0; l<3; ++l)
-                         {
-                         m.addInterfaceReseau(new Interface(l+"F:FF:FF:FF:FF:FF", "0.0.0."+l, "Ethernet"));
-                         }
-                         
-                         }
-                         */
-                         //**********************************************************************************************
-                         /* Equipement réseaux */
-                         for(int k = 0; k < 3; ++k)
-                         {
-                             batiments.get(i).getSalles().get(j).addMachine(new Machine("Eq_Réseaux "+k));
-                         }
-                         /*                   for(Machine m :  batiments.get(i).getSalles().get(j).getMachines()) // pour chaque Equipement réseaux on ajoute 3 interfaces réseaux
-                         {
-                         for(int l = 0; l<3; ++l)
-                         {
-                         m.addInterfaceReseau(new Interface(l+"F:FF:FF:FF:FF:FF", "0.0.0."+l, "Ethernet"));
-                         }
-                         
-                         }
-                         */
-                         //**********************************************************************************************
-                         /* Equipement Mobile */
-                         for(int k = 0; k < 3; ++k)
-                         {
-                             batiments.get(i).getSalles().get(j).addMachine(new Machine("Equipement Mobile "+k));
-                         }
-                         /*                    for(Machine m :  batiments.get(i).getSalles().get(j).getMachines()) // pour chaque Equipement mobile on ajoute 3 interfaces réseaux
-                         {
-                         for(int l = 0; l<3; ++l)
-                         {
-                         m.addInterfaceReseau(new Interface(l+"F:FF:FF:FF:FF:FF", "0.0.0."+l, "Ethernet"));
-                         }
-                         
-                         }
-                         */
-                         //**********************************************************************************************
-                     }
-                 }
+                 jButtonTree.setBackground(Color.ORANGE);
+                 jButtonTree.setText("Récupération des objets dans la base...");
+                 console.setText("Connexion à la base réussi !\nRécupération des Objets...\n");
+                 
+                 batiments = db.getAllBatiment(); // onrécupère les batiments dans la BD
+                 
+                 console.setText(console.getText() + batiments.size() +" Batiment(s) récupéré(s)\n");
+                
+                 
+                 for(Batiment b: batiments) // pour chaque batiment
+                 {  
+                      console.setText(console.getText() +"Batiment: "+b.getNom()+" ->" + b.getSalles().size() +" Salles récupéré(s)\n");
+                 } 
+                 
                  
                  jButtonTree.setText("Deconnecter");
                  jButtonTree.setBackground(Color.green);  
+                 
+                 
              } catch (ClassNotFoundException ex) {
                 // Logger.getLogger(InterfaceIHM.class.getName()).log(Level.SEVERE, null, ex);
              } catch (SQLException ex) {
@@ -346,6 +296,18 @@ public class InterfaceIHM extends javax.swing.JFrame {
         }
         else
         {
+            try {
+                db.closeConnexionBDD();
+                console.setText("Déconnexion réussi !");
+            } catch (SQLException ex) {
+               System.out.println("Impossible de fermer la connxion à la DB...\nExiting...");
+               System.exit(-1); // erreur.
+               
+            }
+            
+            
+            
+            
             jButtonTree.setText("Connecter");
             jButtonTree.setBackground(Color.red);
         }
@@ -354,8 +316,23 @@ public class InterfaceIHM extends javax.swing.JFrame {
             Le nom de la racine correspond au nom de la base de donnéee.
             On récupère donc le nom de la base de donnée.
         */
+        
+        /*****************************Set des affichages ***************************************************/
+        
+        mainAreaText.setText("******************************************************************\n" +
+                                "*		Bienvenue sur Device Manager v1.0	         *\n" +
+                                "******************************************************************\n" +
+                                "\n" +
+                                "La description des objets sélectionnés dans l'arborescence s'af\n" +
+                                "- ficheront ici.");
+
+        interfaceDisplayer.setText("Interfaces de la machine sélectionnée...");
+        console.setText("< CONSOLE D'AIDE >");
+        
+        /***************************************************************************************************/ 
        
-        DefaultMutableTreeNode racine3 = new DefaultMutableTreeNode("Etablissement");
+       
+       DefaultMutableTreeNode racine3 = new DefaultMutableTreeNode("Etablissement");
         
         arbreModele = new DefaultTreeModel(racine3);
         
@@ -367,17 +344,8 @@ public class InterfaceIHM extends javax.swing.JFrame {
         DefaultMutableTreeNode Jtree_Salle;
         DefaultMutableTreeNode jTree_generique_machine;
         
-        /***************************************************/
-        
-        
-        
-        /* création de batiment pour test */
-        
-
-        
-        
-        /***************************************************/
-        for(Batiment b: batiments)
+       /****************************** Construction du JTree **********************************************/ 
+        for(Batiment b: batiments) // construction du JTree.
         {
             Jtree_batiment = new DefaultMutableTreeNode();
             Jtree_batiment.setUserObject(b);
@@ -410,43 +378,28 @@ public class InterfaceIHM extends javax.swing.JFrame {
                     
                     Jtree_Salle.add(jTree_generique_machine); Jtree_batiment.add(Jtree_Salle); // ajout des dev à la salle; ajout des salles aux 
                 }
-                
-                
-                // traitement des Ordinateurs
-                jTree_generique_machine = new DefaultMutableTreeNode("*** ORDINATEURS ***");
-                Jtree_Salle.add(jTree_generique_machine); 
-                
-                // traitement des Equipements réseaux d'une salle
-                jTree_generique_machine = new DefaultMutableTreeNode("*** EQUIPEMENTS RESEAUX ***");
-                Jtree_Salle.add(jTree_generique_machine);
-                
-                // traitement des Equipements sans fils
-                jTree_generique_machine = new DefaultMutableTreeNode("*** EQUIPEMENTS MOBILES ***");
-                Jtree_Salle.add(jTree_generique_machine);
-                
-               
-                
-                Jtree_batiment.add(Jtree_Salle);
             }
             
-            racine3.add(Jtree_batiment); // ajout des batiment à la racine
+            racine3.add(Jtree_batiment); // ajout des batiment à la racine du Jtree
         }
+        
+        /***************************************************************************************************/ 
 
         
         TreeModel modele = monArbre3.getModel();
         
         
         // On ajoute notre modèle au JTree déjà existant par défaut :
-        jTreeTest.setModel(modele);
+        jTree.setModel(modele);
         
         
-        TreeModel m = jTreeTest.getModel();
+        TreeModel m = jTree.getModel();
         Object o = m.getRoot();
         DefaultMutableTreeNode oo;
         
         // On active les modifications sur le Jtree + Sélection unique d'un noeud, pas de multi-selection : 
-        jTreeTest.setEditable(true);
-        jTreeTest.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
+        jTree.setEditable(true);
+        jTree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
         
         /* Test événement JTree : */
         // Edite la zone sans appuyer sur la touche entrer : 
@@ -485,7 +438,7 @@ public class InterfaceIHM extends javax.swing.JFrame {
         /* Listener lors de la sélection d'un noeud, on veut afficher ses informations */
         
         
-        jTreeTest.addTreeSelectionListener(new TreeSelectionListener() {
+        jTree.addTreeSelectionListener(new TreeSelectionListener() {
 
            @Override
            public void valueChanged(TreeSelectionEvent e) {
@@ -494,17 +447,17 @@ public class InterfaceIHM extends javax.swing.JFrame {
   //***********************************************************************************************************************               
             try{
                  Batiment temp = (Batiment) var.getUserObject();
-                 jTextArea1.setText(temp.FullScreen()); // affichage dans textfield des propriété de l'objet.
+                 mainAreaText.setText(temp.FullScreen()); // affichage dans textfield des propriété de l'objet.
                  
                  
-                 jTextArea2.setText("Aucune Interface sur cet objet");
+                 interfaceDisplayer.setText("Aucune Interface sur cet objet");
                  
                  
-                 jButton1.setEnabled(true);  jButton1.setText("+ Ajouter une salle\n");
-                 jButton2.setEnabled(true);  jButton2.setText("+ Supprimer '"+ temp.toString()+"'");
-                 jButton3.setEnabled(false); jButton3.setText("+ Aucun changement d'Etat possible\n");
+                 addObj.setEnabled(true);  addObj.setText("+ Ajouter une salle\n");
+                 delObjet.setEnabled(true);  delObjet.setText("+ Supprimer '"+ temp.toString()+"'");
+                 changeEtat.setEnabled(false); changeEtat.setText("+ Aucun changement d'Etat possible\n");
                  
-                 jTextArea3.setText("Ajouter une nouvelle salle \n ou supprimer le batiment " + temp.toString()
+                 console.setText("Ajouter une nouvelle salle \n ou supprimer le batiment " + temp.toString()
                          + "\n\nAucun changement d'Etat n'est disponible\n sur cet objet. \n");
                  
                  
@@ -514,16 +467,16 @@ public class InterfaceIHM extends javax.swing.JFrame {
  //***********************************************************************************************************************           
             try{
                  Salle temp = (Salle) var.getUserObject();
-                 jTextArea1.setText(temp.FullScreen());
-                 jTextArea2.setText("Aucune Interface sur cet objet");
+                 mainAreaText.setText(temp.FullScreen());
+                 interfaceDisplayer.setText("Aucune Interface sur cet objet");
                  
                  /* action valide sur les boutons */
-                 jButton1.setEnabled(true); jButton1.setText("Ajouter une machine");
-                 jButton2.setEnabled(true); jButton2.setText("Supprimer '"+ temp.toString()+"'");
-                 jButton3.setEnabled(true); jButton3.setText("Changer Etat de la salle");
+                 addObj.setEnabled(true); addObj.setText("Ajouter une machine");
+                 delObjet.setEnabled(true); delObjet.setText("Supprimer '"+ temp.toString()+"'");
+                 changeEtat.setEnabled(true); changeEtat.setText("Changer Etat de la salle");
                  
                  /* text de la console d'aide. */
-                 jTextArea3.setText("+ Ajouter une nouvelle machine à la salle\n"
+                 console.setText("+ Ajouter une nouvelle machine à la salle\n"
                          + "+ Supprimer la salle "+ temp.toString()+"\n"
                          + "+ Changer l'Etat de la salle:\n"
                          + "Tous les Equipements seront mis dans l'Etat DOWN\n"
@@ -535,14 +488,14 @@ public class InterfaceIHM extends javax.swing.JFrame {
  //***********************************************************************************************************************   
             try{
                  Machine temp = (Machine) var.getUserObject();
-                 jTextArea1.setText(temp.FullScreen());         // affichage de la description des batiments
-                 jTextArea2.setText(temp.displayInterfaces()); // affichages des inerfaces
+                 mainAreaText.setText(temp.FullScreen());         // affichage de la description des batiments
+                 interfaceDisplayer.setText(temp.displayInterfaces()); // affichages des inerfaces
                  
-                 jButton1.setEnabled(false); jButton1.setText("Ajouter");
-                 jButton2.setEnabled(true); jButton2.setText("+ Supprimer '"+ temp.toString()+"'");
-                 jButton3.setEnabled(true); jButton3.setText("+ Changer Etat de la machine");
+                 addObj.setEnabled(false); addObj.setText("Ajouter");
+                 delObjet.setEnabled(true); delObjet.setText("+ Supprimer '"+ temp.toString()+"'");
+                 changeEtat.setEnabled(true); changeEtat.setText("+ Changer Etat de la machine");
                  
-                 jTextArea3.setText("Supprimer la machine "+temp.toString()+"\n"
+                 console.setText("Supprimer la machine "+temp.toString()+"\n"
                          + "Changer son Etat\n"
                          + "");
             }catch(ClassCastException exep){
@@ -559,7 +512,7 @@ public class InterfaceIHM extends javax.swing.JFrame {
         /* lors de l'expansion d'un noeud, on veut actualiser les données
             en interrogeant la BD.
         */
-        jTreeTest.addTreeExpansionListener(new TreeExpansionListener() {
+        jTree.addTreeExpansionListener(new TreeExpansionListener() {
 
             @Override
             public void treeExpanded(TreeExpansionEvent event) {
@@ -583,17 +536,17 @@ public class InterfaceIHM extends javax.swing.JFrame {
         });
         
         /// On cache le noeud racine : 
-        jTreeTest.setRootVisible(false);
+        jTree.setRootVisible(false);
 
         
         /* Modifier le rendu de chaque noeu d'un Jtree en fonction de sa hiérarchie : */
-        jTreeTest.setCellRenderer(new JtreeDesign());
+        jTree.setCellRenderer(new JtreeDesign());
         
         arbreModele.reload();
         
     }//GEN-LAST:event_jButtonTreeActionPerformed
 
-    private void jTreeTestValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_jTreeTestValueChanged
+    private void jTreeValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_jTreeValueChanged
         // Evenement : Se déclenche à chaque sélection/désélection d'un élément de l'arbre :
         
         /* si l'on change une valeur dans le Jtree, on reporte la modif dans la BD */
@@ -601,49 +554,68 @@ public class InterfaceIHM extends javax.swing.JFrame {
       
         System.out.print(evt.getPath().getLastPathComponent().toString());   System.out.println(": Value changed");
         
-    }//GEN-LAST:event_jTreeTestValueChanged
+    }//GEN-LAST:event_jTreeValueChanged
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void addObjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addObjActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_addObjActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void delObjetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delObjetActionPerformed
         // TODO add your handling code here:
         
         
-         jTextArea3.setText("Tentative de supression de l'objet...");
-         DefaultMutableTreeNode var = (DefaultMutableTreeNode) jTreeTest.getSelectionPath().getLastPathComponent();
+         console.setText("Tentative de supression de l'objet...");
+         DefaultMutableTreeNode var = (DefaultMutableTreeNode) jTree.getSelectionPath().getLastPathComponent();
          
          var.removeFromParent();
-         jTextArea3.setText("Objet supprimé: "+var.toString());
+         console.setText("Objet supprimé: "+var.toString());
          System.gc(); // nettoyage mémoire
          
          arbreModele.reload();
          
          
          
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_delObjetActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void changeEtatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changeEtatActionPerformed
         // TODO add your handling code here:
-         DefaultMutableTreeNode var = (DefaultMutableTreeNode) jTreeTest.getSelectionPath().getLastPathComponent();
+        
+        
+// on récupère l'objet sélectionné où l'on veut procéder on changement d'etat
+        
+         DefaultMutableTreeNode var = (DefaultMutableTreeNode) jTree.getSelectionPath().getLastPathComponent();  
          
-         try{
+         
+//***********************************************************************************************************************   
+         
+         try{ // machine
                  Machine temp = (Machine) var.getUserObject();
                  
                  temp.changeEtat();
                  
                  /* on essaye de changer l'Etat de la machine dans la base de donnée */
                  
-                 jTextArea3.setText("L'Etat des machines a bien été changé."); // confirmation dans la console
+                 console.setText("L'Etat des machines a bien été changé."); // confirmation dans la console
+                 
+                 mainAreaText.setText(temp.FullScreen());
                  
                  arbreModele.reload(var); // rechargement de l'arborescence
+                 
+                try {
+                    // modification de l'etat de la machine dans la base de donnée.
+
+                    db.updateEtatOfMachine(temp.getId(), temp.isEtat()); //
+                }
+                catch (SQLException ex) {
+                    System.out.println("Impossible de récupercuter le changement d'Etat dans la base: "+ex.getMessage());
+                }
+                 
                  
             }catch(ClassCastException exep){
                 System.out.println("Ce n'est pas une Machine");
             }
  //***********************************************************************************************************************          
-         try{
+         try{ //salle
                  Salle temp = (Salle) var.getUserObject();
                  
                  for(Machine m : temp.getMachines()) // pour chaque machine de la salle
@@ -654,20 +626,36 @@ public class InterfaceIHM extends javax.swing.JFrame {
                      
                  }
                  
-                 jTextArea3.setText("L'Etat des machines a bien été changé."); // confirmation dans la console
+                 console.setText("L'Etat des machines a bien été changé."); // confirmation dans la console
                  
                  arbreModele.reload(var); // rechargement de l'arborescence
+                 
+    
+                for(Machine m : temp.getMachines()) // pour chaque machine de la salle
+                {
+                    try {
+                    // modification de l'etat de la machine dans la base de donnée.
+
+                    db.updateEtatOfMachine(m.getId(), m.isEtat()); //
+                    }
+                    catch (SQLException ex) {
+                        System.out.println("Impossible de récupercuter le changement d'Etat dans la base: "+ex.getMessage());
+                    }
+
+                }
+
+                
               
                  
             }catch(ClassCastException exep){
                 System.out.println("Ce n'est pas une Salle");
             }
  //*********************************************************************************************************************** 
-         
+        
  //***********************************************************************************************************************          
          
          
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_changeEtatActionPerformed
 
     /**
      * @param args the command line arguments
@@ -707,9 +695,11 @@ public class InterfaceIHM extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton addObj;
+    private javax.swing.JButton changeEtat;
+    private javax.swing.JTextArea console;
+    private javax.swing.JButton delObjet;
+    private javax.swing.JTextArea interfaceDisplayer;
     private javax.swing.JButton jButtonTree;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -720,9 +710,8 @@ public class InterfaceIHM extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPaneTreeTest;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextArea jTextArea3;
-    private javax.swing.JTree jTreeTest;
+    private javax.swing.JTree jTree;
+    private javax.swing.JTextArea mainAreaText;
     // End of variables declaration//GEN-END:variables
+private  ConnexionBDD db;
 }
