@@ -28,6 +28,7 @@ import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.MutableTreeNode;
 import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreeSelectionModel;
 
@@ -191,32 +192,33 @@ public class InterfaceIHM extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 10, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 542, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 10, Short.MAX_VALUE)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 542, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(86, 86, 86)
-                                .addComponent(jLabel2))
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(addObj, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(delObjet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jScrollPane3)
+                                            .addComponent(changeEtat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(111, 111, 111)
-                                .addComponent(jLabel3)))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                                .addComponent(jLabel3)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(18, 18, 18))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(addObj, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(delObjet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jScrollPane3)
-                                    .addComponent(changeEtat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGap(18, 18, 18)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel2)
+                        .addGap(182, 182, 182)))
                 .addComponent(jScrollPaneTreeTest, javax.swing.GroupLayout.PREFERRED_SIZE, 524, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -309,38 +311,34 @@ public class InterfaceIHM extends javax.swing.JFrame {
              DefaultMutableTreeNode jTree_generique_machine;
 
             /****************************** Construction du JTree **********************************************/ 
-             for(Batiment b: batiments) // construction du JTree.
+             for(Batiment b: batiments) // pour chaque batiment
              {
-                 Jtree_batiment = new DefaultMutableTreeNode();
-                 Jtree_batiment.setUserObject(b);
-                // for( int j = 0; j < 2*i; ++j)
-                 for(Salle s: b.getSalles())
-                 {
-                     Jtree_Salle = new DefaultMutableTreeNode();
-                     Jtree_Salle.setUserObject(s);
+                 Jtree_batiment = new DefaultMutableTreeNode(); // on créer un node sur le JTree
+                 Jtree_batiment.setUserObject(b);               //
 
-                     jTree_generique_machine = new DefaultMutableTreeNode("*** MACHINE***");
-                     Jtree_Salle.add(jTree_generique_machine);
+                 for(Salle s: b.getSalles()) // pour chaque salle
+                 {
+                     Jtree_Salle = new DefaultMutableTreeNode();// on créer un sous-node sur le JTree
+                     Jtree_Salle.setUserObject(s);              //
+
 
                      // traitement Jtree des machines d'une salles
-                     if(s.getMachines().isEmpty() == false) // salles avec des machines
+                     if(s.getMachines().isEmpty() == false) // si la salle contient des machines
                      {
                          for(Machine m: s.getMachines())
                          {                        
                              jTree_generique_machine = new DefaultMutableTreeNode(m, false);
                              jTree_generique_machine.setUserObject(m);
 
-                             Jtree_Salle.add(jTree_generique_machine); Jtree_batiment.add(Jtree_Salle); // ajout des dev à la salle; ajout des salles aux 
+                             Jtree_Salle.add(jTree_generique_machine); Jtree_batiment.add(Jtree_Salle); // ajout des dev à la salle; ajout des salles aux batiments
                          }
                      }
                      else                                    // salles sans machines
                      {
-                         Machine f = new Machine("Empty"); // ici les machiens de la salles
-
-                         jTree_generique_machine = new DefaultMutableTreeNode(f, false);
-                         jTree_generique_machine.setUserObject(f);
-
-                         Jtree_Salle.add(jTree_generique_machine); Jtree_batiment.add(Jtree_Salle); // ajout des dev à la salle; ajout des salles aux 
+//                        s.setIcon(new ImageIcon("src/main/java/VueJtree/salles_orange.png")); // on change l'icone de la salle --> orange, salle sans machine
+                         
+                        jTree_generique_machine = new DefaultMutableTreeNode("... Salle Vide ...", false);
+                        Jtree_Salle.add(jTree_generique_machine); Jtree_batiment.add(Jtree_Salle); // ajout des dev à la salle; ajout des salles aux batiments
                      }
                  }
 
@@ -392,7 +390,9 @@ public class InterfaceIHM extends javax.swing.JFrame {
 
                  @Override
                  public void treeStructureChanged(TreeModelEvent e) {
-                     System.out.print("Structure changed: ");   System.out.println(e.getTreePath().toString());
+                     
+                    // fait buguer l'affichage des textarea
+                   //  System.out.print("Structure changed: ");   System.out.println(e.getTreePath().toString());
 
                  }
 
@@ -505,6 +505,8 @@ public class InterfaceIHM extends javax.swing.JFrame {
 
              /* Modifier le rendu de chaque noeu d'un Jtree en fonction de sa hiérarchie : */
              jTree.setCellRenderer(new JtreeDesign());
+             
+             arbreModele.reload();
         }
         else // si déconnecter ou autre
         {
@@ -519,6 +521,10 @@ public class InterfaceIHM extends javax.swing.JFrame {
             //modification du gros bouton
             jButtonTree.setText("Connecter");       //
             jButtonTree.setBackground(Color.red);   // rouge
+            
+            // suppresion de l'arborescense sur le JTree
+            arbreModele.setRoot(null);
+            arbreModele.reload();
         }
         
         /* désactivation des boutons */
@@ -541,9 +547,6 @@ public class InterfaceIHM extends javax.swing.JFrame {
         console.setText("< CONSOLE D'AIDE >");
         
         /***************************************************************************************************/ 
-
-        
-        arbreModele.reload();
         
     }//GEN-LAST:event_jButtonTreeActionPerformed
 
