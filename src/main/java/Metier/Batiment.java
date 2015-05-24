@@ -14,10 +14,10 @@ import javax.swing.JLabel;
 /**
  *
  * @author E.MENAT - G.RIBAGNAC - N.ROQUES - M.TEIKITUHAAHAA
- * 
- * Cette classe défini les batiments pouvant contenir des salles
+ * <p>
+ * Cette classe définit les batiments pouvant contenir des salles
  * dans la gestion d'un système informatique.
- * 
+ * </p>
  * @version 1.0, 2015, UPS.
  */
 public class Batiment extends JLabel{

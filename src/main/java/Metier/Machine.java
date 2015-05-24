@@ -12,11 +12,11 @@ import javax.swing.JLabel;
 /**
  *
  * @author E.MENAT - G.RIBAGNAC - N.ROQUES - M.TEIKITUHAAHAA
- * 
+ * <p>
  * Cette class représente de manière générique tous les types d'équipements
  * que l'on peut avoir à gérer dans un système d'informatique.
- * 
- * @version 1.0, 
+ * </p>
+ * @version 1.0, 2015, UPS. 
  */
 public class Machine extends JLabel{
     
@@ -138,7 +138,7 @@ public class Machine extends JLabel{
      *</p>
      * <p>
      * Il est conseillé d'ultiliser la fonction {@link #addInterfaceReseau(Interface)} pour rajouter
-     * une ou plusieurs interfaces en utilisant une boucle.
+     * une interface.
      * </p>
      * 
      * Assigne une Arraylist d'interface à une machine.

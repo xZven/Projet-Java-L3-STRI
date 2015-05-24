@@ -9,13 +9,13 @@ package Metier;
 /**
  *
  * @author E.MENAT - G.RIBAGNAC - N.ROQUES - M.TEIKITUHAAHAA
- * 
+ * <p>
  * Cette class represente les interfaces constituant une machine.
  * Ces interfaces peuvent être stocké dans des ArrayList si la
  * machine a plusieurs interfaces, tel un équipement réseau
  * ou bien un serveur.
- * 
- * @version 1.0, 
+ * </p>
+ * @version 1.0, 2015, UPS. 
  */
 public class Interface {
     

@@ -5,6 +5,7 @@ import Metier.*;
 
 import java.awt.Component;
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeCellRenderer;
@@ -29,7 +30,7 @@ public class JtreeDesign extends DefaultTreeCellRenderer{
             try
             {
                 Machine m = (Machine)node.getUserObject();
-                setIcon(m.getIcon()); 
+                setIcon(m.getIcon()); // iconne des machines
             }
             catch(Exception e)
             {
@@ -43,14 +44,35 @@ public class JtreeDesign extends DefaultTreeCellRenderer{
             try
             {
                 Batiment b = (Batiment)node.getUserObject();
-                setIcon(b.getIcon());
+                setIcon(b.getIcon()); // icon du batiment
             }
             catch(Exception e)
             {
                 try
                 {
                     Salle s = (Salle)node.getUserObject();
-                    setIcon(s.getIcon());
+                    
+                    setIcon(s.getIcon()); // icon de la salle
+ /*                   if(s.getMachines().isEmpty())
+                        setIcon(new ImageIcon("src/main/java/VueJtree/salle_rouge.png"));
+                    else
+                    {
+                        int index = 0;
+                        for(Machine m: s.getMachines())
+                        {
+                            if(m.isEtat()) // si la machine est UP.
+                                index++;
+                        }
+                        
+                        if(s.getMachines().size() == index)
+                            setIcon(new ImageIcon("src/main/java/VueJtree/salle_vert.png"));
+
+                        else
+                            setIcon(new ImageIcon("src/main/java/VueJtree/salle_orange.png"));
+                    }
+                        
+ */                   
+                             
                 }
                 catch(Exception ex)
                 {

@@ -1,8 +1,9 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Projet L3 STRI 
+ * Device Manager
+ *
  */
+
 package Metier;
 
 import java.util.ArrayList;
@@ -12,7 +13,10 @@ import javax.swing.ImageIcon;
 /**
  *
  * @author E.MENAT - G.RIBAGNAC - N.ROQUES - M.TEIKITUHAAHAA
- * 
+ * <p>
+ * Cette classe définit une salle d'un batiment.
+ * Elle comporte des ArrayList de machines.
+ * </p>
  * 
  * @version 1.0, 2015, UPS.
  */

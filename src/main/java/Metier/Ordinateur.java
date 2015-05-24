@@ -9,8 +9,10 @@ package Metier;
 /**
  *
  * @author E.MENAT - G.RIBAGNAC - N.ROQUES - M.TEIKITUHAAHAA
- *
- *
+ *<p>
+ * Cette classe défini les ordinateurs appartennant à des salles.
+ * Elle n'est pas implémenter dans cette version du logiciel
+ *</p>
  * @version 1.0, 2015, UPS.
  */
 
@@ -19,7 +21,7 @@ package Metier;
 public class Ordinateur extends Machine {
 
     /**
-     * Constructeur Ordinateur
+     * Constructeur <b>Ordinateur</b>
      * 
      * @param nom Nom de l'ordinateur
      * @param marque marque de l'ordinateur

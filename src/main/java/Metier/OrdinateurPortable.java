@@ -1,16 +1,24 @@
+/*
+ * Projet L3 STRI 
+ * Device Manager
+ *
+ */
+
 package Metier;
 
 /**
  *
  * @author E.MENAT - G.RIBAGNAC - N.ROQUES - M.TEIKITUHAAHAA
- *
- *
+ * <p>
+ * Cette classe définit les ordinateurs portables appartennant à des salles.
+ * Elle n'est pas implémenter dans cette version du logiciel
+ * </p>
  * @version 1.0, 2015, UPS.
  */
 public class OrdinateurPortable extends EquipementMobile {
 
     /**
-     * Constructeur Ordinateur Portable
+     * Constructeur <b>Ordinateur Portable</b>
      * 
      * @param nom Nom de l'ordinateur
      * @param marque marque de l'ordinateur

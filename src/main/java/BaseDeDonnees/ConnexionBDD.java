@@ -11,11 +11,11 @@ import java.util.ArrayList;
 /**
  *
  * @author E.MENAT - G.RIBAGNAC - N.ROQUES - M.TEIKITUHAAHAA
- * 
- * Cette class représente de manière générique tous les types d'équipements
- * que l'on peut avoir à gérer dans un système d'informatique.
- * 
- * @version 1.0, 
+ * <p>
+ * Cette classe gère la connexion et les requêtes à la base de données
+ * dans la gestion d'un système informatique.
+ * </p>
+ * @version 1.0, 2015, UPS.
  */
 public final class ConnexionBDD {
 
@@ -30,7 +30,7 @@ public final class ConnexionBDD {
      * @param user Identifie l'utilisateur de la base de données. (java)
      * @param password // Identifie le mot de passe de la base de données (java).
      * @throws ClassNotFoundException Erreur lors du chargement de la classe jdbc permettant la conexion à la base de données.
-     * @throws java.sql.SQLException
+     * @throws java.sql.SQLException exception SQL
      */
     public ConnexionBDD(String url, String user, String password) throws ClassNotFoundException, SQLException {    
             // Chargement des drivers postgresql :
@@ -55,7 +55,7 @@ public final class ConnexionBDD {
     
     /**
      * Permet de fermer proprement la connexion à la base de données.
-     * @throws SQLException 
+     * @throws SQLException exception SQL
      */
     public void closeConnexionBDD() throws SQLException
     {
@@ -65,8 +65,8 @@ public final class ConnexionBDD {
     /*** LECTURE EN BASE DE DONNEES : MEHODE SELECT ***/
     /**
      * Permet de récupérer en base de données l'ensemble des batiments et des informations associés.
-     * @return ArrayList<> avec l'ensemble des informations associées à un batiment.
-     * @throws java.sql.SQLException
+     * @return ArrayList avec l'ensemble des informations associées à un batiment.
+     * @throws java.sql.SQLException exception SQL
      */
     public ArrayList<Batiment> getAllBatiment() throws SQLException
     {
@@ -94,7 +94,7 @@ public final class ConnexionBDD {
      * 
      * @param nom du batiment.
      * @return String indiquant la localisation du batiment.
-     * @throws java.sql.SQLException
+     * @throws java.sql.SQLException exception SQL
      */
     public String getLocalisationOfBatiment(String nom) throws SQLException
     {
@@ -115,7 +115,7 @@ public final class ConnexionBDD {
      * 
      * @param nom du batiment.
      * @return String indiquant la description du batiment.
-     * @throws java.sql.SQLException
+     * @throws java.sql.SQLException exception SQL
      */
     public String getDescriptionOfBatiment(String nom) throws SQLException
     {
@@ -135,8 +135,8 @@ public final class ConnexionBDD {
     /**
      * 
      * @param nom du batiment.
-     * @return ArrayList<> avec l'ensemble des informations associées à une salle.
-     * @throws java.sql.SQLException
+     * @return ArrayList avec l'ensemble des informations associées à une salle.
+     * @throws java.sql.SQLException exception SQL
      */
     public ArrayList<Salle> getAllSalleFromBatiment(String nom) throws SQLException
     {
@@ -169,7 +169,7 @@ public final class ConnexionBDD {
      * 
      * @param id indiquant la référence de la salle en base de données.
      * @return String indiquant le nom de la salle.
-     * @throws java.sql.SQLException
+     * @throws java.sql.SQLException exception SQL
      */
     public String getNomOfSalle(int id) throws SQLException
     {
@@ -191,7 +191,7 @@ public final class ConnexionBDD {
      * 
      * @param id indiquant la référence de la salle en base de données.
      * @return String indiquant le numéro de la salle.
-     * @throws java.sql.SQLException
+     * @throws java.sql.SQLException exception SQL
      */
     public String getNumeroOfSalle(int id) throws SQLException
     {
@@ -213,7 +213,7 @@ public final class ConnexionBDD {
      * 
      * @param id indiquant la référence de la salle en base de données.
      * @return String indiquant l'étage de la salle.
-     * @throws java.sql.SQLException
+     * @throws java.sql.SQLException exception SQL
      */
     public int getEtageOfSalle(int id) throws SQLException
     {
@@ -235,7 +235,7 @@ public final class ConnexionBDD {
      * 
      * @param id indiquant la référence de la salle en base de données.
      * @return Batiment associé à la salle avec l'ensemble des informations associées au batiment.
-     * @throws java.sql.SQLException
+     * @throws java.sql.SQLException exception SQL
      */
     public Batiment getBatimentOfSalle(int id) throws SQLException
     {
@@ -263,8 +263,8 @@ public final class ConnexionBDD {
     /**
      * 
      * @param id indiquant la référence de la salle en base de données.
-     * @return ArrayList<> contenant l'ensemble des machines associées à la salle.
-     * @throws java.sql.SQLException
+     * @return ArrayList contenant l'ensemble des machines associées à la salle.
+     * @throws java.sql.SQLException exception SQL
      */
     public ArrayList<Machine> getAllMachineFromSalle(int id) throws SQLException
     {
@@ -319,7 +319,7 @@ public final class ConnexionBDD {
      * 
      * @param id indiquant la référence de la machine en base de données.
      * @return boolean : true si la machine est allumée, false si elle est éteinte.
-     * @throws java.sql.SQLException
+     * @throws java.sql.SQLException exception SQL
      */
     public boolean getEtatMachine(int id) throws SQLException
     {
@@ -346,7 +346,7 @@ public final class ConnexionBDD {
      * @param id indiquant la référence de la machine en base de données.
      * @return String indiquant la nature de la machine (Ordinateur portable, Tablette, 
      * Ordnateur fixe, PDA, SmartPhone, Routeur, Commutateur, Pont, Autre).
-     * @throws java.sql.SQLException
+     * @throws java.sql.SQLException exception SQL
      */
     public String getTypeMachine(int id) throws SQLException
     {
@@ -368,7 +368,7 @@ public final class ConnexionBDD {
      * 
      * @param id indiquant la référence de la machine en base de données.
      * @return String indiquant le firmware de la machine.
-     * @throws java.sql.SQLException
+     * @throws java.sql.SQLException exception SQL
      */
     public String getFirmwareMachine(int id) throws SQLException
     {
@@ -390,7 +390,7 @@ public final class ConnexionBDD {
      * 
      * @param id indiquant la référence de la machine en base de données.
      * @return String indiquant le système d'exploitation de la machine.
-     * @throws java.sql.SQLException
+     * @throws java.sql.SQLException exception SQL
      */
     public String getOSMachine(int id) throws SQLException
     {
@@ -412,7 +412,7 @@ public final class ConnexionBDD {
      * 
      * @param id indiquant la référence de la machine en base de données.
      * @return String indiquant le modele de la machine.
-     * @throws java.sql.SQLException
+     * @throws java.sql.SQLException exception SQL
      */
     public String getModeleMachine(int id) throws SQLException
     {
@@ -434,7 +434,7 @@ public final class ConnexionBDD {
      * 
      * @param id indiquant la référence de la machine en base de données.
      * @return String indiquant la marque de la machine.
-     * @throws java.sql.SQLException
+     * @throws java.sql.SQLException exception SQL
      */
     public String getMarqueMachine(int id) throws SQLException
     {
@@ -456,7 +456,7 @@ public final class ConnexionBDD {
      * 
      * @param id indiquant la référence de la machine en base de données.
      * @return String indiquant le nom de la machine.
-     * @throws java.sql.SQLException
+     * @throws java.sql.SQLException exception SQL
      */
     public String getNomMachine(int id) throws SQLException
     {
@@ -481,7 +481,7 @@ public final class ConnexionBDD {
      * Permet de mettre à jour un batiment et l'ensemble des informations associées.
      * @param b Batiment à mettre à jour.
      * @param oldName ancien nom du batiment à mettre à jour.
-     * @throws java.sql.SQLException
+     * @throws java.sql.SQLException exception SQL
      */
     public void updateAllBatiment(Batiment b, String oldName) throws SQLException
     {
@@ -501,7 +501,7 @@ public final class ConnexionBDD {
      * Permet de mettre à jour le nom d'un batiment.
      * @param newName nouveau nom donné au batiment.
      * @param oldName ancien nom du batiment à mettre à jour.
-     * @throws java.sql.SQLException
+     * @throws java.sql.SQLException exception SQL
      */
     public void updateNameOfBatiment(String newName, String oldName) throws SQLException
     {
@@ -520,7 +520,7 @@ public final class ConnexionBDD {
      * Permet de mettre à jour la description d'un batiment.
      * @param name nom du batiment.
      * @param description description du batiment à mettre à jour.
-     * @throws SQLException 
+     * @throws SQLException  exception SQL
      */
     public void updateDescriptionOfBatiment(String name, String description) throws SQLException
     {
@@ -540,7 +540,7 @@ public final class ConnexionBDD {
      * Permet de mettre à jour les informations d'une salle appartenant à un batiment donné.
      * @param s Salle à mettre à jour.
      * @param nameBatiment nom du batiment de la salle à mettre à jour.
-     * @throws java.sql.SQLException
+     * @throws java.sql.SQLException exception SQL
      */
     public void updateSalleOfBatiment(Salle s, String nameBatiment) throws SQLException
     {
@@ -561,7 +561,7 @@ public final class ConnexionBDD {
     /**
      * Permet de mettre à jour les informations d'une salle.
      * @param s Salle à mettre à jour.
-     * @throws java.sql.SQLException
+     * @throws java.sql.SQLException exception SQL
      */
     public void updateAllSalle(Salle s) throws SQLException
     {
@@ -582,7 +582,7 @@ public final class ConnexionBDD {
      * Permet de mettre à jour le nom d'une salle.
      * @param id Identifiant de la salle en base de données à mettre à jour.
      * @param nom nouveau nom de la salle.
-     * @throws java.sql.SQLException
+     * @throws java.sql.SQLException exception SQL
      */
     public void updateNameOfSalle(int id, String nom) throws SQLException
     {
@@ -601,7 +601,7 @@ public final class ConnexionBDD {
      * Permet de mettre à jour le numéro d'une salle.
      * @param id identifiant de la salle en base de données à mettre à jour.
      * @param numero nouveau numéro de la salle.
-     * @throws java.sql.SQLException
+     * @throws java.sql.SQLException exception SQL
      */
     public void updateNumeroOfSalle(int id, String numero) throws SQLException
     {
@@ -620,7 +620,7 @@ public final class ConnexionBDD {
      * Permet de mettre à jour une machine.
      * @param m Machine à mettre à jour.
      * @param idSalle identifiant de la salle en base de données : -1 pour ne pas tenir compte du paramètre.
-     * @throws java.sql.SQLException
+     * @throws java.sql.SQLException exception SQL
      */
     public void updateAllMachine(Machine m, int idSalle) throws SQLException
     {
@@ -656,7 +656,7 @@ public final class ConnexionBDD {
      * Permet de mettre à jour le nom d'une machine.
      * @param id identifiant de la machine en base de données.
      * @param nom nouveau nom de la machine.
-     * @throws java.sql.SQLException
+     * @throws java.sql.SQLException exception SQL
      */
     public void updateNomOfMachine(int id, String nom) throws SQLException
     {
@@ -675,7 +675,7 @@ public final class ConnexionBDD {
      * Permet de mettre à jour l'os d'une machine.
      * @param id identifiant de la machine en base de données.
      * @param os nouveau os de la machine.
-     * @throws java.sql.SQLException
+     * @throws java.sql.SQLException exception SQL
      */
     public void updateOSOfMachine(int id, String os) throws SQLException
     {
@@ -694,7 +694,7 @@ public final class ConnexionBDD {
      * Permet de mettre à jour le firmware d'une machine.
      * @param id identifiant de la machine en base de données.
      * @param firmware nouveau firmware de la machine.
-     * @throws java.sql.SQLException
+     * @throws java.sql.SQLException exception SQL
      */
     public void updateFirmwareOfMachine(int id, String firmware) throws SQLException
     {
@@ -713,7 +713,7 @@ public final class ConnexionBDD {
      * Permet de mettre à jour l'état d'une machine.
      * @param id identifiant de la machine en base de données.
      * @param etat nouvel etat de la machine.
-     * @throws java.sql.SQLException
+     * @throws java.sql.SQLException exception SQL
      */
     public void updateEtatOfMachine(int id, boolean etat) throws SQLException
     {
@@ -732,7 +732,7 @@ public final class ConnexionBDD {
      * Permet de mettre à jour la salle associée à une machine.
      * @param idMachine identifiant de la machine en base de données.
      * @param idSalle identifiant de la salle en base de donénes.
-     * @throws java.sql.SQLException
+     * @throws java.sql.SQLException exception SQL
      */
     public void updateSalleOfMachine(int idMachine, int idSalle) throws SQLException
     {
@@ -751,7 +751,7 @@ public final class ConnexionBDD {
      * Permet de mettre à jour le type d'une machine.
      * @param id Identifiant de la machine en base de données.
      * @param type Type de la machine (Routeur, Pont, Commutateur, Ordinateur fixe, Ordinateur portable).
-     * @throws java.sql.SQLException
+     * @throws java.sql.SQLException exception SQL
      */
     public void updateTypeOfMachine(int id, String type) throws SQLException
     {
@@ -772,7 +772,7 @@ public final class ConnexionBDD {
      * Permet d'ajouter un nouveau batiment.
      * @param b Batiment à rajouter en base de données.
      * @return l'identifiant "nom" du batiment en base de données.
-     * @throws java.sql.SQLException
+     * @throws java.sql.SQLException exception SQL
      */
     public String insertBatiment(Batiment b) throws SQLException
     {
@@ -794,7 +794,7 @@ public final class ConnexionBDD {
      * @param s Salle à rajouter en base de données.
      * @param nomBatiment nom du batiment pour l'ajout d'une salle.
      * @return le dernier identifiant "id" de la salle ajouter en base de données.
-     * @throws java.sql.SQLException
+     * @throws java.sql.SQLException exception SQL
      */
     public int insertSalleIntoBatiment(Salle s, String nomBatiment) throws SQLException
     {
@@ -822,7 +822,7 @@ public final class ConnexionBDD {
      * @param m Machine à rajouter en base de données.
      * @param idSalle identifiant de la salle en base de données où la machine doit être ajoutée.
      * @return identifiant "id" de la machine en base de données.
-     * @throws SQLException 
+     * @throws SQLException exception SQL
      */
     public int insertMachineIntoSalle(Machine m, int idSalle) throws SQLException
     {
@@ -856,7 +856,7 @@ public final class ConnexionBDD {
      * 
      * @param idMachine
      * @param m
-     * @throws SQLException 
+     * @throws SQLException  exception SQL
      */
     private void insertInterfaceReseauOnMachine(int idMachine, Machine m) throws SQLException
     {
@@ -888,7 +888,7 @@ public final class ConnexionBDD {
     /**
      * Permet de supprimer un batiment et tous les éléments associés en base de données (salle, machine et interface).
      * @param nomBatiment nom du batiment à supprimer en base de données.
-     * @throws java.sql.SQLException
+     * @throws java.sql.SQLException exception SQL
      */
     public void deleteBatimentAndAllAssociated(String nomBatiment) throws SQLException
     {
@@ -905,7 +905,7 @@ public final class ConnexionBDD {
     /**
      * Permet de supprimer une salle et tous les éléments associés en base de données (machine, interface).
      * @param idSalle identifiant la salle en base de données.
-     * @throws java.sql.SQLException
+     * @throws java.sql.SQLException exception SQL
      */
     public void deleteSalleAndAllAssociated(int idSalle) throws SQLException
     {
@@ -922,7 +922,7 @@ public final class ConnexionBDD {
     /**
      * Permet de supprimer une machine et tous les élémentd associées en base de donénes (interface...).
      * @param idMachine  identifiant la machine en base de données.
-     * @throws java.sql.SQLException
+     * @throws java.sql.SQLException exception SQL
      */
     public void deleteMachineAndAllAssociated(int idMachine) throws SQLException
     {
