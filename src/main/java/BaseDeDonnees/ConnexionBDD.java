@@ -7,6 +7,7 @@ import Metier.Machine;
 import Metier.Salle;
 import java.sql.*;
 import java.util.ArrayList;
+import jdk.nashorn.internal.objects.NativeArray;
 
 /**
  *
@@ -475,7 +476,7 @@ public final class ConnexionBDD {
     }
     
     /* MISE A JOUR EN BASE DE DONNEES : MEHODE UPDATE */
-    // Mise à jour des interfaces rseaux non implémentées.
+    // Mise à jour des interfaces réseaux non implémentées.
     
     /**
      * Permet de mettre à jour un batiment et l'ensemble des informations associées.
@@ -765,6 +766,125 @@ public final class ConnexionBDD {
         // On met fin au statement et au resultSet :
         state.close();
     }
+    
+    /* INSERTION EN BASE DE DONNEES : MEHODE INSERT */
+    
+    /**
+     * Permet d'ajouter un nouveau batiment.
+     * @param b Batiment à rajouter en base de données.
+     * @return l'identifiant "nom" du batiment en base de données.
+     * @throws java.sql.SQLException
+     */
+    public String insertBatiment(Batiment b) throws SQLException
+    {
+        // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
+        PreparedStatement state = connexion.prepareStatement("INSERT INTO batiment (nom, localisation, description) VALUES (?, ?, ?)");
+        // Préparation de la requête avant exécution de celle-ci :
+        state.setString(0, b.getNom());
+        state.setString(1, b.getLocalisation());
+        state.setString(2, b.getDescription());
+        // Récupéaratino des valeurs lues en base de données :
+        int res = state.executeUpdate();
+        // On met fin au statement et au resultSet :
+        state.close();
+        return b.getNom();
+    }
+    
+    /**
+     * Permet d'ajouter une salle à un batiment.
+     * @param s Salle à rajouter en base de données.
+     * @param nomBatiment nom du batiment pour l'ajout d'une salle.
+     * @return le dernier identifiant "id" de la salle ajouter en base de données.
+     * @throws java.sql.SQLException
+     */
+    public int insertSalleIntoBatiment(Salle s, String nomBatiment) throws SQLException
+    {
+        // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
+        PreparedStatement state = connexion.prepareStatement("INSERT INTO salle (numero, etage, batiment) VALUES (?, ?, ?)");
+        // Préparation de la requête avant exécution de celle-ci :
+        state.setString(0, s.getNumero());
+        state.setInt(1, s.getEtage());
+        state.setString(2, nomBatiment);
+        // Récupéaratino des valeurs lues en base de données :
+        int res = state.executeUpdate();
+        // On met fin au statement et au resultSet :
+        state.close();
+        Statement lastID = connexion.createStatement();
+        ResultSet result = lastID.executeQuery("SELECT LAST_INSERT_ID()");
+        result.next();
+        int id = result.getInt("LAST_INSERT_ID()");
+        result.close();
+        lastID.close();
+        return id;
+    }
+    
+    /**
+     * Permet d'ajouter une machine à une salle.
+     * @param m Machine à rajouter en base de données.
+     * @param idSalle identifiant de la salle en base de données où la machine doit être ajoutée.
+     * @return identifiant "id" de la machine en base de données.
+     * @throws SQLException 
+     */
+    public int insertMachineIntoSalle(Machine m, int idSalle) throws SQLException
+    {
+        // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
+        PreparedStatement state = connexion.prepareStatement("INSERT INTO machine (nom, marque, os, firmware, etat, salle, typem) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        // Préparation de la requête avant exécution de celle-ci :
+        state.setString(0, m.getNom());
+        state.setString(1, m.getMarque());
+        state.setString(2, m.getOS());
+        state.setString(3, m.getFirmware());
+        state.setBoolean(4, m.isEtat());
+        state.setInt(5, idSalle);
+        state.setString(6, m.getType());
+        // Récupéaratino des valeurs lues en base de données :
+        int res = state.executeUpdate();
+        // On met fin au statement et au resultSet :
+        state.close();
+        Statement lastID = connexion.createStatement();
+        ResultSet result = lastID.executeQuery("SELECT LAST_INSERT_ID()");
+        result.next();
+        int id = result.getInt("LAST_INSERT_ID()");
+        result.close();
+        lastID.close();
+        // On ajoute les interfaces réseaux en base de données : 
+        insertInterfaceReseauOnMachine(id, m);
+        return id;
+    }
+    
+    // Implémenté pour compatibilité avec le JTree et l'affichage graphique :
+    /**
+     * 
+     * @param idMachine
+     * @param m
+     * @throws SQLException 
+     */
+    private void insertInterfaceReseauOnMachine(int idMachine, Machine m) throws SQLException
+    {
+        // Pour l'ensemble des interfaceRéseaux de la machine considérée :
+        /* Ethernet, Token Bus, Token Ring, Wifi 2.4, Bluetooth, ProfiBUS, CAN, ZigBee, Wifi 5.0 */
+        ArrayList<Interface> interfaceMachine = m.getInterfaceReseau();
+        for(Interface i : interfaceMachine)
+        {
+            // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
+           PreparedStatement state = connexion.prepareStatement("INSERT INTO interfacereseau (mac, ipv4, ipv6, etat, machine, typer) VALUES (?, ?, ?, ?, ?, ?)");
+           // Préparation de la requête avant exécution de celle-ci :
+           state.setString(0, i.getAdresseMAC());
+           state.setString(1, i.getAdresseIP());
+           // Adresse IPv6 non implémentée :
+           state.setString(2, "");
+           // Etat de l'interface non implémentée :
+           state.setBoolean(3, true);
+           state.setInt(4, idMachine);
+           state.setString(5, i.getType());
+           // Récupéaratino des valeurs lues en base de données :
+           int res = state.executeUpdate();
+           // On met fin au statement et au resultSet :
+           state.close();
+        }
+    }
+    
+    /* SUPPRESSION EN BASE DE DONNEES : MEHODE DELETE */
     
     
 }
