@@ -886,5 +886,54 @@ public final class ConnexionBDD {
     
     /* SUPPRESSION EN BASE DE DONNEES : MEHODE DELETE */
     
+    /**
+     * Permet de supprimer un batiment et tous les éléments associés en base de données (salle, machine et interface).
+     * @param nomBatiment nom du batiment à supprimer en base de données.
+     * @throws java.sql.SQLException
+     */
+    public void deleteBatimentAndAllAssociated(String nomBatiment) throws SQLException
+    {
+        // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
+        PreparedStatement state = connexion.prepareStatement("DELETE FROM batiment where batiment.nom=?");
+        // Préparation de la requête avant exécution de celle-ci :
+        state.setString(0, nomBatiment);
+        // Récupéaratino des valeurs lues en base de données :
+        int res = state.executeUpdate();
+        // On met fin au statement et au resultSet :
+        state.close();
+    }
     
+    /**
+     * Permet de supprimer une salle et tous les éléments associés en base de données (machine, interface).
+     * @param idSalle identifiant la salle en base de données.
+     * @throws java.sql.SQLException
+     */
+    public void deleteSalleAndAllAssociated(int idSalle) throws SQLException
+    {
+        // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
+        PreparedStatement state = connexion.prepareStatement("DELETE FROM salle where salle.id=?");
+        // Préparation de la requête avant exécution de celle-ci :
+        state.setInt(0, idSalle);
+        // Récupéaratino des valeurs lues en base de données :
+        int res = state.executeUpdate();
+        // On met fin au statement et au resultSet :
+        state.close();
+    }
+    
+    /**
+     * Permet de supprimer une machine et tous les élémentd associées en base de donénes (interface...).
+     * @param idMachine  identifiant la machine en base de données.
+     * @throws java.sql.SQLException
+     */
+    public void deleteMachineAndAllAssociated(int idMachine) throws SQLException
+    {
+        // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
+        PreparedStatement state = connexion.prepareStatement("DELETE FROM machine where machine.id=?");
+        // Préparation de la requête avant exécution de celle-ci :
+        state.setInt(0, idMachine);
+        // Récupéaratino des valeurs lues en base de données :
+        int res = state.executeUpdate();
+        // On met fin au statement et au resultSet :
+        state.close();
+    }
 }
