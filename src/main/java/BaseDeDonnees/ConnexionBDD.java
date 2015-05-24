@@ -143,7 +143,7 @@ public final class ConnexionBDD {
         // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
         PreparedStatement state = connexion.prepareStatement("SELECT id, numero, etage, nom, batiment FROM salle where salle.batiment=?");
         // Préparation de la requête avant exécution de celle-ci :
-        state.setString(0, nom);
+        state.setString(1, nom);
         // Récupéaratino des valeurs lues en base de données :
         ResultSet res = state.executeQuery();
         ArrayList<Salle> salle = new ArrayList<>();
@@ -271,7 +271,7 @@ public final class ConnexionBDD {
         // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
         PreparedStatement state = connexion.prepareStatement("SELECT id, nom, marque, modele, os, firmware, etat, salle, typem FROM machine where machine.salle=?");
         // Préparation de la requête avant exécution de celle-ci :
-        state.setInt(0, id);
+        state.setInt(1, id);
         // Récupéaratino des valeurs lues en base de données :
         ResultSet res = state.executeQuery();
         ArrayList<Machine> machine = new ArrayList<>();
@@ -288,8 +288,8 @@ public final class ConnexionBDD {
             int identifiant = res.getInt("id");
             m.setId(identifiant);
             // Pour l'ensemble des machines, on sélectionne la liste des interfaces de celle-ci [ainsi que la liste des unités processeurs] :
-            PreparedStatement stateInterface = connexion.prepareStatement("SELECT mac, ipv4, ipv6, typer, etat, machine FROM interfacereseau where interfacereseau.machine=?;");
-            stateInterface.setInt(0, identifiant);
+            PreparedStatement stateInterface = connexion.prepareStatement("SELECT mac, ipv4, ipv6, typer, etat, machine FROM interfacereseau where interfacereseau.machine=?");
+            stateInterface.setInt(1, identifiant);
             ResultSet resInterface = stateInterface.executeQuery();
             while(resInterface.next())
             {
