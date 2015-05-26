@@ -59,7 +59,7 @@ public class Salle extends JLabel
    /**
     * Constructeur de test pour JTree.
     * 
-    * @param nom - String: nom de la salle qui sera afficher pour le Jtree.
+    * @param nom Nom de la salle qui sera afficher pour le Jtree.
     */
    public Salle(String nom)
     {
@@ -76,7 +76,7 @@ public class Salle extends JLabel
     
    /**
     * Permet de spécifier l'identifiant de la salle.
-    * @param id int: indiquant l'identifiant de la salle en base de données.
+    * @param id Indiquant l'identifiant de la salle en base de données.
     */
     public void setId(int id)
     {
@@ -85,7 +85,7 @@ public class Salle extends JLabel
    
     /**
      * Permet de récupérer l'identifiant de la salle.
-     * @return int: identifiant de la salle en base de données.
+     * @return Identifiant de la salle en base de données.
      */
     public int getId()
     {
@@ -114,7 +114,7 @@ public class Salle extends JLabel
     /**
      * Permet d'obtenir le numéro de la salle.
      * 
-     * @return String: Numéro de la salle.
+     * @return Numéro de la salle.
      */
     public String getNumero() 
     {
@@ -124,7 +124,7 @@ public class Salle extends JLabel
     /**
      * Permet de définir le numéro de la salle
      * 
-     * @param numero String: Numéro à définir
+     * @param numero Numéro à définir
      */
     public void setNumero(String numero) 
     {
@@ -145,7 +145,7 @@ public class Salle extends JLabel
      * 
      * N.B: Une salle ne peut normalement pas changer d'étage.
      * 
-     * @param etage String: nouvel étage à définir.
+     * @param etage Nouvel étage à définir.
      */
     public void setEtage(int etage) 
     {
@@ -155,7 +155,7 @@ public class Salle extends JLabel
     /**
      * Obtenir le nom de la salle.
      * 
-     * @return String: nom de la salle.
+     * @return Nom de la salle.
      */
     public String getNom()
     {
@@ -165,7 +165,7 @@ public class Salle extends JLabel
     /**
      * Définir le nom de la salle.
      * 
-     * @param nom String: nouveau nom de la salle.
+     * @param nom Nouveau nom de la salle.
      */
     public void setNom(String nom) 
     {
@@ -175,7 +175,7 @@ public class Salle extends JLabel
     /**
      * Permet d'ajouter une nouvelle machine à l'ArrayList'machine' d'une salle. 
      * 
-     * @param machine Machine: nouvelle machine à ajouter à la salle
+     * @param machine Nouvelle machine à ajouter à la salle
      */
     public void addMachine(Machine machine) 
     {
@@ -185,7 +185,7 @@ public class Salle extends JLabel
     /**
      * Permet de retirer une machine correspondant à celle passé en paramètre de l'ArrayList'machine'.
      * 
-     * @param machine Machine: machine à retirer de la salle.
+     * @param machine Machine à retirer de la salle.
      */
     public void removeMachine(Machine machine) 
     {
@@ -201,7 +201,7 @@ public class Salle extends JLabel
     /**
     * Obtenir le nom de la salle.
     * 
-    * @return String: Nom de la salle.
+    * @return Nom de la salle.
     */
    @Override
     public String toString() 
@@ -222,7 +222,7 @@ public class Salle extends JLabel
      *  Nombre d'équipement protable:
      * *******FIN**********
      * 
-     * @return String: nom, localisation, description du batiment, nombre d'entités dans la salle.
+     * @return Nom, localisation, description du batiment, nombre d'entités dans la salle.
      */
     public String FullScreen()
     {

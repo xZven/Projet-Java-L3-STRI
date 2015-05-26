@@ -10,7 +10,7 @@ package Metier;
  *
  * @author E.MENAT - G.RIBAGNAC - N.ROQUES - M.TEIKITUHAAHAA
  * <p>
- * Cette classE repr2sente les interfaces constituant une machine.
+ * Cette classe représente les interfaces constituant une machine.
  * Ces interfaces peuvent être stockéeS dans des ArrayList si la
  * machine a plusieurs interfaces, tel un équipement réseau
  * ou un serveur.
@@ -60,7 +60,7 @@ public class Interface
 
     /**
      * Obtenir l'adresse MAC de l'Interface.
-     * @return String: Adresse MAC de l'interface.
+     * @return Adresse MAC de l'interface.
      */
     public String getAdresseMAC() 
     {
@@ -69,7 +69,7 @@ public class Interface
 
     /**
      * Définir une adresse MAC pour l'Interface.
-     * @param adresseMAC String: Adresse MAC à définir.
+     * @param adresseMAC Adresse MAC à définir.
      */
     public void setAdresseMAC(String adresseMAC) 
     {
@@ -78,7 +78,7 @@ public class Interface
 
     /**
      * Obtenir l'adresse IP d'une Interface.
-     * @return String:  Adresse IP de l'interface.
+     * @return Adresse IP de l'interface.
      */
     public String getAdresseIP()
     {
@@ -87,7 +87,7 @@ public class Interface
 
     /**
      * Définir une adresse IP pour une Interface.
-     * @param adresseIP String: Adresse IP à definir.
+     * @param adresseIP Adresse IP à definir.
      */
     public void setAdresseIP(String adresseIP) 
     {
@@ -108,7 +108,7 @@ public class Interface
      * <li>...</li>
      * </ul> 
      * 
-     * @return String: Type de l'interface.
+     * @return Type de l'interface.
      */
     public String getType() 
     {
@@ -130,7 +130,7 @@ public class Interface
      * </ul> 
      * 
      * 
-     * @param type String: Type de l'interface à définir.
+     * @param type Type de l'interface à définir.
      */
     public void setType(String type) 
     {
@@ -140,7 +140,7 @@ public class Interface
     /**
      * Etat de l'Interface.
      * 
-     * @return Boolean:  TRUE si l'interface est UP; FALSE SI DOWN.
+     * @return TRUE si l'interface est UP; FALSE SI DOWN.
      */
     public boolean isEtat() 
     {
@@ -149,7 +149,7 @@ public class Interface
     /**
      * Changer l'Etat d'une Interface
      * 
-     * @param etat Bollean: Etat à définir: TRUE = UP; FALSE = DOWN.
+     * @param etat Etat à définir: TRUE = UP; FALSE = DOWN.
      */
     public void setEtat(boolean etat)
     {

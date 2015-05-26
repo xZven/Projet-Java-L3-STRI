@@ -29,11 +29,11 @@ public class Batiment extends JLabel
     private String localisation;
 
     /**
-     * Permet de construire un batiment
+     * Permet de construire un batiment.
      * 
-     * @param name String: nom du batiment
-     * @param localisation String: localisation (ou adresse)
-     * @param description  String: description du batiment
+     * @param name Nom du batiment
+     * @param localisation Localisation (ou adresse).
+     * @param description  Description du batiment.
      */
     public Batiment(String name, String localisation, String description) 
     {
@@ -46,8 +46,8 @@ public class Batiment extends JLabel
     }
     
     /**
-     * Constructeur de test pour JTree
-     * @param name String: nom du batiment
+     * Constructeur de test pour JTree.
+     * @param name Nom du batiment.
      */
     public Batiment(String name) 
     {
@@ -60,7 +60,7 @@ public class Batiment extends JLabel
        /* gestion des salles */
     
     /**
-     * Permet d'obtenir l'ArrayList de salles d'un batiment
+     * Permet d'obtenir l'ArrayList de salles d'un batiment.
      * 
      * @return ArrayList de Salle.
      */
@@ -70,7 +70,7 @@ public class Batiment extends JLabel
     }
 
     /**
-     * @param salles ArrayList de salle pour un batiment
+     * @param salles ArrayList de salle pour un batiment.
      */
     public void setSalles(ArrayList<Salle> salles)
     {
@@ -78,9 +78,9 @@ public class Batiment extends JLabel
     }
 
     /**
-     * Ajouter une nouvelle salle au batiment
+     * Ajouter une nouvelle salle au batiment.
      * 
-     * @param salle Salle: permet d'ajouter une salle à l'ArrayList de la classe Batiment
+     * @param salle Permet d'ajouter une salle à l'ArrayList de la classe Batiment.
      */
     public void addSalle(Salle salle)
     {
@@ -91,7 +91,7 @@ public class Batiment extends JLabel
      * Supprimer une salle au batiment.
      * 
      * @param salle Salle
-     * @return boolean: TRUE si réussi; FALSE sinon
+     * @return boolean: TRUE si réussi; FALSE sinon.
      */
     public boolean removeSalle(Salle salle) 
     {
@@ -116,9 +116,9 @@ public class Batiment extends JLabel
     }
 
     /**
-     * Obtenir le nom du batiment
+     * Obtenir le nom du batiment.
      * 
-     * @return String: nom du batiment
+     * @return Nom du batiment.
      */
     public String getNom() 
     {
@@ -128,7 +128,7 @@ public class Batiment extends JLabel
     /**
      * Définir un nom à un batiment.
      * 
-     * @param nom String: nom à définir pour le batiment.
+     * @param nom Nom à définir pour le batiment.
      */
     public void setNom(String nom) 
     {
@@ -137,7 +137,7 @@ public class Batiment extends JLabel
 
     /**
      * Obtenir la desceription du batiment.
-     * @return String: Description du batiment.
+     * @return Description du batiment.
      */
     public String getDescription() 
     {
@@ -145,7 +145,7 @@ public class Batiment extends JLabel
     }
 
     /**
-     * @param description String: Description à definir  pour le batiment.
+     * @param description Description à definir  pour le batiment.
      */
     public void setDescription(String description) 
     {
@@ -153,7 +153,7 @@ public class Batiment extends JLabel
     }
 
     /**
-     * @return String: Localisation du batiment.
+     * @return Localisation du batiment.
      */
     public String getLocalisation() 
     {
@@ -163,7 +163,7 @@ public class Batiment extends JLabel
     /**
      * Définir la localisation du batiment.
      * 
-     * @param localisation String: Localisation à définir.
+     * @param localisation Localisation à définir.
      */
     public void setLocalisation(String localisation) 
     {
@@ -173,7 +173,7 @@ public class Batiment extends JLabel
     /**
      * Obtenir seulement le nom du batiment(utilisé avec le JTree).
      * 
-     * @return String: nom du batiment.
+     * @return Nom du batiment.
      */
     @Override
     public String toString() 
@@ -184,7 +184,7 @@ public class Batiment extends JLabel
     /**
      * Obtenir toutes les informations sur le batiment.
      * 
-     * @return String: nom, localisation, description du batiment.
+     * @return Nom, localisation, description du batiment.
      */
    
     public String FullScreen() 

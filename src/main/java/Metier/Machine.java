@@ -23,8 +23,8 @@ public class Machine extends JLabel{
   
     private ArrayList<Interface> interfaceReseau;
     
- //   En attente: non défini dans l'UML
- //   private ArrayList<UniteProcesseur> uniteProcesseur;
+    //   En attente: non défini dans l'UML
+    //   private ArrayList<UniteProcesseur> uniteProcesseur;
     
     // Ajout propriétés ArrayList<Machine> machineConnectees; 
     
@@ -78,7 +78,7 @@ public class Machine extends JLabel{
     /**
      * Constructeur de test pour le JTree
      * 
-     * @param nom - String: Nom de la machine pour le Jtree;
+     * @param nom Nom de la machine pour le Jtree;
      */
     public Machine(String nom)
     {  
@@ -95,7 +95,7 @@ public class Machine extends JLabel{
     
     /**
      * Permet de spécifier l'identifiant de la machine.
-     * @param id int: Indique l'identifiant de la machine en base de données.
+     * @param id Indique l'identifiant de la machine en base de données.
      */
     public void setId(int id)
     {
@@ -104,7 +104,7 @@ public class Machine extends JLabel{
     
     /**
      * Permet de récupérer l'identifiant de la machine en base de données.
-     * @return int: Identifiant de la machine en base de données.
+     * @return Identifiant de la machine en base de données.
      */
     public int getId()
     {
@@ -238,7 +238,7 @@ public class Machine extends JLabel{
     /**
      * Définir le nom d'une machine.
      * 
-     * @param nom : Chaine de caractères permettant de définir le nom de la machine.
+     * @param nom Chaine de caractères permettant de définir le nom de la machine.
      */
     public void setNom(String nom) 
     {
@@ -257,7 +257,7 @@ public class Machine extends JLabel{
     /**
      * Définir la marque d'une machine
      * 
-     * @param marque String: nouvelle marque de la machine
+     * @param marque Nouvelle marque de la machine
      */
     public void setMarque(String marque) 
     {
@@ -281,7 +281,7 @@ public class Machine extends JLabel{
      * mais cette fonction a été rajouté pour pouvoir 
      * modifier l'attribut en cas d'erreur...
      * 
-     * @param modele - String: nouveau modèle de la machine.
+     * @param modele Nouveau modèle de la machine.
      */
     public void setModele(String modele) 
     {
@@ -301,7 +301,7 @@ public class Machine extends JLabel{
     /**
      * Définir le système d'exploitation d'une machine
      *
-     * @param OS - String: Nouveau Système d'exploitation de la machine.
+     * @param OS Nouveau Système d'exploitation de la machine.
      */
     public void setOS(String OS) 
     {
@@ -323,7 +323,7 @@ public class Machine extends JLabel{
      * 
      * Le Firmware d'une machine peut être mis à jour via cette fonction.
      * 
-     * @param firmware - String: Nouveau Firmware de la machine.
+     * @param firmware Nouveau Firmware de la machine.
      */
     public void setFirmware(String firmware) 
     {
@@ -360,7 +360,7 @@ public class Machine extends JLabel{
      * <li>Automate                      </li>
      * <li>...</li>
      * </ul>
-     * @param type - String: Type de la machine
+     * @param type Type de la machine
      */
     public void setType(String type) 
     {
@@ -412,7 +412,7 @@ public class Machine extends JLabel{
     /**
      * Obtenir le nom de la machine
      * 
-     * @return String - Nom de la machine
+     * @return Nom de la machine
      */
     @Override
     public String toString()
