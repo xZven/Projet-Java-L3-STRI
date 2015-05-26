@@ -376,70 +376,50 @@ public class InterfaceIHM extends javax.swing.JFrame {
                  public void treeNodesChanged(TreeModelEvent e) {
 
 //                     System.out.println("Valeur modifiée :");    System.out.println(e.getChildren()[0].toString());
-                     
-            //         DefaultMutableTreeNode var = (DefaultMutableTreeNode) jTree.getSelectionPath().getLastPathComponent();
-                       
-                    DefaultMutableTreeNode var = (DefaultMutableTreeNode) e.getTreePath().getLastPathComponent();
-        
+                          
+                     DefaultMutableTreeNode var = (DefaultMutableTreeNode) e.getTreePath().getLastPathComponent();
                     console.setText("Tentative de modification de l'objet\n");
 
-                    try{ // machine
-
-                        Machine temp = (Machine) var.getUserObject();
-
-                        /* supression de la machine dans la base de donnée */
-
-                        // dans la BD
-                        try {
-                            db.updateAllMachine(temp, temp.getId()); // modification dans la base
-                        } 
-                        catch (SQLException ex) {
-                            System.out.println("Impossible de récupercuter les changements dans la base: "+ex.getMessage());
-                        }                 
+                        
+                    // On récupère le nouveau nom de l'élément :
+                    // L'ancien étant stocké dans :oldNameOfSelectedNode
+                    String newName = e.getChildren()[0].toString();
+                    
+                    int numberOfNodeBeforeSelected = e.getPath().length;
+                    if(numberOfNodeBeforeSelected == 1)
+                    {
+                         try {
+                             // Noeud parent "Etablissement", noeud root, c'est un batiment qui suit immédiatement :
+                             db.updateNameOfBatiment(newName, oldNameOfSelectedNode);
+                         } catch (SQLException ex) {
+                             // Logger.getLogger(InterfaceIHM.class.getName()).log(Level.SEVERE, null, ex);
+                             System.out.println("Erreur lors de la consultation de la BDD pour la mise à jour d'un batiment");
+                         }
                     }
-                    catch(ClassCastException exep){
-                        System.out.println("Ce n'est pas une Machine");
+                    else if(numberOfNodeBeforeSelected == 2)
+                    {
+                        // Noeud parent Batiment, c'est une salle qui suit immédiatement :
+                        // Récupération de l'ID : 
+                        Salle temp = (Salle) jTree.getSelectionPath().getLastPathComponent();
+                         try {
+                             db.updateNameOfSalle(temp.getId(), newName);
+                         } catch (SQLException ex) {
+                            // Logger.getLogger(InterfaceIHM.class.getName()).log(Level.SEVERE, null, ex);
+                             System.out.println("Erreur lors de la consultation de la BDD pour la mise à jour d'une salle");
+                         }
                     }
-            //***********************************************************************************************************************          
-
-                    try{ // salle
-
-                        Salle temp = (Salle) var.getUserObject();
-
-
-                        try  // supression de la salle et des machines de la salle
-                        {
-                            db.updateAllSalle(temp); // modification dans la base
-                        } 
-                        catch (SQLException ex) {
-                            System.out.println("Impossible de récupercuter les changements dans la base: "+ex.getMessage());
-                        }
-
-                    }
-                    catch(ClassCastException exep){
-                         System.out.println("Ce n'est pas une Salle");
+                    else if(numberOfNodeBeforeSelected == 3)
+                    {
+                        // Noeud parent Salle, c'est un ordinateur qui suit immédiatement : 
+                        Machine temp = (Machine) jTree.getSelectionPath().getLastPathComponent();
+                         try {
+                             db.updateNomOfMachine(temp.getId(), newName);
+                         } catch (SQLException ex) {
+                             Logger.getLogger(InterfaceIHM.class.getName()).log(Level.SEVERE, null, ex);
+                         }
+                        System.out.println("Erreur lors de la consultation de la BDD pour la mise à jour d'une machine");
                     }
                     
-            //***********************************************************************************************************************          
-                    try{ // salle
-
-                        Batiment temp = (Batiment) var.getUserObject();
-
-
-                        try  // supression de la salle et des machines de la salle
-                        {
-                            db.updateAllBatiment(temp, temp.getNom()); // modification dans la base
-                        } 
-                        catch (SQLException ex) {
-                            System.out.println("Impossible de récupercuter les changements dans la base: "+ex.getMessage());
-                        }
-
-                    }
-                    catch(ClassCastException exep){
-                         System.out.println("Ce n'est pas un Batiment");
-                    }
-
-
                    
                     console.setText("Objet modifié: "+var.toString());
 
@@ -479,6 +459,9 @@ public class InterfaceIHM extends javax.swing.JFrame {
 
                   DefaultMutableTreeNode var = (DefaultMutableTreeNode) e.getPath().getLastPathComponent(); 
        //***********************************************************************************************************************               
+                  // A chaque sélection d'un noeud, on récupère le nom du noeud au cas où celui-ci est modifié.
+                oldNameOfSelectedNode = e.getPath().getLastPathComponent().toString();
+                System.out.println(oldNameOfSelectedNode);
                  try{
                       Batiment temp = (Batiment) var.getUserObject();
                       mainAreaText.setText(temp.FullScreen()); // affichage dans textfield des propriété de l'objet.
@@ -623,9 +606,13 @@ public class InterfaceIHM extends javax.swing.JFrame {
     private void jTreeValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_jTreeValueChanged
         // Evenement : Se déclenche à chaque sélection/désélection d'un élément de l'arbre :
         
-        /* si l'on change une valeur dans le Jtree, on reporte la modif dans la BD */
+        /*
+        // A chaque sélection d'un noeud, on récupère le nom du noeud au cas où celui-ci est modifié.
+        oldNameOfSelectedNode = evt.getPath().getLastPathComponent().toString();
+        System.out.println(oldNameOfSelectedNode);
+        */
         
-      
+       /* si l'on change une valeur dans le Jtree, on reporte la modif dans la BD */
       //  System.out.print(evt.getPath().getLastPathComponent().toString());   System.out.println(": Value changed");
         
     }//GEN-LAST:event_jTreeValueChanged
@@ -810,5 +797,6 @@ public class InterfaceIHM extends javax.swing.JFrame {
     private javax.swing.JTree jTree;
     private javax.swing.JTextArea mainAreaText;
     // End of variables declaration//GEN-END:variables
-private  ConnexionBDD db;
+    private  ConnexionBDD db;
+    private String oldNameOfSelectedNode;
 }
