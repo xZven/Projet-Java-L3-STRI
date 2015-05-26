@@ -400,7 +400,7 @@ public class InterfaceIHM extends javax.swing.JFrame {
                     {
                         // Noeud parent Batiment, c'est une salle qui suit immédiatement :
                         // Récupération de l'ID : 
-                        Salle temp = (Salle) jTree.getSelectionPath().getLastPathComponent();
+                        Salle temp = (Salle) currentSelectedNode;
                          try {
                              db.updateNameOfSalle(temp.getId(), newName);
                          } catch (SQLException ex) {
@@ -411,7 +411,7 @@ public class InterfaceIHM extends javax.swing.JFrame {
                     else if(numberOfNodeBeforeSelected == 3)
                     {
                         // Noeud parent Salle, c'est un ordinateur qui suit immédiatement : 
-                        Machine temp = (Machine) jTree.getSelectionPath().getLastPathComponent();
+                        Machine temp = (Machine) currentSelectedNode;
                          try {
                              db.updateNomOfMachine(temp.getId(), newName);
                          } catch (SQLException ex) {
@@ -461,6 +461,7 @@ public class InterfaceIHM extends javax.swing.JFrame {
        //***********************************************************************************************************************               
                   // A chaque sélection d'un noeud, on récupère le nom du noeud au cas où celui-ci est modifié.
                 oldNameOfSelectedNode = e.getPath().getLastPathComponent().toString();
+                currentSelectedNode = var.getUserObject();
                 System.out.println(oldNameOfSelectedNode);
                  try{
                       Batiment temp = (Batiment) var.getUserObject();
@@ -799,4 +800,5 @@ public class InterfaceIHM extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     private  ConnexionBDD db;
     private String oldNameOfSelectedNode;
+    private Object currentSelectedNode;
 }
