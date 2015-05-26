@@ -39,15 +39,14 @@ public class Salle extends JLabel
    /**
     * Constructeur Salle
     * 
-    * @param nom Nom de la salle
-    * @param numero Numéro de la salle
-    * @param etage  Etage de la salle
+    * @param nom Nom de la salle.
+    * @param numero Numéro de la salle.
+    * @param etage  Etage de la salle.
     */
    public Salle(String nom, String numero, int etage) 
    {
        setIcon(new ImageIcon("src/main/java/VueJtree/salles.png"));
-       
-
+   
         this.nom      = nom;
         this.numero   = numero;
         this.etage    = etage;
@@ -55,13 +54,12 @@ public class Salle extends JLabel
         eq_reseau     = new ArrayList<>();
         eq_mobile     = new ArrayList<>();
         ordinateur    = new ArrayList<>();
-
     }
 
    /**
-    * Constructeur de test pour JTree
+    * Constructeur de test pour JTree.
     * 
-    * @param nom - String: nom de la salle qui sera afficher pour le Jtre
+    * @param nom - String: nom de la salle qui sera afficher pour le Jtree.
     */
    public Salle(String nom)
     {
@@ -78,7 +76,7 @@ public class Salle extends JLabel
     
    /**
     * Permet de spécifier l'identifiant de la salle.
-    * @param id indiquant l'identifiant de la salle en base de données.
+    * @param id int: indiquant l'identifiant de la salle en base de données.
     */
     public void setId(int id)
     {
@@ -87,7 +85,7 @@ public class Salle extends JLabel
    
     /**
      * Permet de récupérer l'identifiant de la salle.
-     * @return identifiant de la salle en base de données.
+     * @return int: identifiant de la salle en base de données.
      */
     public int getId()
     {
@@ -97,35 +95,39 @@ public class Salle extends JLabel
    /**
     * Obtenir les machines d'une salle.
     * 
-    * @return ArrayList'machine'
+    * @return ArrayList'machine'.
     */
-    public ArrayList<Machine> getMachines() {
+    public ArrayList<Machine> getMachines()
+    {
         return machines;
     }
 
     /**
      * Définir les machines d'une salle en passant une ArrayList'machine'.
-     * @param machines ArrayList'machine'
+     * @param machines ArrayList'machine'.
      */
-    public void setMachines(ArrayList<Machine> machines) {
+    public void setMachines(ArrayList<Machine> machines)
+    {
         this.machines = machines;
     }
 
     /**
-     * Permet d'obtenir le numéro de la salle
+     * Permet d'obtenir le numéro de la salle.
      * 
-     * @return Numéro de la salle
+     * @return String: Numéro de la salle.
      */
-    public String getNumero() {
+    public String getNumero() 
+    {
         return numero;
     }
 
     /**
      * Permet de définir le numéro de la salle
      * 
-     * @param numero - Integer: Numéro à définir
+     * @param numero String: Numéro à définir
      */
-    public void setNumero(String numero) {
+    public void setNumero(String numero) 
+    {
         this.numero = numero;
     }
 
@@ -143,45 +145,50 @@ public class Salle extends JLabel
      * 
      * N.B: Une salle ne peut normalement pas changer d'étage.
      * 
-     * @param etage String: nouvel étage à définir
+     * @param etage String: nouvel étage à définir.
      */
-    public void setEtage(int etage) {
+    public void setEtage(int etage) 
+    {
         this.etage = etage;
     }
 
     /**
-     * Obtenir le nom de la salle
+     * Obtenir le nom de la salle.
      * 
-     * @return nom de la salle
+     * @return String: nom de la salle.
      */
-    public String getNom() {
+    public String getNom()
+    {
         return nom;
     }
 
     /**
      * Définir le nom de la salle.
      * 
-     * @param nom - String: nouveau nom de la salle
+     * @param nom String: nouveau nom de la salle.
      */
-    public void setNom(String nom) {
+    public void setNom(String nom) 
+    {
         this.nom = nom;
     }
 
     /**
      * Permet d'ajouter une nouvelle machine à l'ArrayList'machine' d'une salle. 
      * 
-     * @param machine - Machine: nouvelle machine à ajouter à la salle
+     * @param machine Machine: nouvelle machine à ajouter à la salle
      */
-    public void addMachine(Machine machine) {
+    public void addMachine(Machine machine) 
+    {
 		machines.add(machine);
 	}
     
     /**
      * Permet de retirer une machine correspondant à celle passé en paramètre de l'ArrayList'machine'.
      * 
-     * @param machine - Machine: machine à retirer de la salle
+     * @param machine Machine: machine à retirer de la salle.
      */
-    public void removeMachine(Machine machine) {
+    public void removeMachine(Machine machine) 
+    {
                 /* Si la machine n'existe pas dans l'ArrayList */
 		if (!machines.contains(machine)) {
                    /* Sortie standard pour test : gestion des erreurs sans la sortie standard console,
@@ -191,22 +198,17 @@ public class Salle extends JLabel
 			machines.remove(machine);
 		}
     }
-   
-    
-    
-    
-    
     /**
     * Obtenir le nom de la salle.
     * 
-    * @return String: Nom de la salle
+    * @return String: Nom de la salle.
     */
    @Override
-    public String toString() {
-		return (nom);
-	}
+    public String toString() 
+    {
+        return (nom);
+    }
 
-    
     /**
      * Obtenir toutes les informations sur la salle de manière formaté ci-dessous:
      * *******DEBUT********
@@ -220,9 +222,10 @@ public class Salle extends JLabel
      *  Nombre d'équipement protable:
      * *******FIN**********
      * 
-     * @return String: nom, localisation, description du batiment, nombre d'entités dans la salle
+     * @return String: nom, localisation, description du batiment, nombre d'entités dans la salle.
      */
-    public String FullScreen(){
+    public String FullScreen()
+    {
         
                 return ("Nom : " + nom
                       + "\nNuméro: "+ numero 

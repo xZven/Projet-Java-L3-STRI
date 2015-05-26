@@ -12,25 +12,27 @@ package Metier;
  *
  *<p>
  * Cette classe défini les commutateurs appartennant à des salles.
- * Elle n'est pas implémenter dans cette version du logiciel
+ * Elle n'est pas implémentés dans cette version du logiciel
  * </p>
  * @version 1.0, 2015, UPS.
  */
 
 
-public class Commutateur extends EquipementReseau {
+public class Commutateur extends EquipementReseau 
+{
     /**
      * Constructer <b>Commutateur</b>
      * 
-     * @param nom nom du commutateur
-     * @param marque marque du commutateur
-     * @param modele modèle du commutateur
-     * @param OS Système d'exploitation du commutateur
-     * @param firmware firmware du commutateur
-     * @param type type du commutateur
-     * @param etat etat du commutateur(UP ou DOWN)
+     * @param nom Nom du commutateur.
+     * @param marque Marque du commutateur.
+     * @param modele Modèle du commutateur.
+     * @param OS Système d'exploitation du commutateur.
+     * @param firmware Firmware du commutateur.
+     * @param type Type du commutateur.
+     * @param etat Etat du commutateur(UP ou DOWN).
      */
-    public Commutateur(String nom, String marque, String modele, String OS, String firmware, String type, boolean etat) {
+    public Commutateur(String nom, String marque, String modele, String OS, String firmware, String type, boolean etat) 
+    {
         super(nom, marque, modele, OS, firmware, "Commutateur", etat);
     }
 }

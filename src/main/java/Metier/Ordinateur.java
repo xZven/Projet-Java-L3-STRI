@@ -18,20 +18,20 @@ package Metier;
 
 
 
-public class Ordinateur extends Machine {
-
+public class Ordinateur extends Machine 
+{
     /**
      * Constructeur <b>Ordinateur</b>
      * 
-     * @param nom Nom de l'ordinateur
-     * @param marque marque de l'ordinateur
-     * @param modele modele de l'ordinateur
-     * @param OS    Système d'exploitation
-     * @param firmware Firmware de l'ordinateur
-     * @param etat  TRUE = UP | FALSE = DOWN
+     * @param nom Nom de l'ordinateur.
+     * @param marque Marque de l'ordinateur.
+     * @param modele Modele de l'ordinateur.
+     * @param OS    Système d'exploitation.
+     * @param firmware Firmware de l'ordinateur.
+     * @param etat  TRUE = UP | FALSE = DOWN.
      */
-    public Ordinateur(String nom, String marque, String modele, String OS, String firmware, boolean etat) {
-        
+    public Ordinateur(String nom, String marque, String modele, String OS, String firmware, boolean etat) 
+    {
         super(nom, marque, modele, OS, firmware, "Ordinateur", etat);
     }
 }
