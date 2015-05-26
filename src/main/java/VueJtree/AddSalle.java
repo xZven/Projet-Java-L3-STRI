@@ -1,7 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Projet L3 STRI 
+ * Device Manager
+ *
  */
 package VueJtree;
 
@@ -14,21 +14,26 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 
 /**
+ * Cette classe définit une interface graphique pour l'ajout d'une salle. Elle
+ * montre la façon de procéder lors de l'ajout d'un objet qui pourrait, avec
+ * plus de temps, aboutir à l'ajout des autres objets.
  *
  * @author Manavai
  */
 public class AddSalle extends javax.swing.JPanel {
 
     /**
+     *
      * Creates new form AddObj
-     * @param arbreModele
-     * @param node_batiment
+     *
+     * @param arbreModele Modèle Jtree a passer
+     * @param node_batiment Node de batiment
      */
     public AddSalle(DefaultTreeModel arbreModele, DefaultMutableTreeNode node_batiment) {
-        
+
         this.on_bat = node_batiment;
         this.arbreModele = arbreModele;
-        
+
         initComponents();
         this.setVisible(true);
     }
@@ -149,60 +154,49 @@ public class AddSalle extends javax.swing.JPanel {
     private void addSalleConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addSalleConfirmActionPerformed
         // TODO add your handling code here:
         int i = Integer.parseInt(etage.getText()); // conversion string en entier
-        
+
         new_salle = new Salle(nom.getText(), numero.getText(), i); //salle temporaire
-        
-        
-        
-      
-        
-       // mise en BD
-       
-        try{
-            
+
+        // mise en BD
+        try {
+
             // on essaye de se connecter à la BD
-            ConnexionBDD  db = new ConnexionBDD("jdbc:mysql://binary-digit.net:3306/java", "java", "java");
-            
+            ConnexionBDD db = new ConnexionBDD("jdbc:mysql://binary-digit.net:3306/java", "java", "java");
+
             //insertion dans la base de donnée
-           int temp_id =  db.insertSalleIntoBatiment(new_salle, on_bat.toString());
-           new_salle.setId(temp_id);
-            
+            int temp_id = db.insertSalleIntoBatiment(new_salle, on_bat.toString());
+            new_salle.setId(temp_id);
+
             // fermeture de la connexion
             db.closeConnexionBDD();
-             
-                    
-        }catch(ClassNotFoundException | SQLException ex){
+
+        } catch (ClassNotFoundException | SQLException ex) {
             System.out.println("La nouvelle salle n'a pa pû être ajoutée dans la BdD");
         }
-       
-        
-       DefaultMutableTreeNode Jtree_Salle = new DefaultMutableTreeNode();// on créer un sous-node sur le JTree
-       Jtree_Salle.setUserObject(new_salle); // attribution objet salle à une node
-       
-       on_bat.add(Jtree_Salle); // ajout node salle au node batiment
+
+        DefaultMutableTreeNode Jtree_Salle = new DefaultMutableTreeNode();// on créer un sous-node sur le JTree
+        Jtree_Salle.setUserObject(new_salle); // attribution objet salle à une node
+
+        on_bat.add(Jtree_Salle); // ajout node salle au node batiment
         // rechargement arbo
         arbreModele.reload(on_bat);
-        
+
         // fermture ...
-        
         JDialog dial = (JDialog) this.getParent().getParent().getParent().getParent(); // on récupère le gros container et on le ferme.
         dial.dispose(); // fermeture
-      
-        
-        
+
         // ainsi l'évenement oncloseWindow s'occupera de récupérer les valeurs entrées.
     }//GEN-LAST:event_addSalleConfirmActionPerformed
 
     private void addSalleCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addSalleCancelActionPerformed
         // TODO add your handling code here:
         setVisible(false);
-        
+
         // on récupère le Jdialog pour le fermer
         JDialog dial = (JDialog) this.getParent().getParent().getParent().getParent(); // on récupère le gros container et on le ferme.
         dial.dispose(); // fermeture
-        
-        
-        
+
+
     }//GEN-LAST:event_addSalleCancelActionPerformed
 
 
@@ -218,9 +212,9 @@ public class AddSalle extends javax.swing.JPanel {
     public javax.swing.JTextField nom;
     public javax.swing.JTextField numero;
     // End of variables declaration//GEN-END:variables
-    
+
     // pour l'ajout d'une salle;
-    public Salle new_salle; 
+    public Salle new_salle;
     public DefaultMutableTreeNode on_bat;
     public DefaultTreeModel arbreModele;
 
