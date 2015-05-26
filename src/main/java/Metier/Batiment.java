@@ -15,7 +15,7 @@ import javax.swing.JLabel;
  *
  * @author E.MENAT - G.RIBAGNAC - N.ROQUES - M.TEIKITUHAAHAA
  * <p>
- * Cette classe définit les batiments pouvant contenir des salles
+ * Cette classe défini les batiments pouvant contenir des salles
  * dans la gestion d'un système informatique.
  * </p>
  * @version 1.0, 2015, UPS.

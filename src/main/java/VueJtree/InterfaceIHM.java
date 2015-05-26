@@ -11,15 +11,20 @@ package VueJtree;
 import Metier.*;
 import BaseDeDonnees.*;
 import java.awt.Color;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
 
 /* autres import */
 
 import javax.swing.JTree;
+import javax.swing.OverlayLayout;
 import javax.swing.event.TreeExpansionEvent;
 import javax.swing.event.TreeExpansionListener;
 import javax.swing.event.TreeModelEvent;
@@ -264,27 +269,28 @@ public class InterfaceIHM extends javax.swing.JFrame {
        /* Connexion à la base de donnée si déconnecté */
         if(jButtonTree.getText().equals("Connecter"))
         {
+                // modification du gros bouton
+            
+                jButtonTree.setBackground(Color.ORANGE);
+                jButtonTree.setText("Connexion en cours...");                
+                console.setText("Connexion à la base...\n");
              try {
                  // on essaye de se connecter à la BD et on récupère les batiments
 
-                console.setText("Connexion à la base...\n");
-                db = new ConnexionBDD("jdbc:mysql://binary-digit.net:3306/java", "java", "java");
-
-                jButtonTree.setBackground(Color.ORANGE);
-                jButtonTree.setText("Récupération des objets dans la base...");
+                db = new ConnexionBDD("jdbc:mysql://binary-digit.net:3306/java", "java", "java");              
+               
 
                 console.setText("Connexion à la base réussi !\nRécupération des Objets...\n");
 
                 batiments = db.getAllBatiment(); // onrécupère les batiments dans la BD
 
                 console.setText(console.getText() + batiments.size() +" Batiment(s) récupéré(s)\n");
-
                 for(Batiment b: batiments) // pour chaque batiment
                 {  
                      console.setText(console.getText() +"Batiment: "+b.getNom()+" ->" + b.getSalles().size() +" Salles récupéré(s)\n");
                 } 
 
-                //modification du gros bouton
+                // modification du gros bouton
                 
                 jButtonTree.setText("Deconnecter");      // 
                 jButtonTree.setBackground(Color.green);  // vert
@@ -620,6 +626,37 @@ public class InterfaceIHM extends javax.swing.JFrame {
 
     private void addObjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addObjActionPerformed
         // TODO add your handling code here:
+        
+        // on désactive tous les boutons 
+        
+        addObj.setEnabled(false);
+        delObjet.setEnabled(false);
+        changeEtat.setEnabled(false);
+        
+        // on récupère le node sélectioné
+        
+         var_add = (DefaultMutableTreeNode) jTree.getSelectionPath().getLastPathComponent(); 
+        
+        console.setText("Ajout d'un nouvel objet...");
+        
+        try{ // batiment
+            System.out.println("addObj: Ajout d'une salle à un Batiment");   
+            Batiment temp = (Batiment) var_add.getUserObject();
+            
+            // fenêtre d'ajout d'un salle
+            
+            
+            newSalle = new AddSalle(arbreModele, var_add); // on construit un Jdialog et on lui passe la variable où il faut ajouter la nouvelle salle
+            JDialog dial = new JDialog();
+            
+            dial.add(newSalle); dial.setSize(400, 400); dial.setVisible(true);
+            
+                        
+        }
+        catch(ClassCastException exep){
+            System.out.println("addObj: Ce n'est pas un Batiment");
+        }     
+        
     }//GEN-LAST:event_addObjActionPerformed
 
     private void delObjetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delObjetActionPerformed
@@ -801,4 +838,8 @@ public class InterfaceIHM extends javax.swing.JFrame {
     private  ConnexionBDD db;
     private String oldNameOfSelectedNode;
     private Object currentSelectedNode;
+    
+    private AddSalle newSalle;
+    
+    private DefaultMutableTreeNode var_add;
 }

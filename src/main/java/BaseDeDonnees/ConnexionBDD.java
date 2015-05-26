@@ -799,11 +799,12 @@ public final class ConnexionBDD {
     public int insertSalleIntoBatiment(Salle s, String nomBatiment) throws SQLException
     {
         // Création du statement nous permettant de réaliser des instructions en base de données en limitant les injections SQL :
-        PreparedStatement state = connexion.prepareStatement("INSERT INTO salle (numero, etage, batiment) VALUES (?, ?, ?)");
+        PreparedStatement state = connexion.prepareStatement("INSERT INTO salle (numero, etage, batiment, nom) VALUES (?, ?, ?, ?)");
         // Préparation de la requête avant exécution de celle-ci :
         state.setString(1, s.getNumero());
         state.setInt(2, s.getEtage());
         state.setString(3, nomBatiment);
+        state.setString(4, s.getNom());
         // Récupéaratino des valeurs lues en base de données :
         int res = state.executeUpdate();
         // On met fin au statement et au resultSet :
