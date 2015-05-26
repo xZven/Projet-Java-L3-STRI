@@ -371,10 +371,80 @@ public class InterfaceIHM extends javax.swing.JFrame {
              // Ajout d'un listener permettant de détecter les changements réaliser sur un noeud : 
              modele.addTreeModelListener(new TreeModelListener() {
 
-
+                  // apellé lorsqu'une node change de valeur.
                  @Override
                  public void treeNodesChanged(TreeModelEvent e) {
-                     System.out.println("Valeur modifiée :");    System.out.println(e.getChildren()[0].toString());     
+
+//                     System.out.println("Valeur modifiée :");    System.out.println(e.getChildren()[0].toString());
+                     
+            //         DefaultMutableTreeNode var = (DefaultMutableTreeNode) jTree.getSelectionPath().getLastPathComponent();
+                       
+                    DefaultMutableTreeNode var = (DefaultMutableTreeNode) e.getTreePath().getLastPathComponent();
+        
+                    console.setText("Tentative de modification de l'objet\n");
+
+                    try{ // machine
+
+                        Machine temp = (Machine) var.getUserObject();
+
+                        /* supression de la machine dans la base de donnée */
+
+                        // dans la BD
+                        try {
+                            db.updateAllMachine(temp, temp.getId()); // modification dans la base
+                        } 
+                        catch (SQLException ex) {
+                            System.out.println("Impossible de récupercuter les changements dans la base: "+ex.getMessage());
+                        }                 
+                    }
+                    catch(ClassCastException exep){
+                        System.out.println("Ce n'est pas une Machine");
+                    }
+            //***********************************************************************************************************************          
+
+                    try{ // salle
+
+                        Salle temp = (Salle) var.getUserObject();
+
+
+                        try  // supression de la salle et des machines de la salle
+                        {
+                            db.updateAllSalle(temp); // modification dans la base
+                        } 
+                        catch (SQLException ex) {
+                            System.out.println("Impossible de récupercuter les changements dans la base: "+ex.getMessage());
+                        }
+
+                    }
+                    catch(ClassCastException exep){
+                         System.out.println("Ce n'est pas une Salle");
+                    }
+                    
+            //***********************************************************************************************************************          
+                    try{ // salle
+
+                        Batiment temp = (Batiment) var.getUserObject();
+
+
+                        try  // supression de la salle et des machines de la salle
+                        {
+                            db.updateAllBatiment(temp, temp.getNom()); // modification dans la base
+                        } 
+                        catch (SQLException ex) {
+                            System.out.println("Impossible de récupercuter les changements dans la base: "+ex.getMessage());
+                        }
+
+                    }
+                    catch(ClassCastException exep){
+                         System.out.println("Ce n'est pas un Batiment");
+                    }
+
+
+                   
+                    console.setText("Objet modifié: "+var.toString());
+
+                    arbreModele.reload(); // rechargement du Jtree en entier      
+                     
                  }
 
                  @Override
@@ -556,7 +626,7 @@ public class InterfaceIHM extends javax.swing.JFrame {
         /* si l'on change une valeur dans le Jtree, on reporte la modif dans la BD */
         
       
-        System.out.print(evt.getPath().getLastPathComponent().toString());   System.out.println(": Value changed");
+      //  System.out.print(evt.getPath().getLastPathComponent().toString());   System.out.println(": Value changed");
         
     }//GEN-LAST:event_jTreeValueChanged
 
